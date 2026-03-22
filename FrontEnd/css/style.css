@@ -97,3 +97,17 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+#projects li {
+  margin-bottom: 15px;
+}
+
+/* Project links */
+#projects a {
+  color: #2980b9;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#projects a:hover {
+  color: #e74c3c;
+}
