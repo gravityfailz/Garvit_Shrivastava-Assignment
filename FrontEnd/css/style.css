@@ -155,3 +155,17 @@ footer a {
   color: #f1c40f;
   text-decoration: none;
 }
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* stack menu */
+    text-align: center;
+  }
+
+  #skills ul {
+    column-count: 1;
+  }
+
+  section {
+    margin: 10px;
+  }
+}
