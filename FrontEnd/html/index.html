@@ -132,5 +132,57 @@
         </li>
       </ol>
     </section>
+    <section id="contact">
+      <h2>Contact Me</h2>
+
+      <form>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+        /><br /><br />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+        /><br /><br />
+
+        <label for="message">Message:</label>
+        <textarea id="message"></textarea><br /><br />
+
+        <!-- Radio buttons -->
+        <p>Preferred Contact Method:</p>
+        <input
+          type="radio"
+          id="emailOption"
+          name="contact"
+        />
+        <label for="emailOption">Email</label>
+
+        <input
+          type="radio"
+          id="phoneOption"
+          name="contact"
+        />
+        <label for="phoneOption">Phone</label>
+
+        <br /><br />
+
+        <!-- Dropdown -->
+        <label for="reason">Reason:</label>
+        <select id="reason">
+          <option>Job Opportunity</option>
+          <option>Freelance Work</option>
+        </select>
+
+        <br /><br />
+
+        <input
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </section>
   </body>
 </html>
