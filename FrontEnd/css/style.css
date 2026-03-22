@@ -57,3 +57,17 @@ nav ul li a {
 nav ul li a:hover {
   color: #f1c40f;
 }
+section {
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+
+  /* subtle shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headings */
+section h2 {
+  margin-bottom: 10px;
+}
