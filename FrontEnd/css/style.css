@@ -35,3 +35,25 @@ body {
 .header p {
   font-size: 16px;
 }
+
+nav ul {
+  display: flex; /* horizontal layout */
+  justify-content: center;
+  background-color: #34495e;
+  list-style: none;
+}
+
+nav ul li {
+  padding: 15px;
+}
+
+/* Links */
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Hover effect */
+nav ul li a:hover {
+  color: #f1c40f;
+}
