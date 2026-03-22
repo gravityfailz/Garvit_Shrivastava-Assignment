@@ -71,3 +71,6 @@ section {
 section h2 {
   margin-bottom: 10px;
 }
+#skills ul {
+  column-count: 2;
+}
