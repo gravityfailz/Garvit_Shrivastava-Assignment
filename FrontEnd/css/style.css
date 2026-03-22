@@ -12,3 +12,26 @@ body {
   color: #333;
   line-height: 1.6;
 }
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #2c3e50;
+  color: white;
+}
+
+/* Profile image styling */
+.header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 90%; /* makes image circular */
+  margin-top: 10px;
+}
+
+/* Heading sizes */
+.header h1 {
+  font-size: 28px;
+}
+
+.header p {
+  font-size: 16px;
+}
