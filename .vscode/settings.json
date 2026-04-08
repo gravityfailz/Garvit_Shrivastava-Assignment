@@ -1,0 +1,21 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "MySQL Local",
+      "username": "root",
+      "database": "MySQl",
+      "password": "Garvit@1012"
+    }
+  ],
+  "java.project.sourcePaths": ["Java"],
+  "java.project.referencedLibraries": []
+}
