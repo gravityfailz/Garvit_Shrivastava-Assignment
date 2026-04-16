@@ -1,4 +1,4 @@
-package session2.src.main.model;
+package session2.src.main.java.model;
 
 public class User {
     private int id;
@@ -11,9 +11,15 @@ public class User {
         this.email = email;
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-}{
+    public int getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
