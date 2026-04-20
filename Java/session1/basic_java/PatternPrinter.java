@@ -1,7 +1,5 @@
 package session1.basic_java;
 
-import java.util.*;
-
 public class PatternPrinter {
 
     public void printTriangle(int rows) {
