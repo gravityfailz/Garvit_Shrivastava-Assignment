@@ -27,5 +27,3 @@ public class UserService {
         return null;
     }
 }
-
-// Created UserController with REST APIs for register and login
