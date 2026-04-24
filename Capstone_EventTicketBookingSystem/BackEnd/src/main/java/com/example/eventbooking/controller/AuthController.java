@@ -1,5 +1,6 @@
 package com.example.eventbooking.controller;
 
+import com.example.eventbooking.config.JwtUtil;
 import com.example.eventbooking.dto.UserRequestDTO;
 import com.example.eventbooking.dto.UserResponseDTO;
 import com.example.eventbooking.service.UserService;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final UserService userService;
+    private final JwtUtil jwtUtil;
 
-    public AuthController(UserService userService) {
+    // ✅ Constructor Injection (VERY IMPORTANT)
+    public AuthController(UserService userService, JwtUtil jwtUtil) {
         this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping("/register")
@@ -28,12 +32,5 @@ public class AuthController {
         UserResponseDTO user = userService.login(email, password);
 
         return jwtUtil.generateToken(user.getEmail(), user.getRole());
-    }
-
-    private final JwtUtil jwtUtil;
-
-    public AuthController(UserService userService, JwtUtil jwtUtil) {
-        this.userService = userService;
-        this.jwtUtil = jwtUtil;
     }
 }
