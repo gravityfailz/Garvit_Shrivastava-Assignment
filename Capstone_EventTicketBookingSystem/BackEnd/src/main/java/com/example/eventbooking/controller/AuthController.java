@@ -22,8 +22,18 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public UserResponseDTO login(@RequestParam String email,
+    public String login(@RequestParam String email,
             @RequestParam String password) {
-        return userService.login(email, password);
+
+        UserResponseDTO user = userService.login(email, password);
+
+        return jwtUtil.generateToken(user.getEmail(), user.getRole());
+    }
+
+    private final JwtUtil jwtUtil;
+
+    public AuthController(UserService userService, JwtUtil jwtUtil) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 }
