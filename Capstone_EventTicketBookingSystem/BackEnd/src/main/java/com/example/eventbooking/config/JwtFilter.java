@@ -31,21 +31,30 @@ public class JwtFilter extends OncePerRequestFilter {
 
             String token = header.substring(7);
 
-            if (jwtUtil.validateToken(token)) {
-
+            try {
                 String email = jwtUtil.extractEmail(token);
 
-                var userDetails = userDetailsService.loadUserByUsername(email);
+                if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-                var auth = new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
-                        userDetails,
-                        null,
-                        userDetails.getAuthorities());
+                    var userDetails = userDetailsService.loadUserByUsername(email);
 
-                SecurityContextHolder.getContext().setAuthentication(auth);
+                    var auth = new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities());
+
+                    auth.setDetails(new org.springframework.security.web.authentication.WebAuthenticationDetailsSource()
+                            .buildDetails(request));
+
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                }
+
+            } catch (Exception e) {
+                // ignore invalid token
             }
         }
 
         chain.doFilter(request, response);
     }
+
 }

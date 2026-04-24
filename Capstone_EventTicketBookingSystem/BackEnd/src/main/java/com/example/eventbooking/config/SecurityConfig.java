@@ -3,7 +3,8 @@ package com.example.eventbooking.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.*;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
@@ -19,9 +20,23 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+                .formLogin(form -> form.disable())
+                .httpBasic(basic -> basic.disable())
+
+                // THIS FIXES 403/401 ISSUE
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint((req, res, ex2) -> {
+                            res.sendError(401, "Unauthorized");
+                        }))
+
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated())
+
                 .addFilterBefore(jwtFilter,
                         org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
 
