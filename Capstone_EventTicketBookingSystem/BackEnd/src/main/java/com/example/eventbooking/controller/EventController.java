@@ -38,4 +38,19 @@ public class EventController {
         return eventService.getEventById(id);
     }
 
+    @GetMapping("/upcoming")
+    public List<EventResponseDTO> getUpcomingEvents() {
+        return eventService.getUpcomingEvents();
+    }
+
+    @GetMapping("/past")
+    public List<EventResponseDTO> getPastEvents() {
+        return eventService.getPastEvents();
+    }
+
+    @GetMapping("/cancelled")
+    public List<EventResponseDTO> getCancelledEvents() {
+        return eventService.getCancelledEvents();
+    }
+
 }
