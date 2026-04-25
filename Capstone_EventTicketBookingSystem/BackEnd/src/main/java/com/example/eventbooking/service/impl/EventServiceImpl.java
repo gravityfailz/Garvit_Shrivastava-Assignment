@@ -53,6 +53,24 @@ public class EventServiceImpl implements EventService {
         return mapToDTO(updated);
     }
 
+    @Override
+    public List<EventResponseDTO> getAllEvents() {
+
+        return eventRepository.findAll()
+                .stream()
+                .map(this::mapToDTO)
+                .toList();
+    }
+
+    @Override
+    public EventResponseDTO getEventById(Long id) {
+
+        Event event = eventRepository.findById(id)
+                .orElseThrow(() -> new CustomException("Event not found"));
+
+        return mapToDTO(event);
+    }
+
     private EventResponseDTO mapToDTO(Event event) {
         return new EventResponseDTO(
                 event.getId(),
