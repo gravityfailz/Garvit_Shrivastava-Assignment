@@ -56,6 +56,13 @@ public class BookingServiceImpl implements BookingService {
         booking.setBookingTime(LocalDateTime.now());
         booking.setStatus(Booking.Status.CONFIRMED);
 
+        // Payment mock
+        boolean paymentSuccess = true;
+
+        if (!paymentSuccess) {
+            throw new CustomException("Payment failed");
+        }
+
         Booking saved = bookingRepository.save(booking);
 
         return new BookingResponseDTO(
