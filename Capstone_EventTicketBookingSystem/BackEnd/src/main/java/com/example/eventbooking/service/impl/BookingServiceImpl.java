@@ -52,7 +52,7 @@ public class BookingServiceImpl implements BookingService {
         booking.setEvent(event);
         booking.setNumberOfTickets(request.getNumberOfTickets());
         booking.setBookingTime(LocalDateTime.now());
-        booking.setStatus("CONFIRMED");
+        booking.setStatus(Booking.Status.CONFIRMED);
 
         Booking saved = bookingRepository.save(booking);
 
@@ -60,7 +60,7 @@ public class BookingServiceImpl implements BookingService {
                 saved.getId(),
                 event.getName(),
                 saved.getNumberOfTickets(),
-                saved.getStatus(),
+                saved.getStatus().name(),
                 saved.getBookingTime());
     }
 
@@ -70,7 +70,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = bookingRepository.findById(bookingId)
                 .orElseThrow(() -> new CustomException("Booking not found"));
 
-        if (booking.getStatus().equals("CANCELLED")) {
+        if (booking.getStatus() == Booking.Status.CANCELLED) {
             throw new CustomException("Already cancelled");
         }
 
@@ -79,7 +79,8 @@ public class BookingServiceImpl implements BookingService {
         event.setAvailableSeats(event.getAvailableSeats() + booking.getNumberOfTickets());
         eventRepository.save(event);
 
-        booking.setStatus("CANCELLED");
+        booking.setStatus(Booking.Status.CANCELLED);
+
         bookingRepository.save(booking);
     }
 }
