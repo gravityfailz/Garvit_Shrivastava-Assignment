@@ -26,4 +26,15 @@ public class EventController {
             @Valid @RequestBody EventRequestDTO request) {
         return eventService.updateEvent(id, request);
     }
+
+    @GetMapping
+    public List<EventResponseDTO> getAllEvents() {
+        return eventService.getAllEvents();
+    }
+
+    @GetMapping("/{id}")
+    public EventResponseDTO getEventById(@PathVariable Long id) {
+        return eventService.getEventById(id);
+    }
+
 }
