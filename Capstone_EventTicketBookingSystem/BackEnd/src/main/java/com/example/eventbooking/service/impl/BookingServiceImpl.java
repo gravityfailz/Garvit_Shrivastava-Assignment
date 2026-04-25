@@ -8,6 +8,8 @@ import com.example.eventbooking.repository.*;
 import com.example.eventbooking.service.BookingService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import java.time.LocalDateTime;
 
@@ -82,5 +84,22 @@ public class BookingServiceImpl implements BookingService {
         booking.setStatus(Booking.Status.CANCELLED);
 
         bookingRepository.save(booking);
+    }
+
+    @Override
+    public List<BookingResponseDTO> getUserBookings(String email) {
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new CustomException("User not found"));
+
+        return bookingRepository.findAll().stream()
+                .filter(b -> b.getUser().getId().equals(user.getId()))
+                .map(b -> new BookingResponseDTO(
+                        b.getId(),
+                        b.getEvent().getName(),
+                        b.getNumberOfTickets(),
+                        b.getStatus().name(),
+                        b.getBookingTime()))
+                .collect(Collectors.toList());
     }
 }
