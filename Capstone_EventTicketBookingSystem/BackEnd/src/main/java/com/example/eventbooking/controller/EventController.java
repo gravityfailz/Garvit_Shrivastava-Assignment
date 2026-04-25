@@ -33,11 +33,6 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
-    @GetMapping("/{id}")
-    public EventResponseDTO getEventById(@PathVariable Long id) {
-        return eventService.getEventById(id);
-    }
-
     @GetMapping("/upcoming")
     public List<EventResponseDTO> getUpcomingEvents() {
         return eventService.getUpcomingEvents();
@@ -51,6 +46,11 @@ public class EventController {
     @GetMapping("/cancelled")
     public List<EventResponseDTO> getCancelledEvents() {
         return eventService.getCancelledEvents();
+    }
+
+    @GetMapping("/{id}")
+    public EventResponseDTO getEventById(@PathVariable Long id) {
+        return eventService.getEventById(id);
     }
 
 }
