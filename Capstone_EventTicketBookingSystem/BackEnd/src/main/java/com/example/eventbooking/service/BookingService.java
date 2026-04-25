@@ -2,6 +2,7 @@ package com.example.eventbooking.service;
 
 import com.example.eventbooking.dto.BookingRequestDTO;
 import com.example.eventbooking.dto.BookingResponseDTO;
+import java.util.List;
 
 public interface BookingService {
 
