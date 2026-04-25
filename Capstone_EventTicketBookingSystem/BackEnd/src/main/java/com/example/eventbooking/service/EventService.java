@@ -13,5 +13,11 @@ public interface EventService {
 
     List<EventResponseDTO> getAllEvents();
 
+    List<EventResponseDTO> getUpcomingEvents();
+
+    List<EventResponseDTO> getPastEvents();
+
+    List<EventResponseDTO> getCancelledEvents();
+
     EventResponseDTO getEventById(Long id);
 }
