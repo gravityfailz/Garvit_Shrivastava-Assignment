@@ -7,6 +7,7 @@ import com.example.eventbooking.exception.CustomException;
 import com.example.eventbooking.repository.EventRepository;
 import com.example.eventbooking.service.EventService;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class EventServiceImpl implements EventService {

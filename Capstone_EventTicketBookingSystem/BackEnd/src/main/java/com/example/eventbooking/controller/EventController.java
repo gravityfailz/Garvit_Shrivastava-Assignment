@@ -5,6 +5,7 @@ import com.example.eventbooking.dto.EventResponseDTO;
 import com.example.eventbooking.service.EventService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
