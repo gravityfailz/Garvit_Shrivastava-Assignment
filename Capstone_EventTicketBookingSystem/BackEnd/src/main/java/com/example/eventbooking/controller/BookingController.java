@@ -5,6 +5,7 @@ import com.example.eventbooking.service.BookingService;
 import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -29,5 +30,13 @@ public class BookingController {
     public String cancelBooking(@PathVariable Long id) {
         bookingService.cancelBooking(id);
         return "Booking cancelled successfully";
+    }
+
+    @GetMapping("/my")
+    public List<BookingResponseDTO> getMyBookings(Authentication authentication) {
+
+        String email = authentication.getName();
+
+        return bookingService.getUserBookings(email);
     }
 }
