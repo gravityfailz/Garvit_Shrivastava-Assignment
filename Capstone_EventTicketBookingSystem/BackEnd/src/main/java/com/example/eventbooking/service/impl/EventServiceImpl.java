@@ -8,6 +8,9 @@ import com.example.eventbooking.repository.EventRepository;
 import com.example.eventbooking.service.EventService;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.time.LocalDateTime;
+
+import java.util.stream.Collectors;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -70,6 +73,33 @@ public class EventServiceImpl implements EventService {
                 .orElseThrow(() -> new CustomException("Event not found"));
 
         return mapToDTO(event);
+    }
+
+    @Override
+    public List<EventResponseDTO> getUpcomingEvents() {
+
+        return eventRepository.findAll().stream()
+                .filter(e -> e.getEventDate().isAfter(LocalDateTime.now()) && !e.isCancelled())
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EventResponseDTO> getPastEvents() {
+
+        return eventRepository.findAll().stream()
+                .filter(e -> e.getEventDate().isBefore(LocalDateTime.now()) && !e.isCancelled())
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EventResponseDTO> getCancelledEvents() {
+
+        return eventRepository.findAll().stream()
+                .filter(Event::isCancelled)
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
     }
 
     private EventResponseDTO mapToDTO(Event event) {
