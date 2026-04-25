@@ -8,4 +8,6 @@ public interface BookingService {
     BookingResponseDTO bookTickets(String userEmail, BookingRequestDTO request);
 
     void cancelBooking(Long bookingId);
+
+    List<BookingResponseDTO> getUserBookings(String email);
 }
