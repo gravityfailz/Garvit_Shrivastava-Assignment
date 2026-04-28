@@ -4,32 +4,33 @@ import java.time.LocalDateTime;
 
 public class BookingResponseDTO {
 
-    private Long bookingId;
+    private Long id; // ✅ fixed
     private String eventName;
-    private int tickets;
+    private int numberOfTickets; // ✅ must exist
     private String status;
     private LocalDateTime bookingTime;
 
-    public BookingResponseDTO(Long bookingId, String eventName,
-            int tickets, String status,
+    // Constructor
+    public BookingResponseDTO(Long id, String eventName, int numberOfTickets, String status,
             LocalDateTime bookingTime) {
-        this.bookingId = bookingId;
+        this.id = id;
         this.eventName = eventName;
-        this.tickets = tickets;
+        this.numberOfTickets = numberOfTickets;
         this.status = status;
         this.bookingTime = bookingTime;
     }
 
-    public Long getBookingId() {
-        return bookingId;
+    // Getters
+    public Long getId() {
+        return id;
     }
 
     public String getEventName() {
         return eventName;
     }
 
-    public int getTickets() {
-        return tickets;
+    public int getNumberOfTickets() {
+        return numberOfTickets;
     }
 
     public String getStatus() {

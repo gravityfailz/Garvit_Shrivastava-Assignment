@@ -15,11 +15,13 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
+    // Constructor Injection
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
+    // REGISTER
     @Override
     public UserResponseDTO register(UserRequestDTO request) {
 
@@ -30,9 +32,17 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setName(request.getName());
         user.setEmail(request.getEmail());
+
+        // Encode password properly
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+
         user.setPhone(request.getPhone());
-        user.setRole(User.Role.valueOf(request.getRole().toUpperCase()));
+
+        try {
+            user.setRole(User.Role.valueOf(request.getRole().toUpperCase()));
+        } catch (Exception e) {
+            throw new CustomException("Invalid role");
+        }
 
         User saved = userRepository.save(user);
 
@@ -44,12 +54,14 @@ public class UserServiceImpl implements UserService {
                 saved.getRole().name());
     }
 
+    // LOGIN
     @Override
     public UserResponseDTO login(String email, String password) {
 
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new CustomException("Invalid credentials"));
 
+        // Proper password match
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new CustomException("Invalid credentials");
         }

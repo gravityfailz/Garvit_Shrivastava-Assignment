@@ -26,17 +26,22 @@ public class BookingController {
         return bookingService.bookTickets(email, request);
     }
 
-    @DeleteMapping("/{id}")
-    public String cancelBooking(@PathVariable Long id) {
-        bookingService.cancelBooking(id);
-        return "Booking cancelled successfully";
-    }
-
     @GetMapping("/my")
     public List<BookingResponseDTO> getMyBookings(Authentication authentication) {
 
         String email = authentication.getName();
 
         return bookingService.getUserBookings(email);
+    }
+
+    @GetMapping
+    public List<BookingResponseDTO> getUserBookings(Authentication authentication) {
+        String email = authentication.getName();
+        return bookingService.getUserBookings(email);
+    }
+
+    @PutMapping("/{id}/cancel")
+    public BookingResponseDTO cancelBooking(@PathVariable Long id) {
+        return bookingService.cancelBooking(id);
     }
 }

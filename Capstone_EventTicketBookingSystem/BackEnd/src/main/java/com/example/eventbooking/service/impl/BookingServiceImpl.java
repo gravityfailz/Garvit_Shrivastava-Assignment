@@ -74,23 +74,29 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void cancelBooking(Long bookingId) {
+    public BookingResponseDTO cancelBooking(Long id) {
 
-        Booking booking = bookingRepository.findById(bookingId)
+        Booking booking = bookingRepository.findById(id)
                 .orElseThrow(() -> new CustomException("Booking not found"));
 
         if (booking.getStatus() == Booking.Status.CANCELLED) {
             throw new CustomException("Already cancelled");
         }
 
-        // restore seats
         Event event = booking.getEvent();
         event.setAvailableSeats(event.getAvailableSeats() + booking.getNumberOfTickets());
         eventRepository.save(event);
 
         booking.setStatus(Booking.Status.CANCELLED);
 
-        bookingRepository.save(booking);
+        Booking saved = bookingRepository.save(booking);
+
+        return new BookingResponseDTO(
+                saved.getId(),
+                saved.getEvent().getName(),
+                saved.getNumberOfTickets(),
+                saved.getStatus().name(),
+                saved.getBookingTime());
     }
 
     @Override
@@ -99,14 +105,15 @@ public class BookingServiceImpl implements BookingService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new CustomException("User not found"));
 
-        return bookingRepository.findAll().stream()
-                .filter(b -> b.getUser().getId().equals(user.getId()))
+        return bookingRepository.findByUser(user)
+                .stream()
                 .map(b -> new BookingResponseDTO(
                         b.getId(),
                         b.getEvent().getName(),
                         b.getNumberOfTickets(),
                         b.getStatus().name(),
                         b.getBookingTime()))
-                .collect(Collectors.toList());
+                .toList();
     }
+
 }

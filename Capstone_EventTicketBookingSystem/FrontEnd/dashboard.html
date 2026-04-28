@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>EventVault — Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <span class="brand-icon">🎟️</span>
+        <h1>EventVault</h1>
+      </div>
+
+      <div class="navbar-actions">
+        <button
+          class="btn btn-primary btn-sm"
+          onclick="goToCreate()"
+        >
+          ＋ Create Event
+        </button>
+        <button
+          class="btn btn-ghost btn-sm"
+          onclick="logout()"
+        >
+          Sign Out
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <div class="dash-page">
+      <!-- Stats -->
+      <div class="dash-stats">
+        <div class="stat-card">
+          <span>🎪</span>
+          <div id="stat-events">0</div>
+          <p>Events</p>
+        </div>
+
+        <div class="stat-card">
+          <span>🎫</span>
+          <div id="stat-bookings">0</div>
+          <p>Bookings</p>
+        </div>
+
+        <div class="stat-card">
+          <span>✅</span>
+          <div id="stat-confirmed">0</div>
+          <p>Confirmed</p>
+        </div>
+
+        <div class="stat-card">
+          <span>❌</span>
+          <div id="stat-cancelled">0</div>
+          <p>Cancelled</p>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="dash-grid">
+        <!-- EVENTS -->
+        <div>
+          <div class="section-header">
+            <h2>Available Events</h2>
+          </div>
+
+          <div
+            id="events"
+            class="events-grid"
+          ></div>
+        </div>
+
+        <!-- BOOKINGS -->
+        <div class="panel">
+          <div class="section-header">
+            <h2>My Bookings</h2>
+          </div>
+
+          <!-- FILTERS -->
+          <div class="filter-tabs">
+            <button onclick="showAll()">All</button>
+            <button onclick="showActive()">Active</button>
+            <button onclick="showCancelled()">Cancelled</button>
+          </div>
+
+          <div id="bookings"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="toast"
+    ></div>
+
+    <!-- Loader -->
+    <div
+      id="loader"
+      class="loader-overlay hidden"
+    >
+      <div class="spinner"></div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

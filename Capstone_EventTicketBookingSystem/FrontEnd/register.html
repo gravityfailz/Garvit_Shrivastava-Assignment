@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>EventVault — Create Account</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+    <style>
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 0;
+        animation: orb-drift 12s ease-in-out infinite alternate;
+      }
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(16, 217, 160, 0.06),
+          transparent 70%
+        );
+        top: -100px;
+        right: -80px;
+        animation-delay: 0s;
+      }
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 200, 66, 0.05),
+          transparent 70%
+        );
+        bottom: -200px;
+        left: -150px;
+        animation-delay: -5s;
+      }
+      @keyframes orb-drift {
+        from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(20px, 30px);
+        }
+      }
+
+      .name-phone-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      @media (max-width: 480px) {
+        .name-phone-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .auth-card {
+        max-width: 480px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+
+      <div class="auth-card">
+        <div class="auth-logo">
+          <span class="logo-icon">✨</span>
+          <h1>Join EventVault</h1>
+          <p>Discover and book amazing events near you</p>
+        </div>
+
+        <div class="name-phone-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Jane Doe"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+              type="text"
+              id="phone"
+              placeholder="+91 9999999999"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Create a strong password"
+            onkeydown="if (event.key === 'Enter') register();"
+          />
+        </div>
+
+        <button
+          class="btn btn-primary btn-auth"
+          onclick="register()"
+          id="registerBtn"
+        >
+          Create Account
+        </button>
+
+        <div class="auth-footer">
+          Already have an account? <a href="index.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="toast"
+      class="toast"
+    ></div>
+    <div
+      id="loader"
+      class="loader-overlay hidden"
+    >
+      <div class="spinner"></div>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

@@ -3,6 +3,7 @@ package com.example.eventbooking.controller;
 import com.example.eventbooking.config.JwtUtil;
 import com.example.eventbooking.dto.UserRequestDTO;
 import com.example.eventbooking.dto.UserResponseDTO;
+import com.example.eventbooking.exception.CustomException;
 import com.example.eventbooking.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class AuthController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
 
-    // ✅ Constructor Injection (VERY IMPORTANT)
+    // Constructor Injection
     public AuthController(UserService userService, JwtUtil jwtUtil) {
         this.userService = userService;
         this.jwtUtil = jwtUtil;
@@ -30,6 +31,10 @@ public class AuthController {
             @RequestParam String password) {
 
         UserResponseDTO user = userService.login(email, password);
+
+        if (user == null) {
+            throw new CustomException("Invalid credentials");
+        }
 
         return jwtUtil.generateToken(user.getEmail(), user.getRole());
     }
