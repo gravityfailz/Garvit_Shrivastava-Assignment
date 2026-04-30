@@ -1,5 +1,9 @@
 package com.example.eventbooking.controller;
 
+import com.example.eventbooking.exception.CustomException;
+import com.example.eventbooking.repository.UserRepository;
+import org.springframework.security.core.Authentication;
+import com.example.eventbooking.entity.User;
 import com.example.eventbooking.dto.EventRequestDTO;
 import com.example.eventbooking.dto.EventResponseDTO;
 import com.example.eventbooking.service.EventService;
@@ -12,13 +16,27 @@ import java.util.List;
 public class EventController {
 
     private final EventService eventService;
+    private final UserRepository userRepository;
 
-    public EventController(EventService eventService) {
+    //
+    public EventController(EventService eventService, UserRepository userRepository) {
         this.eventService = eventService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping
-    public EventResponseDTO createEvent(@Valid @RequestBody EventRequestDTO request) {
+    public EventResponseDTO createEvent(@RequestBody EventRequestDTO request,
+            Authentication authentication) {
+
+        String email = authentication.getName();
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new CustomException("User not found"));
+
+        if (user.getRole() != User.Role.ORGANIZER) {
+            throw new CustomException("Only ORGANIZER can create events");
+        }
+
         return eventService.createEvent(request);
     }
 
@@ -53,4 +71,20 @@ public class EventController {
         return eventService.getEventById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public String deleteEvent(@PathVariable Long id, Authentication auth) {
+
+        String email = auth.getName();
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new CustomException("User not found"));
+
+        if (user.getRole() != User.Role.ORGANIZER) {
+            throw new CustomException("Only organizer can delete events");
+        }
+
+        eventService.deleteEvent(id);
+
+        return "Event deleted successfully";
+    }
 }

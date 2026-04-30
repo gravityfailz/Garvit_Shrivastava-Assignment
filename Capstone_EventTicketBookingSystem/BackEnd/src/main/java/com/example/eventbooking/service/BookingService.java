@@ -12,4 +12,6 @@ public interface BookingService {
 
     List<BookingResponseDTO> getUserBookings(String email);
 
+    List<BookingResponseDTO> getBookingsForOrganizer(String email);
+
 }

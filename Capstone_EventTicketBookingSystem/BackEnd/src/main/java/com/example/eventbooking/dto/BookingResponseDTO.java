@@ -4,13 +4,15 @@ import java.time.LocalDateTime;
 
 public class BookingResponseDTO {
 
-    private Long id; // ✅ fixed
+    private Long id;
     private String eventName;
-    private int numberOfTickets; // ✅ must exist
+    private int numberOfTickets;
     private String status;
     private LocalDateTime bookingTime;
 
-    // Constructor
+    public BookingResponseDTO() {
+    }
+
     public BookingResponseDTO(Long id, String eventName, int numberOfTickets, String status,
             LocalDateTime bookingTime) {
         this.id = id;
@@ -20,7 +22,6 @@ public class BookingResponseDTO {
         this.bookingTime = bookingTime;
     }
 
-    // Getters
     public Long getId() {
         return id;
     }
@@ -39,5 +40,25 @@ public class BookingResponseDTO {
 
     public LocalDateTime getBookingTime() {
         return bookingTime;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public void setNumberOfTickets(int numberOfTickets) {
+        this.numberOfTickets = numberOfTickets;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setBookingTime(LocalDateTime bookingTime) {
+        this.bookingTime = bookingTime;
     }
 }

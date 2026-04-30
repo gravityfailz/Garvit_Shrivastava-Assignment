@@ -26,6 +26,11 @@ public class BookingController {
         return bookingService.bookTickets(email, request);
     }
 
+    @GetMapping("/organizer")
+    public List<BookingResponseDTO> getOrganizerBookings(Authentication authentication) {
+        return bookingService.getBookingsForOrganizer(authentication.getName());
+    }
+
     @GetMapping("/my")
     public List<BookingResponseDTO> getMyBookings(Authentication authentication) {
 

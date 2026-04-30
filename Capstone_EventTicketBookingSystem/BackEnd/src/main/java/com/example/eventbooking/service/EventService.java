@@ -20,4 +20,6 @@ public interface EventService {
     List<EventResponseDTO> getCancelledEvents();
 
     EventResponseDTO getEventById(Long id);
+
+    void deleteEvent(Long id);
 }

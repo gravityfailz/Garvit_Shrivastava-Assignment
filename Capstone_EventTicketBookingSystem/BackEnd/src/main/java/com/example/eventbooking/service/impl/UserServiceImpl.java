@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDTO register(UserRequestDTO request) {
 
+        // Check if email already exists
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new CustomException("Email already exists");
         }
@@ -33,16 +34,28 @@ public class UserServiceImpl implements UserService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
 
-        // Encode password properly
+        // Encode password
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         user.setPhone(request.getPhone());
 
-        try {
-            user.setRole(User.Role.valueOf(request.getRole().toUpperCase()));
-        } catch (Exception e) {
-            throw new CustomException("Invalid role");
+        // -------- ROLE HANDLING (FIXED) --------
+        String roleStr = request.getRole();
+
+        if (roleStr == null || roleStr.trim().isEmpty()) {
+            throw new CustomException("Role is required");
         }
+
+        roleStr = roleStr.trim().toUpperCase();
+
+        if (roleStr.equals("CUSTOMER")) {
+            user.setRole(User.Role.CUSTOMER);
+        } else if (roleStr.equals("ORGANIZER")) {
+            user.setRole(User.Role.ORGANIZER);
+        } else {
+            throw new CustomException("Role must be CUSTOMER or ORGANIZER");
+        }
+        // --------------------------------------
 
         User saved = userRepository.save(user);
 
@@ -61,7 +74,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new CustomException("Invalid credentials"));
 
-        // Proper password match
+        // Match password
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new CustomException("Invalid credentials");
         }

@@ -11,7 +11,6 @@ async function login() {
       { method: "POST" },
     );
 
-    // CHECK IF FAILED
     if (!response.ok) {
       const errorText = await response.text();
       alert("Login failed: " + errorText);
@@ -20,15 +19,19 @@ async function login() {
 
     const token = await response.text();
 
-    // CHECK EMPTY TOKEN
     if (!token || token.length < 10) {
       alert("Invalid login response");
       return;
     }
 
-    localStorage.setItem("token", token);
+    //  DECODE JWT AND STORE ROLE
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    console.log("JWT Payload:", payload);
 
-    alert("Login Successful 🎉");
+    localStorage.setItem("token", token);
+    localStorage.setItem("role", payload.role); //
+
+    alert("Login Successful");
 
     window.location.href = "dashboard.html";
   } catch (error) {
@@ -58,20 +61,21 @@ async function register() {
 
     const result = await response.text();
 
-    console.log("Response:", result);
-
     if (!response.ok) {
       alert("Registration failed: " + result);
       return;
     }
 
-    alert("Registered successfully 🎉");
+    alert("Registered successfully");
     window.location.href = "index.html";
   } catch (error) {
     console.error("ERROR:", error);
     alert("Server not reachable / backend issue");
   }
 }
+
+// EVENT MODAL FLOW
+let selectedEventId = null;
 
 // LOAD EVENTS
 async function loadEvents() {
@@ -90,43 +94,15 @@ async function loadEvents() {
 
   events.forEach((e) => {
     container.innerHTML += `
-            <div class="card">
-                <h3>${e.name}</h3>
-                <p>${e.venue}</p>
-                <p>₹${e.price}</p>
-            </div>
-        `;
-  });
-}
-let selectedEventId = null;
+      <div class="card">
+        <h3>${e.name}</h3>
+        <p>📍 ${e.venue}</p>
+        <p>₹${e.price}</p>
+        <p>Seats: ${e.availableSeats}</p>
 
-// LOAD EVENTS (UPDATED UI)
-async function loadEvents() {
-  const token = localStorage.getItem("token");
-
-  const res = await fetch(`${BASE_URL}/events`, {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  });
-
-  const events = await res.json();
-
-  const container = document.getElementById("events");
-  container.innerHTML = "";
-
-  events.forEach((e) => {
-    container.innerHTML += `
-            <div class="card">
-                <h3>${e.name}</h3>
-                <p>📍 ${e.venue}</p>
-                <p>💰 ₹${e.price}</p>
-                <p>🎫 Seats: ${e.availableSeats}</p>
-                <button class="book-btn" onclick="openModal(${e.id})">
-                    Book Now
-                </button>
-            </div>
-        `;
+        <button onclick="openModal(${e.id})">Book</button>
+      </div>
+    `;
   });
 }
 
@@ -146,7 +122,7 @@ async function confirmBooking() {
   const tickets = document.getElementById("tickets").value;
   const token = localStorage.getItem("token");
 
-  await fetch(`${BASE_URL}/bookings`, {
+  const res = await fetch(`${BASE_URL}/bookings`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -158,7 +134,12 @@ async function confirmBooking() {
     }),
   });
 
-  alert("Booking Successful 🎉");
-  closeModal();
-  loadEvents();
+  if (res.ok) {
+    alert("Booking Successful");
+    closeModal();
+    loadEvents();
+  } else {
+    const msg = await res.text();
+    alert("Booking failed: " + msg);
+  }
 }

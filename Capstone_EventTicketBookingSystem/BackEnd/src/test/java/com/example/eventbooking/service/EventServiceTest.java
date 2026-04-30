@@ -3,9 +3,12 @@ package com.example.eventbooking.service;
 import com.example.eventbooking.dto.EventRequestDTO;
 import com.example.eventbooking.dto.EventResponseDTO;
 import com.example.eventbooking.entity.Event;
+import com.example.eventbooking.repository.BookingRepository;
 import com.example.eventbooking.repository.EventRepository;
 import com.example.eventbooking.service.impl.EventServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
 
@@ -14,9 +17,18 @@ import static org.mockito.Mockito.*;
 
 public class EventServiceTest {
 
-    private final EventRepository eventRepository = mock(EventRepository.class);
+    private EventRepository eventRepository;
+    private BookingRepository bookingRepository;
 
-    private final EventService eventService = new EventServiceImpl(eventRepository);
+    private EventService eventService;
+
+    @BeforeEach
+    void setUp() {
+        eventRepository = mock(EventRepository.class);
+        bookingRepository = mock(BookingRepository.class);
+
+        eventService = new EventServiceImpl(eventRepository, bookingRepository);
+    }
 
     @Test
     void testCreateEvent_success() {

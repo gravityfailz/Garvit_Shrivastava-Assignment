@@ -72,4 +72,14 @@ public class EventRequestDTO {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

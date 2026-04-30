@@ -19,11 +19,16 @@ public class EventResponseDTO {
         this.eventDate = eventDate;
         this.availableSeats = availableSeats;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
     // getters
     public Long getId() {
         return id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getName() {
@@ -45,4 +50,6 @@ public class EventResponseDTO {
     public double getPrice() {
         return price;
     }
+
+    private String imageUrl;
 }

@@ -19,7 +19,7 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove("show"), 3000);
 }
 
-// ✅ CREATE EVENT (RENAMED — IMPORTANT)
+// CREATE EVENT
 async function createNewEvent() {
   showLoader();
 
@@ -30,6 +30,7 @@ async function createNewEvent() {
     eventDate: document.getElementById("eventDate").value,
     price: Number(document.getElementById("price").value),
     totalSeats: Number(document.getElementById("totalSeats").value),
+    imageUrl: document.getElementById("imageUrl").value.trim(),
   };
 
   try {

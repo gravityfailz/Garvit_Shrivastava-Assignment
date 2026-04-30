@@ -6,12 +6,10 @@ import com.example.eventbooking.entity.*;
 import com.example.eventbooking.exception.CustomException;
 import com.example.eventbooking.repository.*;
 import com.example.eventbooking.service.BookingService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -29,6 +27,12 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    public List<BookingResponseDTO> getBookingsForOrganizer(String email) {
+        List<Booking> bookings = bookingRepository.findByEventOrganizerEmail(email);
+        return bookings.stream().map(this::mapToDTO).toList();
+    }
+
+    @Override
     public BookingResponseDTO bookTickets(String userEmail, BookingRequestDTO request) {
 
         User user = userRepository.findByEmail(userEmail)
@@ -41,11 +45,14 @@ public class BookingServiceImpl implements BookingService {
             throw new CustomException("Event is cancelled");
         }
 
+        if (event.getEventDate().isBefore(LocalDateTime.now())) {
+            throw new CustomException("Cannot book tickets for past events");
+        }
+
         if (event.getAvailableSeats() < request.getNumberOfTickets()) {
             throw new CustomException("Not enough seats available");
         }
 
-        // Deduct seats
         event.setAvailableSeats(event.getAvailableSeats() - request.getNumberOfTickets());
         eventRepository.save(event);
 
@@ -56,21 +63,9 @@ public class BookingServiceImpl implements BookingService {
         booking.setBookingTime(LocalDateTime.now());
         booking.setStatus(Booking.Status.CONFIRMED);
 
-        // Payment mock
-        boolean paymentSuccess = true;
-
-        if (!paymentSuccess) {
-            throw new CustomException("Payment failed");
-        }
-
         Booking saved = bookingRepository.save(booking);
 
-        return new BookingResponseDTO(
-                saved.getId(),
-                event.getName(),
-                saved.getNumberOfTickets(),
-                saved.getStatus().name(),
-                saved.getBookingTime());
+        return mapToDTO(saved);
     }
 
     @Override
@@ -84,6 +79,13 @@ public class BookingServiceImpl implements BookingService {
         }
 
         Event event = booking.getEvent();
+
+        long hours = java.time.Duration.between(LocalDateTime.now(), event.getEventDate()).toHours();
+
+        if (hours < 3) {
+            throw new CustomException("Cannot cancel within 3 hours of event");
+        }
+
         event.setAvailableSeats(event.getAvailableSeats() + booking.getNumberOfTickets());
         eventRepository.save(event);
 
@@ -91,12 +93,7 @@ public class BookingServiceImpl implements BookingService {
 
         Booking saved = bookingRepository.save(booking);
 
-        return new BookingResponseDTO(
-                saved.getId(),
-                saved.getEvent().getName(),
-                saved.getNumberOfTickets(),
-                saved.getStatus().name(),
-                saved.getBookingTime());
+        return mapToDTO(saved);
     }
 
     @Override
@@ -107,13 +104,16 @@ public class BookingServiceImpl implements BookingService {
 
         return bookingRepository.findByUser(user)
                 .stream()
-                .map(b -> new BookingResponseDTO(
-                        b.getId(),
-                        b.getEvent().getName(),
-                        b.getNumberOfTickets(),
-                        b.getStatus().name(),
-                        b.getBookingTime()))
+                .map(this::mapToDTO)
                 .toList();
     }
 
+    private BookingResponseDTO mapToDTO(Booking booking) {
+        return new BookingResponseDTO(
+                booking.getId(),
+                booking.getEvent().getName(),
+                booking.getNumberOfTickets(),
+                booking.getStatus().name(),
+                booking.getBookingTime());
+    }
 }

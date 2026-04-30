@@ -8,17 +8,21 @@ import com.example.eventbooking.repository.EventRepository;
 import com.example.eventbooking.service.EventService;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import com.example.eventbooking.repository.BookingRepository;
 import java.time.LocalDateTime;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class EventServiceImpl implements EventService {
-
+    private final BookingRepository bookingRepository;
     private final EventRepository eventRepository;
 
-    public EventServiceImpl(EventRepository eventRepository) {
+    public EventServiceImpl(EventRepository eventRepository,
+            BookingRepository bookingRepository) {
         this.eventRepository = eventRepository;
+        this.bookingRepository = bookingRepository;
     }
 
     @Override
@@ -33,10 +37,24 @@ public class EventServiceImpl implements EventService {
         event.setAvailableSeats(request.getTotalSeats());
         event.setPrice(request.getPrice());
         event.setCancelled(false);
+        event.setImageUrl(request.getImageUrl());
 
         Event saved = eventRepository.save(event);
 
         return mapToDTO(saved);
+    }
+
+    @Override
+    public void deleteEvent(Long id) {
+
+        Event event = eventRepository.findById(id)
+                .orElseThrow(() -> new CustomException("Event not found"));
+
+        // delete bookings first
+        bookingRepository.deleteByEventId(id);
+
+        // then delete event
+        eventRepository.delete(event);
     }
 
     @Override
@@ -111,4 +129,5 @@ public class EventServiceImpl implements EventService {
                 event.getAvailableSeats(),
                 event.getPrice());
     }
+
 }

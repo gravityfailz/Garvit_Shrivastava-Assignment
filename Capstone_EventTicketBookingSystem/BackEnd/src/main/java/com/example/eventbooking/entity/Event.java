@@ -43,6 +43,8 @@ public class Event {
         return name;
     }
 
+    private String imageUrl;
+
     public void setName(String name) {
         this.name = name;
     }
@@ -109,5 +111,13 @@ public class Event {
 
     public void setOrganizer(User organizer) {
         this.organizer = organizer;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
