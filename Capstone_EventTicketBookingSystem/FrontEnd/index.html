@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>EventVault — Login</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+    <style>
+      /* Animated background orbs */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 0;
+        animation: orb-drift 12s ease-in-out infinite alternate;
+      }
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 200, 66, 0.07),
+          transparent 70%
+        );
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.06),
+          transparent 70%
+        );
+        bottom: -150px;
+        right: -150px;
+        animation-delay: -6s;
+      }
+      @keyframes orb-drift {
+        from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(30px, 20px);
+        }
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+
+      <div class="auth-card">
+        <div class="auth-logo">
+          <span class="logo-icon">🎟️</span>
+          <h1>EventVault</h1>
+          <p>Your gateway to unforgettable experiences</p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            onkeydown="if (event.key === 'Enter') login();"
+          />
+        </div>
+
+        <button
+          class="btn btn-primary btn-auth"
+          onclick="login()"
+          id="loginBtn"
+        >
+          Sign In
+        </button>
+
+        <div class="auth-footer">
+          Don't have an account? <a href="register.html">Create one free</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="toast"
+    ></div>
+
+    <!-- Loader overlay -->
+    <div
+      id="loader"
+      class="loader-overlay hidden"
+    >
+      <div class="spinner"></div>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-package com.example.BackEnd.entity;
+package com.example.eventbooking.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -13,30 +13,24 @@ public class Event {
 
     private String name;
     private String description;
-    private LocalDateTime date;
     private String venue;
+
+    private LocalDateTime eventDate;
 
     private int totalSeats;
     private int availableSeats;
 
-    private Long organizerId;
+    private double price;
+
+    private boolean cancelled = false;
+
+    @ManyToOne
+    @JoinColumn(name = "organizer_id")
+    private User organizer;
 
     public Event() {
     }
 
-    public Event(Long id, String name, String description, LocalDateTime date,
-            String venue, int totalSeats, int availableSeats, Long organizerId) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.date = date;
-        this.venue = venue;
-        this.totalSeats = totalSeats;
-        this.availableSeats = availableSeats;
-        this.organizerId = organizerId;
-    }
-
-    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -48,6 +42,8 @@ public class Event {
     public String getName() {
         return name;
     }
+
+    private String imageUrl;
 
     public void setName(String name) {
         this.name = name;
@@ -61,20 +57,20 @@ public class Event {
         this.description = description;
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
     public String getVenue() {
         return venue;
     }
 
     public void setVenue(String venue) {
         this.venue = venue;
+    }
+
+    public LocalDateTime getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(LocalDateTime eventDate) {
+        this.eventDate = eventDate;
     }
 
     public int getTotalSeats() {
@@ -93,11 +89,35 @@ public class Event {
         this.availableSeats = availableSeats;
     }
 
-    public Long getOrganizerId() {
-        return organizerId;
+    public double getPrice() {
+        return price;
     }
 
-    public void setOrganizerId(Long organizerId) {
-        this.organizerId = organizerId;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean isCancelled() {
+        return cancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
+    }
+
+    public User getOrganizer() {
+        return organizer;
+    }
+
+    public void setOrganizer(User organizer) {
+        this.organizer = organizer;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

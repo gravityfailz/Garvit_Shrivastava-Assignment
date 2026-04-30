@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>EventVault — Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <span class="brand-icon">🎟️</span>
+        <h1>EventVault</h1>
+      </div>
+
+      <div class="navbar-actions">
+        <button
+          class="btn btn-primary btn-sm"
+          onclick="goToCreate()"
+        >
+          ＋ Create Event
+        </button>
+        <button
+          class="btn btn-ghost btn-sm"
+          onclick="logout()"
+        >
+          Sign Out
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO CAROUSEL -->
+    <div
+      id="carousel"
+      class="hero-carousel"
+    ></div>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="dash-container">
+      <!-- STATS -->
+      <div class="dash-stats">
+        <div class="stat-card">
+          <span>🎪</span>
+          <div id="stat-events">0</div>
+          <p>Events</p>
+        </div>
+
+        <div class="stat-card">
+          <span>🎫</span>
+          <div id="stat-bookings">0</div>
+          <p>Bookings</p>
+        </div>
+
+        <div class="stat-card">
+          <span>✅</span>
+          <div id="stat-confirmed">0</div>
+          <p>Confirmed</p>
+        </div>
+
+        <div class="stat-card">
+          <span>❌</span>
+          <div id="stat-cancelled">0</div>
+          <p>Cancelled</p>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search events..."
+          oninput="filterEvents()"
+        />
+
+        <input
+          type="text"
+          id="venueFilter"
+          placeholder="Filter by venue..."
+          oninput="filterEvents()"
+        />
+      </div>
+      <!-- MAIN GRID (SIDE BY SIDE) -->
+      <div class="dashboard-layout">
+        <!-- EVENTS -->
+        <div class="events-section">
+          <div class="section-header">
+            <h2>Available Events</h2>
+          </div>
+
+          <div
+            id="events"
+            class="scroll-container events-grid"
+          ></div>
+        </div>
+
+        <!-- BOOKINGS -->
+        <div class="bookings-section">
+          <div class="section-header">
+            <h2>My Bookings</h2>
+          </div>
+
+          <!-- FILTERS -->
+          <div class="filter-tabs">
+            <button onclick="showAll()">All</button>
+            <button onclick="showActive()">Active</button>
+            <button onclick="showCancelled()">Cancelled</button>
+          </div>
+
+          <div
+            id="bookings"
+            class="scroll-container"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYMENT MODAL -->
+    <div
+      id="paymentModal"
+      class="payment-modal hidden"
+    >
+      <div class="payment-box">
+        <h2>Payment</h2>
+
+        <label>Tickets</label>
+        <input
+          type="number"
+          id="ticketCount"
+          min="1"
+          value="1"
+          onchange="updateTotal()"
+        />
+
+        <p id="totalAmount">Total: ₹0</p>
+
+        <input
+          type="text"
+          id="cardNumber"
+          placeholder="Card Number"
+        />
+        <input
+          type="text"
+          id="cardName"
+          placeholder="Card Holder Name"
+        />
+
+        <div class="row">
+          <input
+            type="text"
+            id="expiry"
+            placeholder="MM/YY"
+          />
+          <input
+            type="text"
+            id="cvv"
+            placeholder="CVV"
+          />
+        </div>
+
+        <div class="payment-actions">
+          <button onclick="processPayment()">Pay</button>
+          <button onclick="closePayment()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div
+      id="toast"
+      class="toast"
+    ></div>
+
+    <!-- LOADER -->
+    <div
+      id="loader"
+      class="loader-overlay hidden"
+    >
+      <div class="spinner"></div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
