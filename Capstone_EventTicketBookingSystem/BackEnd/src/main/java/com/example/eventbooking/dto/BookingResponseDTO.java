@@ -6,6 +6,7 @@ public class BookingResponseDTO {
 
     private Long id;
     private String eventName;
+    private String userEmail;
     private int numberOfTickets;
     private String status;
     private LocalDateTime bookingTime;
@@ -13,10 +14,12 @@ public class BookingResponseDTO {
     public BookingResponseDTO() {
     }
 
-    public BookingResponseDTO(Long id, String eventName, int numberOfTickets, String status,
+    public BookingResponseDTO(Long id, String eventName, String userEmail,
+            int numberOfTickets, String status,
             LocalDateTime bookingTime) {
         this.id = id;
         this.eventName = eventName;
+        this.userEmail = userEmail;
         this.numberOfTickets = numberOfTickets;
         this.status = status;
         this.bookingTime = bookingTime;
@@ -28,6 +31,10 @@ public class BookingResponseDTO {
 
     public String getEventName() {
         return eventName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 
     public int getNumberOfTickets() {
@@ -48,6 +55,10 @@ public class BookingResponseDTO {
 
     public void setEventName(String eventName) {
         this.eventName = eventName;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public void setNumberOfTickets(int numberOfTickets) {

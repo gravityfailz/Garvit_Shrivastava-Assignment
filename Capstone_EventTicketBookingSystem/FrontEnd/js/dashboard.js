@@ -34,7 +34,7 @@ async function loadEvents() {
 
   const events = await res.json();
 
-  events.sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
+  events.sort((a, b) => new Date(b.eventDate) - new Date(a.eventDate));
   window.allEvents = events;
 
   const container = document.getElementById("events");
@@ -145,7 +145,11 @@ function renderBookings() {
   container.innerHTML = "";
 
   let filtered = allBookings;
-
+  if (role === "ORGANIZER") {
+    document.getElementById("bookings").innerHTML =
+      "<p>Customer bookings hidden</p>";
+    return;
+  }
   if (currentFilter === "CONFIRMED") {
     filtered = allBookings.filter((b) => b.status === "CONFIRMED");
   } else if (currentFilter === "CANCELLED") {
@@ -534,11 +538,67 @@ window.addEventListener("load", () => {
     localStorage.removeItem("paymentTickets");
   }
 });
-// Init
-if (role === "ORGANIZER") {
-  loadEvents();
-  loadOrganizerBookings();
-} else {
-  loadEvents();
-  loadBookings();
+async function loadOrganizerBookings() {
+  const res = await fetch(`${BASE_URL}/bookings/organizer`, {
+    headers: { Authorization: "Bearer " + token },
+  });
+
+  if (!res.ok) {
+    alert("Failed to load organizer bookings");
+    return;
+  }
+
+  const data = await res.json();
+
+  const tbody = document.getElementById("organizerBookings");
+  tbody.innerHTML = "";
+
+  if (data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="4">No bookings yet</td></tr>`;
+    return;
+  }
+
+  data.forEach((b) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${b.eventName}</td>
+        <td>${b.userEmail}</td>
+        <td>${b.numberOfTickets}</td>
+        <td>${b.status}</td>
+      </tr>
+    `;
+  });
 }
+// Init
+window.onload = () => {
+  const bookingsPanel = document.querySelector(".panel"); // My Bookings section
+  const organizerSection = document.getElementById("organizerSection");
+
+  const createBtn = document.querySelector(".btn-primary");
+
+  if (role === "ORGANIZER") {
+    // hide customer booking section completely
+    if (bookingsPanel) bookingsPanel.style.display = "none";
+
+    // show organizer table
+    if (organizerSection) organizerSection.style.display = "block";
+
+    // show create button
+    if (createBtn) createBtn.style.display = "inline-block";
+
+    loadOrganizerBookings();
+  } else {
+    // hide organizer section
+    if (organizerSection) organizerSection.style.display = "none";
+
+    // show bookings
+    if (bookingsPanel) bookingsPanel.style.display = "block";
+
+    // hide create button
+    if (createBtn) createBtn.style.display = "none";
+
+    loadBookings();
+  }
+
+  loadEvents();
+};

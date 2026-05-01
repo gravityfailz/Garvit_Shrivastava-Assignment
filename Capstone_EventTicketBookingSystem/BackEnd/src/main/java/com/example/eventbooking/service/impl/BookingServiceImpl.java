@@ -112,8 +112,10 @@ public class BookingServiceImpl implements BookingService {
         return new BookingResponseDTO(
                 booking.getId(),
                 booking.getEvent().getName(),
+                booking.getUser().getEmail(),
                 booking.getNumberOfTickets(),
                 booking.getStatus().name(),
                 booking.getBookingTime());
     }
+
 }

@@ -3,32 +3,49 @@ package com.example.eventbooking.service.impl;
 import com.example.eventbooking.dto.EventRequestDTO;
 import com.example.eventbooking.dto.EventResponseDTO;
 import com.example.eventbooking.entity.Event;
+import com.example.eventbooking.entity.User;
 import com.example.eventbooking.exception.CustomException;
 import com.example.eventbooking.repository.EventRepository;
+import com.example.eventbooking.repository.BookingRepository;
+import com.example.eventbooking.repository.UserRepository;
 import com.example.eventbooking.service.EventService;
 import org.springframework.stereotype.Service;
-import java.util.List;
-import com.example.eventbooking.repository.BookingRepository;
-import java.time.LocalDateTime;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional
 public class EventServiceImpl implements EventService {
-    private final BookingRepository bookingRepository;
+
     private final EventRepository eventRepository;
+    private final BookingRepository bookingRepository;
+    private final UserRepository userRepository;
 
     public EventServiceImpl(EventRepository eventRepository,
-            BookingRepository bookingRepository) {
+            BookingRepository bookingRepository,
+            UserRepository userRepository) {
         this.eventRepository = eventRepository;
         this.bookingRepository = bookingRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
     public EventResponseDTO createEvent(EventRequestDTO request) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        if (email == null || email.equals("anonymousUser")) {
+            throw new CustomException("Unauthorized: No user found");
+        }
+
+        User organizer = userRepository.findByEmail(email)
+                .orElseThrow(() -> new CustomException("User not found"));
 
         Event event = new Event();
+        event.setOrganizer(organizer);
         event.setName(request.getName());
         event.setDescription(request.getDescription());
         event.setVenue(request.getVenue());
@@ -38,6 +55,7 @@ public class EventServiceImpl implements EventService {
         event.setPrice(request.getPrice());
         event.setCancelled(false);
         event.setImageUrl(request.getImageUrl());
+        event.setOrganizer(organizer);
 
         Event saved = eventRepository.save(event);
 
@@ -50,10 +68,8 @@ public class EventServiceImpl implements EventService {
         Event event = eventRepository.findById(id)
                 .orElseThrow(() -> new CustomException("Event not found"));
 
-        // delete bookings first
         bookingRepository.deleteByEventId(id);
 
-        // then delete event
         eventRepository.delete(event);
     }
 
@@ -69,6 +85,7 @@ public class EventServiceImpl implements EventService {
         event.setEventDate(request.getEventDate());
         event.setTotalSeats(request.getTotalSeats());
         event.setPrice(request.getPrice());
+        event.setImageUrl(request.getImageUrl());
 
         Event updated = eventRepository.save(event);
 
@@ -77,7 +94,6 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventResponseDTO> getAllEvents() {
-
         return eventRepository.findAll()
                 .stream()
                 .map(this::mapToDTO)
@@ -124,10 +140,11 @@ public class EventServiceImpl implements EventService {
         return new EventResponseDTO(
                 event.getId(),
                 event.getName(),
+                event.getDescription(),
                 event.getVenue(),
                 event.getEventDate(),
                 event.getAvailableSeats(),
-                event.getPrice());
+                event.getPrice(),
+                event.getImageUrl());
     }
-
 }

@@ -28,7 +28,14 @@ public class BookingController {
 
     @GetMapping("/organizer")
     public List<BookingResponseDTO> getOrganizerBookings(Authentication authentication) {
-        return bookingService.getBookingsForOrganizer(authentication.getName());
+
+        if (authentication == null || authentication.getName() == null) {
+            throw new RuntimeException("Unauthorized");
+        }
+
+        String email = authentication.getName();
+
+        return bookingService.getBookingsForOrganizer(email);
     }
 
     @GetMapping("/my")
