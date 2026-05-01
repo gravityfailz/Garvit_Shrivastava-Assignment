@@ -1,4 +1,4 @@
-package com.example.BackEnd.entity;
+package com.example.eventbooking.entity;
 
 import jakarta.persistence.*;
 
@@ -17,21 +17,19 @@ public class User {
 
     private String password;
 
-    private String role;
+    private String phone;
 
-    // Constructors
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public enum Role {
+        CUSTOMER,
+        ORGANIZER
+    }
+
     public User() {
     }
 
-    public User(Long id, String name, String email, String password, String role) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-
-    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -64,11 +62,19 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Event Details</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+  </head>
+
+  <body>
+    <!-- HERO SECTION -->
+    <div class="details-hero">
+      <img
+        id="eventImg"
+        class="details-bg"
+      />
+
+      <div class="details-overlay"></div>
+
+      <div class="details-content">
+        <h1 id="eventName"></h1>
+        <p id="eventVenue"></p>
+        <p id="eventDate"></p>
+        <p id="eventPrice"></p>
+        <div class="booking-box">
+          <label>Tickets</label>
+          <input
+            type="number"
+            id="ticketCount"
+            min="1"
+            value="1"
+            onchange="updateTotal()"
+          />
+
+          <p id="totalAmount">Total: ₹0</p>
+
+          <button
+            onclick="proceedToPayment()"
+            class="book-now-btn"
+          >
+            Proceed to Payment
+          </button>
+        </div>
+        <button
+          onclick="goBack()"
+          class="back-btn"
+        >
+          ← Back
+        </button>
+      </div>
+    </div>
+
+    <!-- DETAILS BODY -->
+    <div class="details-body">
+      <div class="details-left">
+        <h2>About the Event</h2>
+        <p id="eventDesc"></p>
+      </div>
+
+      <div class="details-right">
+        <div class="details-card">
+          <h3>Event Info</h3>
+          <p><strong>Venue:</strong> <span id="venueText"></span></p>
+          <p><strong>Date:</strong> <span id="dateText"></span></p>
+          <p><strong>Price:</strong> ₹<span id="priceText"></span></p>
+
+          <button
+            onclick="goBack()"
+            class="book-now-btn"
+          >
+            Go Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/event-details.js"></script>
+  </body>
+</html>
