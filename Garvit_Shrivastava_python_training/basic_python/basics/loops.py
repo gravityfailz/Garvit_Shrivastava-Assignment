@@ -49,3 +49,27 @@ def calculate_factorial(number: int) -> int:
 
 if __name__ == "__main__":
     print(calculate_factorial(5))
+
+
+"""
+Question 15
+"""
+
+
+def reverse_number(number: int) -> int:
+    """Reverse a number."""
+
+    reversed_number: int = 0
+
+    while number > 0:
+        digit: int = number % 10
+        reversed_number = (
+            reversed_number * 10 + digit
+        )
+        number //= 10
+
+    return reversed_number
+
+
+if __name__ == "__main__":
+    print(reverse_number(12345))
