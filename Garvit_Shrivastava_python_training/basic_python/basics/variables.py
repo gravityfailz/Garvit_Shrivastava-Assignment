@@ -19,3 +19,29 @@ def display_data_types() -> None:
 
 if __name__ == "__main__":
     display_data_types()
+
+
+"""
+Question 5
+"""
+
+
+def swap_numbers(
+    first_number: int,
+    second_number: int
+) -> tuple[int, int]:
+    """Swap two numbers."""
+
+    return second_number, first_number
+
+
+if __name__ == "__main__":
+    number_one: int = 10
+    number_two: int = 20
+
+    number_one, number_two = swap_numbers(
+        number_one,
+        number_two
+    )
+
+    print(number_one, number_two)
