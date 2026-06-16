@@ -45,3 +45,23 @@ if __name__ == "__main__":
     )
 
     print(number_one, number_two)
+
+"""
+Question 6
+"""
+
+
+def calculate_operations(
+    first_number: float,
+    second_number: float
+) -> None:
+    """Perform arithmetic operations."""
+
+    print("Sum:", first_number + second_number)
+    print("Difference:", first_number - second_number)
+    print("Multiplication:", first_number * second_number)
+    print("Division:", first_number / second_number)
+
+
+if __name__ == "__main__":
+    calculate_operations(20, 10)
