@@ -30,3 +30,22 @@ def print_multiplication_table(number: int) -> None:
 
 if __name__ == "__main__":
     print_multiplication_table(5)
+
+"""
+Question 14
+"""
+
+
+def calculate_factorial(number: int) -> int:
+    """Calculate factorial."""
+
+    factorial_result: int = 1
+
+    for value in range(1, number + 1):
+        factorial_result *= value
+
+    return factorial_result
+
+
+if __name__ == "__main__":
+    print(calculate_factorial(5))
