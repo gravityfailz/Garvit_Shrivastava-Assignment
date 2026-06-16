@@ -55,3 +55,30 @@ def find_largest_number(
 
 if __name__ == "__main__":
     print(find_largest_number(10, 25, 15))
+
+"""
+Question 10
+"""
+
+GRADE_A_MARKS: int = 90
+GRADE_B_MARKS: int = 75
+GRADE_C_MARKS: int = 50
+
+
+def calculate_grade(marks: int) -> str:
+    """Calculate grade."""
+
+    if marks >= GRADE_A_MARKS:
+        return "A"
+
+    if marks >= GRADE_B_MARKS:
+        return "B"
+
+    if marks >= GRADE_C_MARKS:
+        return "C"
+
+    return "Fail"
+
+
+if __name__ == "__main__":
+    print(calculate_grade(82))
