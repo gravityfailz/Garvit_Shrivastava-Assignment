@@ -32,3 +32,26 @@ def identify_number_type(number: int) -> str:
 
 if __name__ == "__main__":
     print(identify_number_type(-5))
+
+
+"""
+Question 9
+"""
+
+
+def find_largest_number(
+    first_number: int,
+    second_number: int,
+    third_number: int
+) -> int:
+    """Return largest number."""
+
+    return max(
+        first_number,
+        second_number,
+        third_number
+    )
+
+
+if __name__ == "__main__":
+    print(find_largest_number(10, 25, 15))
