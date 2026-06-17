@@ -52,3 +52,23 @@ if __name__ == "__main__":
             [1, 2, 3, 4, 5, 6]
         )
     )
+
+"""
+Question 27
+"""
+
+
+def reverse_list(
+    values: list[int]
+) -> list[int]:
+    """Reverse list."""
+
+    return values[::-1]
+
+
+if __name__ == "__main__":
+    print(
+        reverse_list(
+            [1, 2, 3, 4, 5]
+        )
+    )
