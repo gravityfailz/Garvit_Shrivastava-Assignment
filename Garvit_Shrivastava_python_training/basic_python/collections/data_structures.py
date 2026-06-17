@@ -163,3 +163,24 @@ def set_operations() -> None:
 
 if __name__ == "__main__":
     set_operations()
+
+
+"""
+Question 31
+"""
+
+
+def remove_duplicates(
+    numbers: list[int]
+) -> list[int]:
+    """Remove duplicates from list."""
+
+    return list(set(numbers))
+
+
+if __name__ == "__main__":
+    print(
+        remove_duplicates(
+            [1, 2, 2, 3, 4, 4, 5]
+        )
+    )
