@@ -22,3 +22,33 @@ def perform_list_operations() -> None:
 
 if __name__ == "__main__":
     perform_list_operations()
+
+
+"""
+Question 26
+"""
+
+
+def count_even_odd(
+    numbers: list[int]
+) -> tuple[int, int]:
+    """Count even and odd numbers."""
+
+    even_count: int = 0
+    odd_count: int = 0
+
+    for number in numbers:
+        if number % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+
+    return even_count, odd_count
+
+
+if __name__ == "__main__":
+    print(
+        count_even_odd(
+            [1, 2, 3, 4, 5, 6]
+        )
+    )
