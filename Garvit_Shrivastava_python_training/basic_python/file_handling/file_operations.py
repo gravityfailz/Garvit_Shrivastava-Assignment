@@ -47,3 +47,27 @@ def count_file_statistics() -> None:
 
 if __name__ == "__main__":
     count_file_statistics()
+
+
+"""
+Question 37
+"""
+
+FILE_NAME: str = "student.txt"
+
+
+def append_data() -> None:
+    """Append data to file."""
+
+    with open(
+        FILE_NAME,
+        "a",
+        encoding="utf-8"
+    ) as file:
+        file.write(
+            "\nPython Training"
+        )
+
+
+if __name__ == "__main__":
+    append_data()
