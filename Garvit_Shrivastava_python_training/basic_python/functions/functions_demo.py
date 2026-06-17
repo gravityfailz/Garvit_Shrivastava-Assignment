@@ -53,3 +53,26 @@ def is_palindrome(value: str) -> bool:
 if __name__ == "__main__":
     print(is_palindrome("madam"))
     print(is_palindrome("121"))
+
+
+
+
+"""
+Question 19
+"""
+
+
+def find_maximum_number(
+    numbers: list[int]
+) -> int:
+    """Return maximum number."""
+
+    return max(numbers)
+
+
+if __name__ == "__main__":
+    print(
+        find_maximum_number(
+            [10, 25, 65, 11, 2]
+        )
+    )
