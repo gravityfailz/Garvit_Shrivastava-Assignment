@@ -71,3 +71,32 @@ def append_data() -> None:
 
 if __name__ == "__main__":
     append_data()
+
+"""
+Question 38
+"""
+
+SOURCE_FILE: str = "student.txt"
+TARGET_FILE: str = "copy.txt"
+
+
+def copy_file_content() -> None:
+    """Copy file content."""
+
+    with open(
+        SOURCE_FILE,
+        "r",
+        encoding="utf-8"
+    ) as source:
+        content: str = source.read()
+
+    with open(
+        TARGET_FILE,
+        "w",
+        encoding="utf-8"
+    ) as target:
+        target.write(content)
+
+
+if __name__ == "__main__":
+    copy_file_content()
