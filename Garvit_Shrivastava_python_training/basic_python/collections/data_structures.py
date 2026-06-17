@@ -233,3 +233,28 @@ if __name__ == "__main__":
             "python"
         )
     )
+
+"""
+Question 34
+"""
+
+
+def merge_dictionaries(
+    first_dictionary: dict,
+    second_dictionary: dict
+) -> dict:
+    """Merge dictionaries."""
+
+    return (
+        first_dictionary
+        | second_dictionary
+    )
+
+
+if __name__ == "__main__":
+    print(
+        merge_dictionaries(
+            {"a": 1},
+            {"b": 2}
+        )
+    )
