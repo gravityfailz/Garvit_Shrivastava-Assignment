@@ -143,3 +143,36 @@ account.deposit(500)
 print(
     account.get_balance()
 )
+
+"""
+Question 44
+"""
+
+
+class Dog:
+    """Dog class."""
+
+    def speak(self) -> None:
+        print("Bark")
+
+
+class Cat:
+    """Cat class."""
+
+    def speak(self) -> None:
+        print("Meow")
+
+
+def animal_sound(
+    animal
+) -> None:
+    """Polymorphism example."""
+
+    animal.speak()
+
+
+dog = Dog()
+cat = Cat()
+
+animal_sound(dog)
+animal_sound(cat)
