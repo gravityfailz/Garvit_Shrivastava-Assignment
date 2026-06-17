@@ -100,3 +100,32 @@ def copy_file_content() -> None:
 
 if __name__ == "__main__":
     copy_file_content()
+
+"""
+Question 39
+"""
+
+FILE_NAME: str = "student.txt"
+
+
+def search_word(
+    word: str
+) -> bool:
+    """Search word in file."""
+
+    with open(
+        FILE_NAME,
+        "r",
+        encoding="utf-8"
+    ) as file:
+        content: str = file.read()
+
+    return word in content
+
+
+if __name__ == "__main__":
+    print(
+        search_word(
+            "Python"
+        )
+    )
