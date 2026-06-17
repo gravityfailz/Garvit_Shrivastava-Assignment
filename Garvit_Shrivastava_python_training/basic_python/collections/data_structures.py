@@ -124,3 +124,42 @@ def modify_tuple() -> list:
 
 if __name__ == "__main__":
     print(modify_tuple())
+
+"""
+Question 30
+"""
+
+
+def set_operations() -> None:
+    """Perform set operations."""
+
+    first_set: set[int] = {
+        1, 2, 3, 4, 5
+    }
+
+    second_set: set[int] = {
+        4, 5, 6, 7, 8
+    }
+
+    print(
+        "Union:",
+        first_set.union(second_set)
+    )
+
+    print(
+        "Intersection:",
+        first_set.intersection(
+            second_set
+        )
+    )
+
+    print(
+        "Difference:",
+        first_set.difference(
+            second_set
+        )
+    )
+
+
+if __name__ == "__main__":
+    set_operations()
