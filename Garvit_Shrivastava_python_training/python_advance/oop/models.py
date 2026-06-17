@@ -63,3 +63,48 @@ car = Car(
 )
 
 car.display_car()
+
+
+"""
+Question 42
+"""
+
+
+class Person:
+    """Parent class."""
+
+    def __init__(
+        self,
+        name: str
+    ) -> None:
+        self.name = name
+
+
+class Employee(Person):
+    """Child class."""
+
+    def __init__(
+        self,
+        name: str,
+        salary: float
+    ) -> None:
+        super().__init__(name)
+        self.salary = salary
+
+    def display_employee(
+        self
+    ) -> None:
+        """Display employee."""
+
+        print(
+            self.name,
+            self.salary
+        )
+
+
+employee = Employee(
+    "Garvit",
+    50000
+)
+
+employee.display_employee()
