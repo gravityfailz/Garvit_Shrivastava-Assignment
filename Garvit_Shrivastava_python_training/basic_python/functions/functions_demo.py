@@ -76,3 +76,20 @@ if __name__ == "__main__":
             [10, 25, 65, 11, 2]
         )
     )
+
+"""
+Question 20
+"""
+
+
+def greet_user(
+    user_name: str = "Guest"
+) -> str:
+    """Return greeting message."""
+
+    return f"Welcome {user_name}"
+
+
+if __name__ == "__main__":
+    print(greet_user())
+    print(greet_user("Garvit"))
