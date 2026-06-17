@@ -32,3 +32,24 @@ def calculate_square(number: float) -> float:
 
 if __name__ == "__main__":
     print(calculate_square(8))
+
+
+"""
+Question 18
+"""
+
+
+def is_palindrome(value: str) -> bool:
+    """Check whether value is palindrome."""
+
+    processed_value: str = str(value)
+
+    return (
+        processed_value
+        == processed_value[::-1]
+    )
+
+
+if __name__ == "__main__":
+    print(is_palindrome("madam"))
+    print(is_palindrome("121"))
