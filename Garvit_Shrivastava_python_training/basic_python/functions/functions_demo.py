@@ -18,3 +18,17 @@ def is_prime(number: int) -> bool:
 
 if __name__ == "__main__":
     print(is_prime(17))
+
+"""
+Question 17
+"""
+
+
+def calculate_square(number: float) -> float:
+    """Return square of a number."""
+
+    return number * number
+
+
+if __name__ == "__main__":
+    print(calculate_square(8))
