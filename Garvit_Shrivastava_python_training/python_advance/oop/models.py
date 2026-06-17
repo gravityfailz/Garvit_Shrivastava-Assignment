@@ -108,3 +108,38 @@ employee = Employee(
 )
 
 employee.display_employee()
+
+
+"""
+Question 43
+"""
+
+
+class Bank:
+    """Bank class."""
+
+    def __init__(
+        self,
+        balance: float
+    ) -> None:
+        self.__balance = balance
+
+    def deposit(
+        self,
+        amount: float
+    ) -> None:
+        self.__balance += amount
+
+    def get_balance(
+        self
+    ) -> float:
+        return self.__balance
+
+
+account = Bank(1000)
+
+account.deposit(500)
+
+print(
+    account.get_balance()
+)
