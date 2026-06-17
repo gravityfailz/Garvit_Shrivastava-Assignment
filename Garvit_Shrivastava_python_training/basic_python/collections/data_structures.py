@@ -72,3 +72,26 @@ if __name__ == "__main__":
             [1, 2, 3, 4, 5]
         )
     )
+
+
+"""
+Question 28
+"""
+
+
+def tuple_example() -> None:
+    """Access tuple elements."""
+
+    student_data: tuple = (
+        101,
+        "Garvit",
+        "Bhopal"
+    )
+
+    print(student_data[0])
+    print(student_data[1])
+    print(student_data[2])
+
+
+if __name__ == "__main__":
+    tuple_example()
