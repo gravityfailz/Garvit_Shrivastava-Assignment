@@ -95,3 +95,32 @@ def tuple_example() -> None:
 
 if __name__ == "__main__":
     tuple_example()
+
+
+"""
+Question 29
+"""
+
+
+def modify_tuple() -> list:
+    """Convert tuple to list."""
+
+    subjects: tuple = (
+        "Python",
+        "Java",
+        "SQL"
+    )
+
+    subject_list: list = list(
+        subjects
+    )
+
+    subject_list.append(
+        "MongoDB"
+    )
+
+    return subject_list
+
+
+if __name__ == "__main__":
+    print(modify_tuple())
