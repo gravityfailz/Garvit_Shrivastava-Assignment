@@ -184,3 +184,25 @@ if __name__ == "__main__":
             [1, 2, 2, 3, 4, 4, 5]
         )
     )
+
+"""
+Question 32
+"""
+
+
+def display_student_details() -> None:
+    """Display dictionary values."""
+
+    student: dict[str, object] = {
+        "id": 101,
+        "name": "Garvit",
+        "course": "CSE AIML"
+    }
+
+    print(student["id"])
+    print(student["name"])
+    print(student["course"])
+
+
+if __name__ == "__main__":
+    display_student_details()
