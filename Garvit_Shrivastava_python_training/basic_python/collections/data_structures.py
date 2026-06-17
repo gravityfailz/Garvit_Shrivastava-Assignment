@@ -206,3 +206,30 @@ def display_student_details() -> None:
 
 if __name__ == "__main__":
     display_student_details()
+
+"""
+Question 33
+"""
+
+
+def character_frequency(
+    text: str
+) -> dict[str, int]:
+    """Count character frequency."""
+
+    frequency: dict[str, int] = {}
+
+    for character in text:
+        frequency[character] = (
+            frequency.get(character, 0) + 1
+        )
+
+    return frequency
+
+
+if __name__ == "__main__":
+    print(
+        character_frequency(
+            "python"
+        )
+    )
