@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Activities — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <a
+          href="./activities.html"
+          class="navbar-brand"
+        >
+          <div class="brand-icon">🌐</div>
+          CircleUp
+        </a>
+        <ul class="navbar-nav">
+          <li>
+            <a
+              href="./activities.html"
+              class="active"
+              >🏠 Browse</a
+            >
+          </li>
+          <li><a href="./profile.html">👤 Profile</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a
+            href="./profile.html"
+            class="user-pill"
+          >
+            <div
+              class="avatar"
+              id="nav-initials"
+            >
+              ?
+            </div>
+            <span
+              class="user-pill-name"
+              id="nav-user-name"
+              >Me</span
+            >
+          </a>
+          <button
+            class="btn btn-ghost btn-sm"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container page-content">
+      <div class="page-header">
+        <div>
+          <h1>Browse Activities</h1>
+          <p>Find and join activities happening around you.</p>
+        </div>
+        <button
+          class="btn btn-primary"
+          onclick="openCreateModal()"
+        >
+          + Create Activity
+        </button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button
+          class="tab-btn active"
+          id="tab-all"
+          onclick="switchTab('all')"
+        >
+          All Activities
+        </button>
+        <button
+          class="tab-btn"
+          id="tab-mine"
+          onclick="switchTab('mine')"
+        >
+          My Activities
+        </button>
+      </div>
+
+      <div
+        id="alert"
+        class="alert"
+      ></div>
+      <div id="activities-container">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading activities…
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Activity Modal -->
+    <div
+      class="modal-overlay"
+      id="create-modal"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Create New Activity</h3>
+          <button
+            class="modal-close"
+            onclick="closeCreateModal()"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="modal-body">
+          <div
+            id="create-alert"
+            class="alert"
+          ></div>
+          <form
+            id="create-form"
+            novalidate
+          >
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="c-title"
+                >Title <span class="req">*</span></label
+              >
+              <input
+                id="c-title"
+                type="text"
+                class="form-control"
+                placeholder="e.g. Sunday Cricket Match"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-category"
+                  >Category <span class="req">*</span></label
+                >
+                <select
+                  id="c-category"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select category…</option>
+                  <option>Cricket Match</option>
+                  <option>Badminton Session</option>
+                  <option>Cafe Meetup</option>
+                  <option>Movie Plan</option>
+                  <option>Study Group</option>
+                  <option>Weekend Trip</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-max"
+                  >Max Participants <span class="req">*</span></label
+                >
+                <input
+                  id="c-max"
+                  type="number"
+                  class="form-control"
+                  min="1"
+                  placeholder="e.g. 10"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="c-location"
+                >Location <span class="req">*</span></label
+              >
+              <input
+                id="c-location"
+                type="text"
+                class="form-control"
+                placeholder="e.g. Sector 5 Park, Delhi"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-date"
+                  >Date <span class="req">*</span></label
+                >
+                <input
+                  id="c-date"
+                  type="date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-time"
+                  >Time <span class="req">*</span></label
+                >
+                <input
+                  id="c-time"
+                  type="time"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="c-desc"
+                >Description</label
+              >
+              <textarea
+                id="c-desc"
+                class="form-control"
+                placeholder="Describe your activity…"
+                rows="3"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-ghost"
+            onclick="closeCreateModal()"
+          >
+            Cancel
+          </button>
+          <button
+            id="create-btn"
+            class="btn btn-primary"
+            onclick="submitCreate()"
+          >
+            Create Activity
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script>
+      requireAuth();
+
+      let allActivities = [];
+      let currentUserId = null;
+      let currentTab = "all";
+
+      async function init() {
+        try {
+          const me = await apiRequest("/users/me");
+          currentUserId = me.id;
+          renderNavUser(me.name);
+        } catch (_) {}
+
+        // Set min date for the create form to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById("c-date").min = tomorrow
+          .toISOString()
+          .split("T")[0];
+
+        await loadActivities();
+      }
+
+      async function loadActivities() {
+        try {
+          allActivities = await apiRequest("/activities");
+          renderActivities();
+        } catch (err) {
+          document.getElementById("activities-container").innerHTML =
+            `<div class="alert alert-error show">${esc(err.detail)}</div>`;
+        }
+      }
+
+      function switchTab(tab) {
+        currentTab = tab;
+        document
+          .getElementById("tab-all")
+          .classList.toggle("active", tab === "all");
+        document
+          .getElementById("tab-mine")
+          .classList.toggle("active", tab === "mine");
+        renderActivities();
+      }
+
+      function renderActivities() {
+        const list =
+          currentTab === "mine"
+            ? allActivities.filter((a) => a.creator_id === currentUserId)
+            : allActivities;
+
+        const container = document.getElementById("activities-container");
+
+        if (!list.length) {
+          const msg =
+            currentTab === "mine"
+              ? "You haven't created any activities yet."
+              : "No activities found. Be the first to create one!";
+          container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">🎯</div>
+          <h3>${currentTab === "mine" ? "No activities yet" : "Nothing here yet"}</h3>
+          <p>${msg}</p>
+        </div>`;
+          return;
+        }
+
+        container.innerHTML = `<div class="activities-grid">${list.map(activityCard).join("")}</div>`;
+      }
+
+      function activityCard(a) {
+        const isOwner = a.creator_id === currentUserId;
+        return `
+      <a class="activity-card" href="./activity-detail.html?id=${a.id}">
+        <div class="activity-card-body">
+          <div class="activity-card-top">
+            <div class="activity-card-title">${esc(a.title)}</div>
+            ${statusBadge(a.status)}
+          </div>
+          <span class="badge badge-category">${esc(a.category)}</span>
+          <div class="activity-card-meta">
+            <div class="meta-item"><span class="meta-icon">📍</span>${esc(a.location)}</div>
+            <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(a.date)} at ${fmtTime(a.time)}</div>
+          </div>
+          <div class="activity-card-footer">
+            <span>👥 ${a.approved_participants_count} / ${a.max_participants} joined</span>
+            ${isOwner ? '<span style="color:var(--primary);font-weight:600;font-size:.78rem;">⭐ Your activity</span>' : ""}
+          </div>
+        </div>
+      </a>`;
+      }
+
+      function openCreateModal() {
+        document.getElementById("create-modal").classList.add("open");
+        document.getElementById("create-form").reset();
+        hideAlert("create-alert");
+      }
+
+      function closeCreateModal() {
+        document.getElementById("create-modal").classList.remove("open");
+      }
+
+      async function submitCreate() {
+        hideAlert("create-alert");
+        const title = document.getElementById("c-title").value.trim();
+        const category = document.getElementById("c-category").value;
+        const location = document.getElementById("c-location").value.trim();
+        const date = document.getElementById("c-date").value;
+        const time = document.getElementById("c-time").value;
+        const max = parseInt(document.getElementById("c-max").value);
+        const desc = document.getElementById("c-desc").value.trim();
+        const btn = document.getElementById("create-btn");
+
+        if (!title || !category || !location || !date || !time || !max) {
+          return showAlert(
+            "create-alert",
+            "Please fill in all required fields.",
+          );
+        }
+        if (max < 1) {
+          return showAlert(
+            "create-alert",
+            "Max participants must be at least 1.",
+          );
+        }
+
+        setLoading(btn, true, "Creating…");
+        try {
+          await apiRequest("/activities", {
+            method: "POST",
+            body: JSON.stringify({
+              title,
+              category,
+              location,
+              date,
+              time: time + ":00",
+              max_participants: max,
+              description: desc || null,
+            }),
+          });
+          closeCreateModal();
+          await loadActivities();
+        } catch (err) {
+          showAlert("create-alert", err.detail || "Could not create activity.");
+          setLoading(btn, false);
+        }
+      }
+
+      // Close modal on overlay click
+      document
+        .getElementById("create-modal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeCreateModal();
+        });
+
+      init();
+    </script>
+  </body>
+</html>

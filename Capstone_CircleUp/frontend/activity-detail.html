@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Activity — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <a
+          href="./activities.html"
+          class="navbar-brand"
+        >
+          <div class="brand-icon">🌐</div>
+          CircleUp
+        </a>
+        <ul class="navbar-nav">
+          <li>
+            <a
+              href="./activities.html"
+              class="active"
+              >🏠 Browse</a
+            >
+          </li>
+          <li><a href="./profile.html">👤 Profile</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a
+            href="./profile.html"
+            class="user-pill"
+          >
+            <div
+              class="avatar"
+              id="nav-initials"
+            >
+              ?
+            </div>
+            <span
+              class="user-pill-name"
+              id="nav-user-name"
+              >Me</span
+            >
+          </a>
+          <button
+            class="btn btn-ghost btn-sm"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container page-content">
+      <a
+        href="./activities.html"
+        class="btn btn-ghost btn-sm"
+        style="margin-bottom: 20px"
+      >
+        ← Back to Activities
+      </a>
+
+      <div
+        id="loading"
+        class="loading"
+      >
+        <div class="spinner"></div>
+        Loading activity…
+      </div>
+      <div
+        id="alert"
+        class="alert"
+      ></div>
+      <div
+        id="content"
+        style="display: none"
+      ></div>
+
+      <!-- Edit Form (hidden by default) -->
+      <div
+        id="edit-section"
+        style="display: none; margin-top: 28px; max-width: 640px"
+      >
+        <div class="card">
+          <div class="card-header">
+            <h2>✏️ Edit Activity</h2>
+            <button
+              class="btn btn-ghost btn-sm"
+              onclick="closeEdit()"
+            >
+              ✕ Cancel
+            </button>
+          </div>
+          <div
+            id="edit-alert"
+            class="alert"
+          ></div>
+          <form
+            id="edit-form"
+            novalidate
+          >
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="e-title"
+                >Title <span class="req">*</span></label
+              >
+              <input
+                id="e-title"
+                type="text"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-category"
+                  >Category <span class="req">*</span></label
+                >
+                <select
+                  id="e-category"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select…</option>
+                  <option>Cricket Match</option>
+                  <option>Badminton Session</option>
+                  <option>Cafe Meetup</option>
+                  <option>Movie Plan</option>
+                  <option>Study Group</option>
+                  <option>Weekend Trip</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-max"
+                  >Max Participants <span class="req">*</span></label
+                >
+                <input
+                  id="e-max"
+                  type="number"
+                  class="form-control"
+                  min="1"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="e-location"
+                >Location <span class="req">*</span></label
+              >
+              <input
+                id="e-location"
+                type="text"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-date"
+                  >Date <span class="req">*</span></label
+                >
+                <input
+                  id="e-date"
+                  type="date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-time"
+                  >Time <span class="req">*</span></label
+                >
+                <input
+                  id="e-time"
+                  type="time"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="e-desc"
+                >Description</label
+              >
+              <textarea
+                id="e-desc"
+                class="form-control"
+                rows="3"
+              ></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end">
+              <button
+                type="button"
+                class="btn btn-ghost"
+                onclick="closeEdit()"
+              >
+                Cancel
+              </button>
+              <button
+                id="save-btn"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script>
+      requireAuth();
+
+      const params = new URLSearchParams(window.location.search);
+      const activityId = params.get("id");
+      let activity = null;
+      let currentUserId = null;
+
+      if (!activityId) window.location.href = "./activities.html";
+
+      async function init() {
+        try {
+          const me = await apiRequest("/users/me");
+          currentUserId = me.id;
+          renderNavUser(me.name);
+        } catch (_) {}
+        await loadActivity();
+      }
+
+      async function loadActivity() {
+        document.getElementById("loading").style.display = "";
+        document.getElementById("content").style.display = "none";
+        try {
+          activity = await apiRequest(`/activities/${activityId}`);
+          renderDetail();
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("content").style.display = "";
+        } catch (err) {
+          document.getElementById("loading").style.display = "none";
+          showAlert("alert", err.detail || "Activity not found.");
+        }
+      }
+
+      function renderDetail() {
+        const isOwner = activity.creator_id === currentUserId;
+        const cancelled = activity.status === "cancelled";
+        const completed = activity.status === "completed";
+
+        document.title = `${activity.title} — CircleUp`;
+
+        const ownerActions =
+          isOwner && !cancelled && !completed
+            ? `
+      <div class="card">
+        <div class="card-header"><h2>Manage Activity</h2></div>
+        <div class="owner-actions">
+          <button class="btn btn-outline btn-full" onclick="openEdit()">✏️ Edit Activity</button>
+          <button class="btn btn-danger btn-full" id="cancel-btn" onclick="cancelActivity()">🚫 Cancel Activity</button>
+        </div>
+      </div>`
+            : "";
+
+        const ownerNote = isOwner
+          ? `
+      <div class="alert alert-info show" style="margin-top:16px;">
+        ⭐ You created this activity.
+      </div>`
+          : "";
+
+        document.getElementById("content").innerHTML = `
+      <div class="detail-header">
+        <h1 class="detail-title">${esc(activity.title)}</h1>
+        <div class="detail-badges">
+          ${statusBadge(activity.status)}
+          <span class="badge badge-category">${esc(activity.category)}</span>
+        </div>
+        ${ownerNote}
+      </div>
+
+      <div class="detail-body">
+        <div>
+          <div class="detail-info-grid">
+            <div class="detail-info-box">
+              <div class="label">📅 Date</div>
+              <div class="value">${fmtDate(activity.date)}</div>
+            </div>
+            <div class="detail-info-box">
+              <div class="label">⏰ Time</div>
+              <div class="value">${fmtTime(activity.time)}</div>
+            </div>
+            <div class="detail-info-box">
+              <div class="label">📍 Location</div>
+              <div class="value">${esc(activity.location)}</div>
+            </div>
+            <div class="detail-info-box">
+              <div class="label">👥 Participants</div>
+              <div class="value">${activity.approved_participants_count} / ${activity.max_participants} joined</div>
+            </div>
+          </div>
+          ${
+            activity.description
+              ? `
+          <div class="description-box">
+            <div class="label">About</div>
+            <p>${esc(activity.description)}</p>
+          </div>`
+              : ""
+          }
+        </div>
+
+        <div>${ownerActions}</div>
+      </div>`;
+      }
+
+      function openEdit() {
+        document.getElementById("edit-section").style.display = "";
+        hideAlert("edit-alert");
+
+        document.getElementById("e-title").value = activity.title;
+        document.getElementById("e-location").value = activity.location;
+        document.getElementById("e-date").value = activity.date;
+        document.getElementById("e-time").value = activity.time.slice(0, 5);
+        document.getElementById("e-max").value = activity.max_participants;
+        document.getElementById("e-desc").value = activity.description || "";
+
+        // Set category select
+        const catEl = document.getElementById("e-category");
+        for (let opt of catEl.options) {
+          if (opt.value === activity.category) {
+            opt.selected = true;
+            break;
+          }
+        }
+        catEl.value = activity.category;
+
+        document
+          .getElementById("edit-section")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function closeEdit() {
+        document.getElementById("edit-section").style.display = "none";
+      }
+
+      document
+        .getElementById("edit-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          hideAlert("edit-alert");
+
+          const title = document.getElementById("e-title").value.trim();
+          const category = document.getElementById("e-category").value;
+          const location = document.getElementById("e-location").value.trim();
+          const date = document.getElementById("e-date").value;
+          const time = document.getElementById("e-time").value;
+          const max = parseInt(document.getElementById("e-max").value);
+          const desc = document.getElementById("e-desc").value.trim();
+          const btn = document.getElementById("save-btn");
+
+          if (!title || !category || !location || !date || !time || !max) {
+            return showAlert(
+              "edit-alert",
+              "Please fill in all required fields.",
+            );
+          }
+
+          setLoading(btn, true, "Saving…");
+          try {
+            activity = await apiRequest(`/activities/${activityId}`, {
+              method: "PUT",
+              body: JSON.stringify({
+                title,
+                category,
+                location,
+                date,
+                time: time.length === 5 ? time + ":00" : time,
+                max_participants: max,
+                description: desc || null,
+              }),
+            });
+            renderDetail();
+            closeEdit();
+          } catch (err) {
+            showAlert("edit-alert", err.detail || "Update failed.");
+            setLoading(btn, false);
+          }
+        });
+
+      async function cancelActivity() {
+        if (
+          !confirm(
+            "Are you sure you want to cancel this activity? This cannot be undone.",
+          )
+        )
+          return;
+        const btn = document.getElementById("cancel-btn");
+        if (btn) setLoading(btn, true, "Cancelling…");
+        try {
+          activity = await apiRequest(`/activities/${activityId}/cancel`, {
+            method: "POST",
+          });
+          renderDetail();
+          closeEdit();
+        } catch (err) {
+          showAlert("alert", err.detail || "Cancel failed.");
+          if (btn) setLoading(btn, false);
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>
