@@ -1,22 +1,22 @@
 import logging
-from datetime import datetime
+from datetime import datetime, date as date_type
+from typing import Literal
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.dependencies import get_current_user
 from app.models.user import User
 from app.models.activity import Activity, ActivityStatus
-from app.schemas.activity import ActivityCreate, ActivityUpdate, ActivityOut
-from app.services.activity_service import to_activity_out
+from app.schemas.activity import ActivityCreate, ActivityUpdate, ActivityOut, ActivityDetailOut
+from app.services.activity_service import to_activity_out, to_activity_detail_out
 
 logger = logging.getLogger("circleup")
 router = APIRouter(prefix="/api/activities", tags=["Activities"])
 
 
 def _owned_or_error(activity_id: int, current_user: User, db: Session) -> Activity:
-    """404 if not found, 403 if found but not owned by current_user."""
     activity = db.query(Activity).filter(Activity.id == activity_id).first()
     if not activity:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Activity not found.")
@@ -54,23 +54,45 @@ def create_activity(
 
 @router.get("", response_model=list[ActivityOut])
 def list_activities(
+    category: str | None = Query(default=None, description="Filter by category (partial match)"),
+    location: str | None = Query(default=None, description="Filter by location (partial match)"),
+    date: date_type | None = Query(default=None, description="Filter by exact date (YYYY-MM-DD)"),
+    sort_by_date: Literal["asc", "desc"] = Query(default="desc", description="Sort direction"),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    activities = db.query(Activity).order_by(Activity.created_at.desc()).all()
-    return [to_activity_out(db, a) for a in activities]
+    """Browse all activities with optional filters (SRS section 5)."""
+    query = db.query(Activity)
+
+    if category:
+        query = query.filter(Activity.category.ilike(f"%{category}%"))
+    if location:
+        query = query.filter(Activity.location.ilike(f"%{location}%"))
+    if date:
+        query = query.filter(Activity.date == date)
+
+    if sort_by_date == "asc":
+        query = query.order_by(Activity.date.asc(), Activity.time.asc())
+    else:
+        query = query.order_by(Activity.date.desc(), Activity.time.desc())
+
+    return [to_activity_out(db, a) for a in query.all()]
 
 
-@router.get("/{activity_id}", response_model=ActivityOut)
+@router.get("/{activity_id}", response_model=ActivityDetailOut)
 def get_activity(
     activity_id: int,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    """
+    View a single activity with the current user's request status
+    and organizer contact info (SRS sections 7, 8).
+    """
     activity = db.query(Activity).filter(Activity.id == activity_id).first()
     if not activity:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Activity not found.")
-    return to_activity_out(db, activity)
+    return to_activity_detail_out(db, activity, current_user)
 
 
 @router.put("/{activity_id}", response_model=ActivityOut)

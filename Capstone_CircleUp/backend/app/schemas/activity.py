@@ -1,6 +1,7 @@
 from datetime import date as date_type, time as time_type, datetime
 from pydantic import BaseModel, Field, ConfigDict, model_validator
 from app.models.activity import ActivityStatus
+from app.models.participation import ParticipationStatus
 
 
 class ActivityCreate(BaseModel):
@@ -20,7 +21,6 @@ class ActivityCreate(BaseModel):
 
 
 class ActivityUpdate(BaseModel):
-    """All fields optional — partial update semantics."""
     title: str | None = Field(default=None, min_length=1, max_length=200)
     description: str | None = Field(default=None, max_length=2000)
     category: str | None = Field(default=None, min_length=1, max_length=100)
@@ -45,3 +45,13 @@ class ActivityOut(BaseModel):
     approved_participants_count: int
     status: ActivityStatus
     created_at: datetime
+
+
+class ActivityDetailOut(ActivityOut):
+    """
+    Extended response for GET /api/activities/{id}.
+    Adds the current user's request state and organizer contact (SRS 7, 8).
+    """
+    my_request_id: int | None = None
+    my_request_status: ParticipationStatus | None = None
+    organizer_phone: str | None = None  # SRS 8: only when user's request is APPROVED

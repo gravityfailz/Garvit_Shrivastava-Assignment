@@ -13,7 +13,6 @@
     />
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="container navbar-inner">
         <a
@@ -24,13 +23,8 @@
           CircleUp
         </a>
         <ul class="navbar-nav">
-          <li>
-            <a
-              href="./activities.html"
-              class="active"
-              >🏠 Browse</a
-            >
-          </li>
+          <li><a href="./activities.html">🏠 Browse</a></li>
+          <li><a href="./my-activities.html">📋 My Activities</a></li>
           <li><a href="./profile.html">👤 Profile</a></li>
         </ul>
         <div class="navbar-actions">
@@ -65,9 +59,8 @@
         href="./activities.html"
         class="btn btn-ghost btn-sm"
         style="margin-bottom: 20px"
+        >← Back to Activities</a
       >
-        ← Back to Activities
-      </a>
 
       <div
         id="loading"
@@ -77,7 +70,7 @@
         Loading activity…
       </div>
       <div
-        id="alert"
+        id="page-alert"
         class="alert"
       ></div>
       <div
@@ -85,7 +78,7 @@
         style="display: none"
       ></div>
 
-      <!-- Edit Form (hidden by default) -->
+      <!-- Edit form (owner only, shown inline) -->
       <div
         id="edit-section"
         style="display: none; margin-top: 28px; max-width: 640px"
@@ -109,11 +102,7 @@
             novalidate
           >
             <div class="form-group">
-              <label
-                class="form-label"
-                for="e-title"
-                >Title <span class="req">*</span></label
-              >
+              <label class="form-label">Title <span class="req">*</span></label>
               <input
                 id="e-title"
                 type="text"
@@ -123,9 +112,7 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label
-                  class="form-label"
-                  for="e-category"
+                <label class="form-label"
                   >Category <span class="req">*</span></label
                 >
                 <select
@@ -144,9 +131,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label
-                  class="form-label"
-                  for="e-max"
+                <label class="form-label"
                   >Max Participants <span class="req">*</span></label
                 >
                 <input
@@ -159,9 +144,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label
-                class="form-label"
-                for="e-location"
+              <label class="form-label"
                 >Location <span class="req">*</span></label
               >
               <input
@@ -173,9 +156,7 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label
-                  class="form-label"
-                  for="e-date"
+                <label class="form-label"
                   >Date <span class="req">*</span></label
                 >
                 <input
@@ -186,9 +167,7 @@
                 />
               </div>
               <div class="form-group">
-                <label
-                  class="form-label"
-                  for="e-time"
+                <label class="form-label"
                   >Time <span class="req">*</span></label
                 >
                 <input
@@ -200,11 +179,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label
-                class="form-label"
-                for="e-desc"
-                >Description</label
-              >
+              <label class="form-label">Description</label>
               <textarea
                 id="e-desc"
                 class="form-control"
@@ -241,6 +216,7 @@
       const params = new URLSearchParams(window.location.search);
       const activityId = params.get("id");
       let activity = null;
+      let requests = [];
       let currentUserId = null;
 
       if (!activityId) window.location.href = "./activities.html";
@@ -257,14 +233,22 @@
       async function loadActivity() {
         document.getElementById("loading").style.display = "";
         document.getElementById("content").style.display = "none";
+        hideAlert("page-alert");
         try {
           activity = await apiRequest(`/activities/${activityId}`);
+          if (activity.creator_id === currentUserId) {
+            try {
+              requests = await apiRequest(`/activities/${activityId}/requests`);
+            } catch (_) {
+              requests = [];
+            }
+          }
           renderDetail();
           document.getElementById("loading").style.display = "none";
           document.getElementById("content").style.display = "";
         } catch (err) {
           document.getElementById("loading").style.display = "none";
-          showAlert("alert", err.detail || "Activity not found.");
+          showAlert("page-alert", err.detail || "Activity not found.", "error");
         }
       }
 
@@ -272,27 +256,24 @@
         const isOwner = activity.creator_id === currentUserId;
         const cancelled = activity.status === "cancelled";
         const completed = activity.status === "completed";
-
         document.title = `${activity.title} — CircleUp`;
 
-        const ownerActions =
-          isOwner && !cancelled && !completed
-            ? `
-      <div class="card">
-        <div class="card-header"><h2>Manage Activity</h2></div>
-        <div class="owner-actions">
-          <button class="btn btn-outline btn-full" onclick="openEdit()">✏️ Edit Activity</button>
-          <button class="btn btn-danger btn-full" id="cancel-btn" onclick="cancelActivity()">🚫 Cancel Activity</button>
-        </div>
-      </div>`
-            : "";
+        const infoGrid = `
+      <div class="detail-info-grid">
+        <div class="detail-info-box"><div class="label">📅 Date</div><div class="value">${fmtDate(activity.date)}</div></div>
+        <div class="detail-info-box"><div class="label">⏰ Time</div><div class="value">${fmtTime(activity.time)}</div></div>
+        <div class="detail-info-box"><div class="label">📍 Location</div><div class="value">${esc(activity.location)}</div></div>
+        <div class="detail-info-box"><div class="label">👥 Participants</div><div class="value">${activity.approved_participants_count} / ${activity.max_participants} joined</div></div>
+      </div>
+      ${activity.description ? `<div class="description-box" style="margin-top:20px;"><div class="label">About</div><p>${esc(activity.description)}</p></div>` : ""}`;
 
-        const ownerNote = isOwner
-          ? `
-      <div class="alert alert-info show" style="margin-top:16px;">
-        ⭐ You created this activity.
-      </div>`
-          : "";
+        let rightPanel = "";
+
+        if (isOwner) {
+          rightPanel = renderOwnerPanel(cancelled, completed);
+        } else {
+          rightPanel = renderUserPanel();
+        }
 
         document.getElementById("content").innerHTML = `
       <div class="detail-header">
@@ -300,66 +281,195 @@
         <div class="detail-badges">
           ${statusBadge(activity.status)}
           <span class="badge badge-category">${esc(activity.category)}</span>
+          ${isOwner ? '<span class="badge" style="background:#F3E8FF;color:#6D28D9;">⭐ Your Activity</span>' : ""}
         </div>
-        ${ownerNote}
       </div>
-
       <div class="detail-body">
-        <div>
-          <div class="detail-info-grid">
-            <div class="detail-info-box">
-              <div class="label">📅 Date</div>
-              <div class="value">${fmtDate(activity.date)}</div>
-            </div>
-            <div class="detail-info-box">
-              <div class="label">⏰ Time</div>
-              <div class="value">${fmtTime(activity.time)}</div>
-            </div>
-            <div class="detail-info-box">
-              <div class="label">📍 Location</div>
-              <div class="value">${esc(activity.location)}</div>
-            </div>
-            <div class="detail-info-box">
-              <div class="label">👥 Participants</div>
-              <div class="value">${activity.approved_participants_count} / ${activity.max_participants} joined</div>
-            </div>
-          </div>
-          ${
-            activity.description
-              ? `
-          <div class="description-box">
-            <div class="label">About</div>
-            <p>${esc(activity.description)}</p>
-          </div>`
-              : ""
-          }
-        </div>
-
-        <div>${ownerActions}</div>
+        <div>${infoGrid}</div>
+        <div>${rightPanel}</div>
       </div>`;
       }
+
+      /* ---------- Owner Panel ---------- */
+
+      function renderOwnerPanel(cancelled, completed) {
+        const manageCard =
+          !cancelled && !completed
+            ? `
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-header" style="margin-bottom:14px;"><h2>Manage Activity</h2></div>
+        <div class="owner-actions">
+          <button class="btn btn-outline btn-full" onclick="openEdit()">✏️ Edit Activity</button>
+          <button class="btn btn-danger btn-full" id="cancel-btn" onclick="cancelActivity()">🚫 Cancel Activity</button>
+        </div>
+      </div>`
+            : "";
+
+        const pendingCount = requests.filter(
+          (r) => r.status === "pending",
+        ).length;
+        const participantsCard = `
+      <div class="card">
+        <div class="card-header" style="margin-bottom:${requests.length ? "0" : "14px"};">
+          <h2>Participation Requests</h2>
+          ${pendingCount > 0 ? `<span class="badge badge-pending">${pendingCount} pending</span>` : ""}
+        </div>
+        <div id="requests-container">
+          ${requests.length ? renderRequestRows() : '<p style="color:var(--text-2);font-size:.875rem;padding-top:14px;">No requests yet.</p>'}
+        </div>
+      </div>`;
+
+        return manageCard + participantsCard;
+      }
+
+      function renderRequestRows() {
+        return `<div class="participants-panel">${requests
+          .map((req) => {
+            const phoneRow = req.requester_phone
+              ? `<div class="participant-phone">📱 ${esc(req.requester_phone)}</div>`
+              : "";
+            const actions =
+              req.status === "pending"
+                ? `
+        <div class="participant-actions">
+          <button class="btn btn-success btn-sm" onclick="approveRequest(${req.id})">✓ Approve</button>
+          <button class="btn btn-danger btn-sm"  onclick="rejectRequest(${req.id})">✗ Reject</button>
+        </div>`
+                : `<span class="badge badge-${req.status}">${req.status}</span>`;
+
+            return `
+        <div class="participant-item" id="req-row-${req.id}">
+          <div class="participant-info">
+            <div class="participant-name">${esc(req.requester_name)}</div>
+            ${phoneRow}
+            <span class="badge badge-${req.status}" style="margin-top:2px;">${req.status}</span>
+          </div>
+          <div>${actions}</div>
+        </div>`;
+          })
+          .join("")}</div>`;
+      }
+
+      /* ---------- Participant Panel ---------- */
+
+      function renderUserPanel() {
+        const status = activity.my_request_status;
+        const isOpen = activity.status === "open";
+
+        // Contact box: SRS 8 — show organizer phone only when approved
+        const contactBox = activity.organizer_phone
+          ? `
+      <div class="contact-box" style="margin-top:12px;">
+        <span class="contact-icon">📱</span>
+        <span><strong>Organizer's phone:</strong> ${esc(activity.organizer_phone)}</span>
+      </div>`
+          : "";
+
+        if (!status) {
+          // No request yet
+          if (!isOpen) {
+            return `
+          <div class="card">
+            <p style="color:var(--text-2);font-size:.875rem;">
+              This activity is <strong>${activity.status}</strong> and not accepting new requests.
+            </p>
+          </div>`;
+          }
+          return `
+        <div class="card">
+          <p style="font-size:.875rem;color:var(--text-2);margin-bottom:14px;">
+            Interested? Request to join this activity.
+          </p>
+          <div id="join-alert" class="alert"></div>
+          <button id="join-btn" class="btn btn-primary btn-full" onclick="requestToJoin()">🤝 Request to Join</button>
+        </div>`;
+        }
+
+        // Request exists
+        const statusMessages = {
+          pending: {
+            icon: "⏳",
+            msg: "Your request is pending approval from the organizer.",
+            cls: "alert-warning",
+          },
+          approved: {
+            icon: "✅",
+            msg: "Your request was approved! You're in.",
+            cls: "alert-success",
+          },
+          rejected: {
+            icon: "❌",
+            msg: "Your request was not approved for this activity.",
+            cls: "alert-error",
+          },
+        };
+        const s = statusMessages[status] || statusMessages.pending;
+        return `
+      <div class="card">
+        <div class="request-status-box">
+          <div class="request-status-row">
+            <span>Your request status:</span>
+            <span class="badge badge-${status}">${status}</span>
+          </div>
+          <div class="alert ${s.cls} show" style="margin:0;">${s.icon} ${s.msg}</div>
+        </div>
+        ${contactBox}
+      </div>`;
+      }
+
+      /* ---------- Actions ---------- */
+
+      async function requestToJoin() {
+        hideAlert("join-alert");
+        const btn = document.getElementById("join-btn");
+        setLoading(btn, true, "Sending…");
+        try {
+          await apiRequest(`/activities/${activityId}/requests`, {
+            method: "POST",
+          });
+          await loadActivity(); // Reload to show updated status
+        } catch (err) {
+          showAlert("join-alert", err.detail || "Request failed.", "error");
+          setLoading(btn, false);
+        }
+      }
+
+      async function approveRequest(requestId) {
+        try {
+          await apiRequest(
+            `/activities/${activityId}/requests/${requestId}/approve`,
+            { method: "POST" },
+          );
+          await loadActivity();
+        } catch (err) {
+          showAlert("page-alert", err.detail || "Approve failed.", "error");
+        }
+      }
+
+      async function rejectRequest(requestId) {
+        try {
+          await apiRequest(
+            `/activities/${activityId}/requests/${requestId}/reject`,
+            { method: "POST" },
+          );
+          await loadActivity();
+        } catch (err) {
+          showAlert("page-alert", err.detail || "Reject failed.", "error");
+        }
+      }
+
+      /* ---------- Edit ---------- */
 
       function openEdit() {
         document.getElementById("edit-section").style.display = "";
         hideAlert("edit-alert");
-
         document.getElementById("e-title").value = activity.title;
         document.getElementById("e-location").value = activity.location;
         document.getElementById("e-date").value = activity.date;
         document.getElementById("e-time").value = activity.time.slice(0, 5);
         document.getElementById("e-max").value = activity.max_participants;
         document.getElementById("e-desc").value = activity.description || "";
-
-        // Set category select
-        const catEl = document.getElementById("e-category");
-        for (let opt of catEl.options) {
-          if (opt.value === activity.category) {
-            opt.selected = true;
-            break;
-          }
-        }
-        catEl.value = activity.category;
-
+        document.getElementById("e-category").value = activity.category;
         document
           .getElementById("edit-section")
           .scrollIntoView({ behavior: "smooth" });
@@ -374,7 +484,6 @@
         .addEventListener("submit", async (e) => {
           e.preventDefault();
           hideAlert("edit-alert");
-
           const title = document.getElementById("e-title").value.trim();
           const category = document.getElementById("e-category").value;
           const location = document.getElementById("e-location").value.trim();
@@ -383,14 +492,11 @@
           const max = parseInt(document.getElementById("e-max").value);
           const desc = document.getElementById("e-desc").value.trim();
           const btn = document.getElementById("save-btn");
-
-          if (!title || !category || !location || !date || !time || !max) {
+          if (!title || !category || !location || !date || !time || !max)
             return showAlert(
               "edit-alert",
               "Please fill in all required fields.",
             );
-          }
-
           setLoading(btn, true, "Saving…");
           try {
             activity = await apiRequest(`/activities/${activityId}`, {
@@ -414,12 +520,7 @@
         });
 
       async function cancelActivity() {
-        if (
-          !confirm(
-            "Are you sure you want to cancel this activity? This cannot be undone.",
-          )
-        )
-          return;
+        if (!confirm("Cancel this activity? This cannot be undone.")) return;
         const btn = document.getElementById("cancel-btn");
         if (btn) setLoading(btn, true, "Cancelling…");
         try {
@@ -429,7 +530,7 @@
           renderDetail();
           closeEdit();
         } catch (err) {
-          showAlert("alert", err.detail || "Cancel failed.");
+          showAlert("page-alert", err.detail || "Cancel failed.", "error");
           if (btn) setLoading(btn, false);
         }
       }

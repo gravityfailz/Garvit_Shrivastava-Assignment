@@ -13,7 +13,6 @@
     />
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="container navbar-inner">
         <a
@@ -31,6 +30,7 @@
               >🏠 Browse</a
             >
           </li>
+          <li><a href="./my-activities.html">📋 My Activities</a></li>
           <li><a href="./profile.html">👤 Profile</a></li>
         </ul>
         <div class="navbar-actions">
@@ -72,6 +72,70 @@
         >
           + Create Activity
         </button>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="filter-bar-title">🔍 Filter & Sort</div>
+        <div class="filter-row">
+          <div class="filter-group">
+            <label for="f-category">Category</label>
+            <select
+              id="f-category"
+              class="form-control"
+            >
+              <option value="">All Categories</option>
+              <option>Cricket Match</option>
+              <option>Badminton Session</option>
+              <option>Cafe Meetup</option>
+              <option>Movie Plan</option>
+              <option>Study Group</option>
+              <option>Weekend Trip</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="f-location">Location</label>
+            <input
+              id="f-location"
+              type="text"
+              class="form-control"
+              placeholder="Search location…"
+            />
+          </div>
+          <div class="filter-group">
+            <label for="f-date">Date</label>
+            <input
+              id="f-date"
+              type="date"
+              class="form-control"
+            />
+          </div>
+          <div class="filter-group">
+            <label for="f-sort">Sort by Date</label>
+            <select
+              id="f-sort"
+              class="form-control"
+            >
+              <option value="desc">Newest First</option>
+              <option value="asc">Oldest First</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="applyFilters()"
+            >
+              Apply
+            </button>
+            <button
+              class="btn btn-ghost btn-sm"
+              onclick="clearFilters()"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Tabs -->
@@ -272,7 +336,6 @@
           renderNavUser(me.name);
         } catch (_) {}
 
-        // Set min date for the create form to tomorrow
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         document.getElementById("c-date").min = tomorrow
@@ -282,14 +345,40 @@
         await loadActivities();
       }
 
+      function buildQueryString() {
+        const params = new URLSearchParams();
+        const cat = document.getElementById("f-category").value;
+        const loc = document.getElementById("f-location").value.trim();
+        const date = document.getElementById("f-date").value;
+        const sort = document.getElementById("f-sort").value;
+        if (cat) params.set("category", cat);
+        if (loc) params.set("location", loc);
+        if (date) params.set("date", date);
+        if (sort) params.set("sort_by_date", sort);
+        const qs = params.toString();
+        return qs ? "?" + qs : "";
+      }
+
       async function loadActivities() {
         try {
-          allActivities = await apiRequest("/activities");
+          allActivities = await apiRequest("/activities" + buildQueryString());
           renderActivities();
         } catch (err) {
           document.getElementById("activities-container").innerHTML =
-            `<div class="alert alert-error show">${esc(err.detail)}</div>`;
+            `<div class="alert alert-error show">${esc(err.detail || "Failed to load.")}</div>`;
         }
+      }
+
+      function applyFilters() {
+        loadActivities();
+      }
+
+      function clearFilters() {
+        document.getElementById("f-category").value = "";
+        document.getElementById("f-location").value = "";
+        document.getElementById("f-date").value = "";
+        document.getElementById("f-sort").value = "desc";
+        loadActivities();
       }
 
       function switchTab(tab) {
@@ -315,11 +404,11 @@
           const msg =
             currentTab === "mine"
               ? "You haven't created any activities yet."
-              : "No activities found. Be the first to create one!";
+              : "No activities match your filters. Try adjusting them.";
           container.innerHTML = `
         <div class="empty-state">
           <div class="empty-icon">🎯</div>
-          <h3>${currentTab === "mine" ? "No activities yet" : "Nothing here yet"}</h3>
+          <h3>${currentTab === "mine" ? "No activities yet" : "Nothing found"}</h3>
           <p>${msg}</p>
         </div>`;
           return;
@@ -355,7 +444,6 @@
         document.getElementById("create-form").reset();
         hideAlert("create-alert");
       }
-
       function closeCreateModal() {
         document.getElementById("create-modal").classList.remove("open");
       }
@@ -371,18 +459,16 @@
         const desc = document.getElementById("c-desc").value.trim();
         const btn = document.getElementById("create-btn");
 
-        if (!title || !category || !location || !date || !time || !max) {
+        if (!title || !category || !location || !date || !time || !max)
           return showAlert(
             "create-alert",
             "Please fill in all required fields.",
           );
-        }
-        if (max < 1) {
+        if (max < 1)
           return showAlert(
             "create-alert",
             "Max participants must be at least 1.",
           );
-        }
 
         setLoading(btn, true, "Creating…");
         try {
@@ -406,13 +492,11 @@
         }
       }
 
-      // Close modal on overlay click
       document
         .getElementById("create-modal")
         .addEventListener("click", function (e) {
           if (e.target === this) closeCreateModal();
         });
-
       init();
     </script>
   </body>

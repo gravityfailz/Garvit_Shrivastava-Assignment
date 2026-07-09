@@ -13,7 +13,6 @@
     />
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="container navbar-inner">
         <a
@@ -25,6 +24,7 @@
         </a>
         <ul class="navbar-nav">
           <li><a href="./activities.html">🏠 Browse</a></li>
+          <li><a href="./my-activities.html">📋 My Activities</a></li>
           <li>
             <a
               href="./profile.html"
@@ -37,7 +37,6 @@
           <a
             href="./profile.html"
             class="user-pill"
-            id="user-pill"
           >
             <div
               class="avatar"
@@ -67,9 +66,13 @@
           <h1>My Profile</h1>
           <p>View and manage your account details.</p>
         </div>
+        <a
+          href="./my-activities.html"
+          class="btn btn-outline"
+          >📋 My Activities</a
+        >
       </div>
 
-      <!-- Loading state -->
       <div
         id="loading"
         class="loading"
@@ -78,7 +81,6 @@
         Loading profile…
       </div>
 
-      <!-- Profile content (hidden until loaded) -->
       <div
         id="profile-content"
         style="display: none"
@@ -88,7 +90,6 @@
           id="view-mode"
           class="profile-layout"
         >
-          <!-- Sidebar -->
           <div
             class="card"
             style="text-align: center; padding: 28px"
@@ -118,13 +119,16 @@
             >
               ✏️ Edit Profile
             </button>
+            <a
+              href="./my-activities.html"
+              class="btn btn-ghost btn-full"
+              style="margin-top: 8px"
+              >📋 My Activities</a
+            >
           </div>
 
-          <!-- Info list -->
           <div class="card">
-            <div class="card-header">
-              <h2>Account Details</h2>
-            </div>
+            <div class="card-header"><h2>Account Details</h2></div>
             <ul class="info-list">
               <li class="info-item">
                 <span class="info-icon">📧</span>
@@ -178,7 +182,7 @@
           </div>
         </div>
 
-        <!-- EDIT MODE (hidden by default) -->
+        <!-- EDIT MODE -->
         <div
           id="edit-mode"
           style="display: none; max-width: 640px"
@@ -193,7 +197,6 @@
                 ✕ Cancel
               </button>
             </div>
-
             <div
               id="edit-alert"
               class="alert"
@@ -202,7 +205,6 @@
               id="edit-success"
               class="alert"
             ></div>
-
             <form
               id="edit-form"
               novalidate
@@ -290,7 +292,6 @@
           </div>
         </div>
       </div>
-      <!-- /profile-content -->
     </div>
 
     <script src="./js/config.js"></script>
@@ -298,7 +299,6 @@
     <script src="./js/api.js"></script>
     <script>
       requireAuth();
-
       let currentUser = null;
 
       async function loadProfile() {
@@ -310,7 +310,7 @@
           document.getElementById("profile-content").style.display = "";
         } catch (err) {
           document.getElementById("loading").innerHTML =
-            `<div class="alert alert-error show">${esc(err.detail)}</div>`;
+            `<div class="alert alert-error show">${esc(err.detail || "Failed to load profile.")}</div>`;
         }
       }
 
@@ -338,7 +338,6 @@
         document.getElementById("edit-mode").style.display = "";
         hideAlert("edit-alert");
         hideAlert("edit-success");
-        // Pre-populate
         document.getElementById("e-name").value = currentUser.name;
         document.getElementById("e-email").value = currentUser.email;
         document.getElementById("e-phone").value = currentUser.phone_number;
@@ -357,21 +356,17 @@
           e.preventDefault();
           hideAlert("edit-alert");
           hideAlert("edit-success");
-
           const name = document.getElementById("e-name").value.trim();
           const email = document.getElementById("e-email").value.trim();
           const phone = document.getElementById("e-phone").value.trim();
           const city = document.getElementById("e-city").value.trim();
           const bio = document.getElementById("e-bio").value.trim();
           const btn = document.getElementById("save-btn");
-
-          if (!name || !email || !phone) {
+          if (!name || !email || !phone)
             return showAlert(
               "edit-alert",
               "Name, email, and phone are required.",
             );
-          }
-
           setLoading(btn, true, "Saving…");
           try {
             currentUser = await apiRequest("/users/me", {
