@@ -1,14 +1,11 @@
 import logging
-
 import jwt
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
 
 from app.core.security import hash_password, verify_password, create_access_token, decode_access_token
-from app.database import get_db
-from app.dependencies import get_current_user, oauth2_scheme, CREDENTIALS_EXCEPTION
+from app.dependencies import get_user_repo, oauth2_scheme, CREDENTIALS_EXCEPTION, get_current_user
 from app.models.user import User
-from app.models.token_blacklist import TokenBlacklist
+from app.repositories.user_repository import UserRepository
 from app.schemas.user import UserCreate, UserLogin, UserOut
 from app.schemas.token import Token
 
@@ -17,14 +14,14 @@ router = APIRouter(prefix="/api/auth", tags=["Auth"])
 
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
-def register(payload: UserCreate, db: Session = Depends(get_db)):
-    """Create a new account. Email must be unique."""
-    if db.query(User).filter(User.email == payload.email).first():
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="An account with this email already exists.",
-        )
-    user = User(
+def register(
+    payload: UserCreate,
+    user_repo: UserRepository = Depends(get_user_repo),
+):
+    if user_repo.email_taken(payload.email):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail="An account with this email already exists.")
+    user = user_repo.create(
         name=payload.name,
         email=payload.email,
         password_hash=hash_password(payload.password),
@@ -32,23 +29,20 @@ def register(payload: UserCreate, db: Session = Depends(get_db)):
         city=payload.city,
         bio=payload.bio,
     )
-    db.add(user)
-    db.commit()
-    db.refresh(user)
     logger.info("New user registered: user_id=%s email=%s", user.id, user.email)
     return user
 
 
 @router.post("/login", response_model=Token)
-def login(payload: UserLogin, db: Session = Depends(get_db)):
-    """Validate credentials and return a JWT access token."""
-    user = db.query(User).filter(User.email == payload.email).first()
+def login(
+    payload: UserLogin,
+    user_repo: UserRepository = Depends(get_user_repo),
+):
+    user = user_repo.get_by_email(payload.email)
     if not user or not verify_password(payload.password, user.password_hash):
         logger.warning("Failed login attempt for email=%s", payload.email)
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password.",
-        )
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+                            detail="Incorrect email or password.")
     token, _jti, _exp = create_access_token(subject=str(user.id))
     logger.info("User logged in: user_id=%s", user.id)
     return Token(access_token=token)
@@ -58,9 +52,8 @@ def login(payload: UserLogin, db: Session = Depends(get_db)):
 def logout(
     token: str | None = Depends(oauth2_scheme),
     current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
+    user_repo: UserRepository = Depends(get_user_repo),
 ):
-    """Blacklist the current token — real server-side invalidation."""
     if not token:
         raise CREDENTIALS_EXCEPTION
     try:
@@ -69,9 +62,8 @@ def logout(
         raise CREDENTIALS_EXCEPTION
 
     jti = payload.get("jti")
-    if not db.query(TokenBlacklist).filter(TokenBlacklist.jti == jti).first():
-        db.add(TokenBlacklist(jti=jti))
-        db.commit()
+    if jti and not user_repo.is_token_blacklisted(jti):
+        user_repo.blacklist_token(jti)
 
     logger.info("User logged out: user_id=%s", current_user.id)
     return {"detail": "Logged out successfully."}

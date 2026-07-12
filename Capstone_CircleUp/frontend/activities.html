@@ -11,6 +11,10 @@
       rel="stylesheet"
       href="./css/style.css"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -75,11 +79,14 @@
       </div>
 
       <!-- Filter Bar -->
-      <div class="filter-bar">
+      <div
+        class="filter-bar"
+        id="filter-bar"
+      >
         <div class="filter-bar-title">🔍 Filter & Sort</div>
         <div class="filter-row">
           <div class="filter-group">
-            <label for="f-category">Category</label>
+            <label>Category</label>
             <select
               id="f-category"
               class="form-control"
@@ -95,16 +102,45 @@
             </select>
           </div>
           <div class="filter-group">
-            <label for="f-location">Location</label>
-            <input
-              id="f-location"
-              type="text"
-              class="form-control"
-              placeholder="Search location…"
-            />
+            <label>Location</label>
+            <div
+              class="city-dropdown"
+              id="f-loc-dd"
+            >
+              <div class="city-input-wrap">
+                <span class="city-search-icon">🔍</span>
+                <input
+                  id="f-location"
+                  type="text"
+                  class="form-control city-input"
+                  placeholder="Search city…"
+                  autocomplete="off"
+                />
+                <span class="city-arrow">
+                  <svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 1.5l5 5 5-5"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="city-list"
+                id="f-location-list"
+              ></div>
+            </div>
           </div>
           <div class="filter-group">
-            <label for="f-date">Date</label>
+            <label>Date</label>
             <input
               id="f-date"
               type="date"
@@ -112,7 +148,7 @@
             />
           </div>
           <div class="filter-group">
-            <label for="f-sort">Sort by Date</label>
+            <label>Sort</label>
             <select
               id="f-sort"
               class="form-control"
@@ -138,7 +174,6 @@
         </div>
       </div>
 
-      <!-- Tabs -->
       <div class="tabs">
         <button
           class="tab-btn active"
@@ -175,7 +210,7 @@
     >
       <div class="modal">
         <div class="modal-header">
-          <h3>Create New Activity</h3>
+          <h3>✨ Create New Activity</h3>
           <button
             class="modal-close"
             onclick="closeCreateModal()"
@@ -245,18 +280,45 @@
               </div>
             </div>
             <div class="form-group">
-              <label
-                class="form-label"
-                for="c-location"
+              <label class="form-label"
                 >Location <span class="req">*</span></label
               >
-              <input
-                id="c-location"
-                type="text"
-                class="form-control"
-                placeholder="e.g. Sector 5 Park, Delhi"
-                required
-              />
+              <div
+                class="city-dropdown"
+                id="c-loc-dd"
+              >
+                <div class="city-input-wrap">
+                  <span class="city-search-icon">🔍</span>
+                  <input
+                    id="c-location"
+                    type="text"
+                    class="form-control city-input"
+                    placeholder="Search or type a city / venue…"
+                    autocomplete="off"
+                    required
+                  />
+                  <span class="city-arrow">
+                    <svg
+                      width="12"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 1.5l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="city-list"
+                  id="c-location-list"
+                ></div>
+              </div>
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -284,6 +346,18 @@
                   class="form-control"
                   required
                 />
+              </div>
+            </div>
+            <div
+              id="datetime-hint"
+              style="margin-top: -10px; margin-bottom: 14px; display: none"
+            >
+              <div
+                class="alert alert-warning show"
+                style="margin: 0; padding: 9px 12px; font-size: 0.82rem"
+              >
+                ⏰ The selected date/time is in the past. Please choose a future
+                time.
               </div>
             </div>
             <div class="form-group">
@@ -322,12 +396,27 @@
     <script src="./js/config.js"></script>
     <script src="./js/auth.js"></script>
     <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/city-dropdown.js"></script>
     <script>
       requireAuth();
 
-      let allActivities = [];
-      let currentUserId = null;
-      let currentTab = "all";
+      const CATEGORY_CONFIG = {
+        "Cricket Match": { emoji: "🏏", cls: "cat-cricket" },
+        "Badminton Session": { emoji: "🏸", cls: "cat-badminton" },
+        "Cafe Meetup": { emoji: "☕", cls: "cat-cafe" },
+        "Movie Plan": { emoji: "🎬", cls: "cat-movie" },
+        "Study Group": { emoji: "📚", cls: "cat-study" },
+        "Weekend Trip": { emoji: "🌄", cls: "cat-trip" },
+        Other: { emoji: "🎯", cls: "cat-other" },
+      };
+      function catConfig(c) {
+        return CATEGORY_CONFIG[c] || { emoji: "🎯", cls: "cat-other" };
+      }
+
+      let allActivities = [],
+        currentUserId = null,
+        currentTab = "all";
 
       async function init() {
         try {
@@ -336,32 +425,70 @@
           renderNavUser(me.name);
         } catch (_) {}
 
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        document.getElementById("c-date").min = tomorrow
-          .toISOString()
-          .split("T")[0];
+        /* ── Date constraints ── */
+        const todayStr = new Date().toISOString().split("T")[0];
+        document.getElementById("c-date").min = todayStr;
+
+        /* ── Live date/time validation ── */
+        function checkDatetime() {
+          const date = document.getElementById("c-date").value;
+          const time = document.getElementById("c-time").value;
+          const hint = document.getElementById("datetime-hint");
+          const dateEl = document.getElementById("c-date");
+          const timeEl = document.getElementById("c-time");
+          if (date && time) {
+            const past = !isFutureDatetime(date, time);
+            hint.style.display = past ? "" : "none";
+            dateEl.classList.toggle("input-invalid", past);
+            timeEl.classList.toggle("input-invalid", past);
+            dateEl.classList.toggle("input-valid", !past);
+            timeEl.classList.toggle("input-valid", !past);
+          } else {
+            hint.style.display = "none";
+          }
+        }
+
+        document
+          .getElementById("c-date")
+          .addEventListener("change", checkDatetime);
+        document
+          .getElementById("c-time")
+          .addEventListener("change", checkDatetime);
 
         await loadActivities();
+
+        /* ── Init city dropdowns ── */
+        initCityDropdown("c-location", "c-location-list");
+        initCityDropdown("f-location", "f-location-list");
+
+        if (typeof gsap !== "undefined")
+          gsap.from("#filter-bar", {
+            y: -20,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          });
       }
 
-      function buildQueryString() {
-        const params = new URLSearchParams();
+      function buildQS() {
+        const p = new URLSearchParams();
         const cat = document.getElementById("f-category").value;
         const loc = document.getElementById("f-location").value.trim();
         const date = document.getElementById("f-date").value;
         const sort = document.getElementById("f-sort").value;
-        if (cat) params.set("category", cat);
-        if (loc) params.set("location", loc);
-        if (date) params.set("date", date);
-        if (sort) params.set("sort_by_date", sort);
-        const qs = params.toString();
+        if (cat) p.set("category", cat);
+        if (loc) p.set("location", loc);
+        if (date) p.set("date", date);
+        if (sort) p.set("sort_by_date", sort);
+        const qs = p.toString();
         return qs ? "?" + qs : "";
       }
 
       async function loadActivities() {
+        document.getElementById("activities-container").innerHTML =
+          '<div class="loading"><div class="spinner"></div>Loading…</div>';
         try {
-          allActivities = await apiRequest("/activities" + buildQueryString());
+          allActivities = await apiRequest("/activities" + buildQS());
           renderActivities();
         } catch (err) {
           document.getElementById("activities-container").innerHTML =
@@ -372,7 +499,6 @@
       function applyFilters() {
         loadActivities();
       }
-
       function clearFilters() {
         document.getElementById("f-category").value = "";
         document.getElementById("f-location").value = "";
@@ -397,30 +523,23 @@
           currentTab === "mine"
             ? allActivities.filter((a) => a.creator_id === currentUserId)
             : allActivities;
-
-        const container = document.getElementById("activities-container");
-
+        const c = document.getElementById("activities-container");
         if (!list.length) {
-          const msg =
-            currentTab === "mine"
-              ? "You haven't created any activities yet."
-              : "No activities match your filters. Try adjusting them.";
-          container.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">🎯</div>
-          <h3>${currentTab === "mine" ? "No activities yet" : "Nothing found"}</h3>
-          <p>${msg}</p>
-        </div>`;
+          c.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">${currentTab === "mine" ? "🎯" : "🔍"}</div>
+        <h3>${currentTab === "mine" ? "No activities created yet" : "Nothing found"}</h3>
+        <p>${currentTab === "mine" ? "Create your first activity!" : "Try adjusting your filters."}</p>
+      </div>`;
           return;
         }
-
-        container.innerHTML = `<div class="activities-grid">${list.map(activityCard).join("")}</div>`;
-      }
-
-      function activityCard(a) {
-        const isOwner = a.creator_id === currentUserId;
-        return `
+        c.innerHTML = `<div class="activities-grid">${list
+          .map((a) => {
+            const { emoji, cls } = catConfig(a.category);
+            const isOwner = a.creator_id === currentUserId;
+            return `
       <a class="activity-card" href="./activity-detail.html?id=${a.id}">
+        <div class="cat-img ${cls}">${emoji}</div>
         <div class="activity-card-body">
           <div class="activity-card-top">
             <div class="activity-card-title">${esc(a.title)}</div>
@@ -433,16 +552,47 @@
           </div>
           <div class="activity-card-footer">
             <span>👥 ${a.approved_participants_count} / ${a.max_participants} joined</span>
-            ${isOwner ? '<span style="color:var(--primary);font-weight:600;font-size:.78rem;">⭐ Your activity</span>' : ""}
+            ${isOwner ? '<span style="color:var(--primary);font-weight:700;font-size:.75rem;">⭐ Yours</span>' : ""}
           </div>
         </div>
       </a>`;
+          })
+          .join("")}</div>`;
+        if (typeof gsap !== "undefined") {
+          gsap.from(".activity-card", {
+            y: 32,
+            opacity: 0,
+            stagger: 0.06,
+            duration: 0.45,
+            ease: "power2.out",
+          });
+          document.querySelectorAll(".activity-card").forEach((card) => {
+            card.addEventListener("mouseenter", () =>
+              gsap.to(card, { y: -6, duration: 0.22, ease: "power2.out" }),
+            );
+            card.addEventListener("mouseleave", () =>
+              gsap.to(card, { y: 0, duration: 0.22, ease: "power2.out" }),
+            );
+          });
+        }
       }
 
       function openCreateModal() {
         document.getElementById("create-modal").classList.add("open");
         document.getElementById("create-form").reset();
         hideAlert("create-alert");
+        document.getElementById("datetime-hint").style.display = "none";
+        ["c-date", "c-time", "c-location"].forEach((id) => {
+          const el = document.getElementById(id);
+          el.classList.remove("input-valid", "input-invalid");
+        });
+        if (typeof gsap !== "undefined")
+          gsap.from(".modal", {
+            scale: 0.93,
+            opacity: 0,
+            duration: 0.28,
+            ease: "power2.out",
+          });
       }
       function closeCreateModal() {
         document.getElementById("create-modal").classList.remove("open");
@@ -459,16 +609,31 @@
         const desc = document.getElementById("c-desc").value.trim();
         const btn = document.getElementById("create-btn");
 
-        if (!title || !category || !location || !date || !time || !max)
-          return showAlert(
-            "create-alert",
-            "Please fill in all required fields.",
+        if (!title || !category || !location || !date || !time || !max) {
+          showToast(
+            "Please fill in all required fields before creating the activity.",
+            "warning",
+            4000,
+            "Missing Fields",
           );
-        if (max < 1)
-          return showAlert(
-            "create-alert",
-            "Max participants must be at least 1.",
+          return;
+        }
+
+        /* ── Past date/time guard ── */
+        if (!isFutureDatetime(date, time)) {
+          /* Prominent toast popup */
+          showToast(
+            "The date and time you selected are in the past. Activities must be scheduled for a future time.",
+            "warning",
+            6000,
+            "⏰ Invalid Date & Time",
           );
+          /* Also highlight fields */
+          document.getElementById("c-date").classList.add("input-invalid");
+          document.getElementById("c-time").classList.add("input-invalid");
+          document.getElementById("datetime-hint").style.display = "";
+          return;
+        }
 
         setLoading(btn, true, "Creating…");
         try {
@@ -479,12 +644,18 @@
               category,
               location,
               date,
-              time: time + ":00",
+              time: time.length === 5 ? time + ":00" : time,
               max_participants: max,
               description: desc || null,
             }),
           });
           closeCreateModal();
+          showToast(
+            "Activity created successfully! 🎉",
+            "success",
+            3500,
+            "Activity Created",
+          );
           await loadActivities();
         } catch (err) {
           showAlert("create-alert", err.detail || "Could not create activity.");
@@ -497,6 +668,7 @@
         .addEventListener("click", function (e) {
           if (e.target === this) closeCreateModal();
         });
+
       init();
     </script>
   </body>

@@ -1,6 +1,9 @@
 """
-Shared FastAPI dependencies — primarily the get_current_user auth guard.
-Protected endpoints return a clean 401, never a raw stack trace.
+Shared FastAPI dependencies.
+
+Includes:
+  - get_current_user  — auth guard for protected endpoints
+  - get_*_repo        — repository dependency injectors (repository pattern)
 """
 import logging
 
@@ -12,7 +15,9 @@ from sqlalchemy.orm import Session
 from app.core.security import decode_access_token
 from app.database import get_db
 from app.models.user import User
-from app.models.token_blacklist import TokenBlacklist
+from app.repositories.user_repository import UserRepository
+from app.repositories.activity_repository import ActivityRepository
+from app.repositories.participation_repository import ParticipationRepository
 
 logger = logging.getLogger("circleup")
 
@@ -25,13 +30,29 @@ CREDENTIALS_EXCEPTION = HTTPException(
 )
 
 
+# ---- Repository dependencies ----
+
+def get_user_repo(db: Session = Depends(get_db)) -> UserRepository:
+    return UserRepository(db)
+
+
+def get_activity_repo(db: Session = Depends(get_db)) -> ActivityRepository:
+    return ActivityRepository(db)
+
+
+def get_participation_repo(db: Session = Depends(get_db)) -> ParticipationRepository:
+    return ParticipationRepository(db)
+
+
+# ---- Auth dependency ----
+
 def get_current_user(
     token: str | None = Depends(oauth2_scheme),
-    db: Session = Depends(get_db),
+    user_repo: UserRepository = Depends(get_user_repo),
 ) -> User:
     """
     Resolve the logged-in user from Authorization: Bearer <token>.
-    Raises 401 if missing, malformed, expired, or blacklisted.
+    Returns 401 if the token is missing, invalid, expired, or blacklisted.
     """
     if not token:
         raise CREDENTIALS_EXCEPTION
@@ -44,15 +65,14 @@ def get_current_user(
         raise CREDENTIALS_EXCEPTION
 
     user_id = payload.get("sub")
-    jti = payload.get("jti")
+    jti     = payload.get("jti")
     if user_id is None or jti is None:
         raise CREDENTIALS_EXCEPTION
 
-    is_blacklisted = db.query(TokenBlacklist).filter(TokenBlacklist.jti == jti).first() is not None
-    if is_blacklisted:
+    if user_repo.is_token_blacklisted(jti):
         raise CREDENTIALS_EXCEPTION
 
-    user = db.query(User).filter(User.id == int(user_id)).first()
+    user = user_repo.get_by_id(int(user_id))
     if user is None:
         raise CREDENTIALS_EXCEPTION
 

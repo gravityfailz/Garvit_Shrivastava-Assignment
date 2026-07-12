@@ -11,6 +11,10 @@
       rel="stylesheet"
       href="./css/style.css"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -18,10 +22,9 @@
         <a
           href="./activities.html"
           class="navbar-brand"
+          ><div class="brand-icon">🌐</div>
+          CircleUp</a
         >
-          <div class="brand-icon">🌐</div>
-          CircleUp
-        </a>
         <ul class="navbar-nav">
           <li><a href="./activities.html">🏠 Browse</a></li>
           <li><a href="./my-activities.html">📋 My Activities</a></li>
@@ -92,7 +95,7 @@
         >
           <div
             class="card"
-            style="text-align: center; padding: 28px"
+            style="text-align: center; padding: 30px"
           >
             <div
               class="profile-avatar"
@@ -114,7 +117,7 @@
             ></div>
             <button
               class="btn btn-outline btn-full"
-              style="margin-top: 20px"
+              style="margin-top: 22px"
               onclick="switchToEdit()"
             >
               ✏️ Edit Profile
@@ -126,55 +129,86 @@
               >📋 My Activities</a
             >
           </div>
-
           <div class="card">
             <div class="card-header"><h2>Account Details</h2></div>
             <ul class="info-list">
               <li class="info-item">
                 <span class="info-icon">📧</span>
                 <div>
-                  <div style="font-size: 0.75rem; color: var(--text-2)">
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
                     Email
                   </div>
                   <div
                     id="view-email"
-                    style="font-weight: 500"
+                    style="font-weight: 600; margin-top: 2px"
                   ></div>
                 </div>
               </li>
               <li class="info-item">
                 <span class="info-icon">📱</span>
                 <div>
-                  <div style="font-size: 0.75rem; color: var(--text-2)">
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
                     Phone
                   </div>
                   <div
                     id="view-phone"
-                    style="font-weight: 500"
+                    style="font-weight: 600; margin-top: 2px"
                   ></div>
                 </div>
               </li>
               <li class="info-item">
                 <span class="info-icon">📍</span>
                 <div>
-                  <div style="font-size: 0.75rem; color: var(--text-2)">
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
                     City
                   </div>
                   <div
                     id="view-city2"
-                    style="font-weight: 500"
+                    style="font-weight: 600; margin-top: 2px"
                   ></div>
                 </div>
               </li>
               <li class="info-item">
                 <span class="info-icon">🗓️</span>
                 <div>
-                  <div style="font-size: 0.75rem; color: var(--text-2)">
-                    Member since
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    Member Since
                   </div>
                   <div
                     id="view-joined"
-                    style="font-weight: 500"
+                    style="font-weight: 600; margin-top: 2px"
                   ></div>
                 </div>
               </li>
@@ -246,7 +280,9 @@
                   type="tel"
                   class="form-control"
                   required
+                  maxlength="10"
                 />
+                <div class="form-hint">6–10 digits only.</div>
               </div>
               <div class="form-group">
                 <label
@@ -254,11 +290,41 @@
                   for="e-city"
                   >City</label
                 >
-                <input
-                  id="e-city"
-                  type="text"
-                  class="form-control"
-                />
+                <div
+                  class="city-dropdown"
+                  id="profile-city-dd"
+                >
+                  <div class="city-input-wrap">
+                    <span class="city-search-icon">🔍</span>
+                    <input
+                      id="e-city"
+                      type="text"
+                      class="form-control city-input"
+                      placeholder="Search your city…"
+                      autocomplete="off"
+                    />
+                    <span class="city-arrow">
+                      <svg
+                        width="12"
+                        height="8"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                      >
+                        <path
+                          d="M1 1.5l5 5 5-5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="city-list"
+                    id="e-city-list"
+                  ></div>
+                </div>
               </div>
               <div class="form-group">
                 <label
@@ -297,9 +363,12 @@
     <script src="./js/config.js"></script>
     <script src="./js/auth.js"></script>
     <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/city-dropdown.js"></script>
     <script>
       requireAuth();
       let currentUser = null;
+      let cityDDInit = false;
 
       async function loadProfile() {
         try {
@@ -308,6 +377,14 @@
           renderNavUser(currentUser.name);
           document.getElementById("loading").style.display = "none";
           document.getElementById("profile-content").style.display = "";
+          if (typeof gsap !== "undefined")
+            gsap.from(".profile-layout > *", {
+              y: 24,
+              opacity: 0,
+              stagger: 0.1,
+              duration: 0.45,
+              ease: "power2.out",
+            });
         } catch (err) {
           document.getElementById("loading").innerHTML =
             `<div class="alert alert-error show">${esc(err.detail || "Failed to load profile.")}</div>`;
@@ -343,6 +420,18 @@
         document.getElementById("e-phone").value = currentUser.phone_number;
         document.getElementById("e-city").value = currentUser.city || "";
         document.getElementById("e-bio").value = currentUser.bio || "";
+        // Init city dropdown only once
+        if (!cityDDInit) {
+          initCityDropdown("e-city", "e-city-list");
+          cityDDInit = true;
+        }
+        if (typeof gsap !== "undefined")
+          gsap.from("#edit-mode", {
+            y: 20,
+            opacity: 0,
+            duration: 0.35,
+            ease: "power2.out",
+          });
       }
 
       function switchToView() {
@@ -362,11 +451,22 @@
           const city = document.getElementById("e-city").value.trim();
           const bio = document.getElementById("e-bio").value.trim();
           const btn = document.getElementById("save-btn");
-          if (!name || !email || !phone)
-            return showAlert(
-              "edit-alert",
-              "Name, email, and phone are required.",
-            );
+
+          let hasError = false;
+          if (!name) {
+            showAlert("edit-alert", "Name is required.");
+            hasError = true;
+          }
+          if (!Validators.email(email)) {
+            showAlert("edit-alert", "Please enter a valid email address.");
+            hasError = true;
+          }
+          if (!Validators.phone(phone)) {
+            showAlert("edit-alert", "Phone must be 6–10 digits.");
+            hasError = true;
+          }
+          if (hasError) return;
+
           setLoading(btn, true, "Saving…");
           try {
             currentUser = await apiRequest("/users/me", {
@@ -383,11 +483,11 @@
             renderNavUser(currentUser.name);
             showAlert(
               "edit-success",
-              "Profile updated successfully!",
+              "✅ Profile updated successfully!",
               "success",
             );
             setLoading(btn, false);
-            setTimeout(switchToView, 1200);
+            setTimeout(switchToView, 1400);
           } catch (err) {
             showAlert("edit-alert", err.detail || "Update failed.");
             setLoading(btn, false);

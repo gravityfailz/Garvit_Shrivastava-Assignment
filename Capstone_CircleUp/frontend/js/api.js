@@ -14,10 +14,9 @@ async function apiRequest(endpoint, options = {}) {
     throw { status: 0, detail: "Network error. Is the backend running?" };
   }
 
-  // Token invalid/expired — wipe it and redirect
   if (
     response.status === 401 &&
-    window.location.pathname !== "/login.html" &&
+    !window.location.pathname.endsWith("login.html") &&
     !endpoint.includes("/auth/")
   ) {
     clearToken();
@@ -31,7 +30,6 @@ async function apiRequest(endpoint, options = {}) {
   } catch (_) {
     data = {};
   }
-
   if (!response.ok)
     throw {
       status: response.status,
@@ -40,14 +38,13 @@ async function apiRequest(endpoint, options = {}) {
   return data;
 }
 
-/* ---- UI helpers ---- */
+/* ---- Alert helpers ---- */
 function showAlert(id, msg, type = "error") {
   const el = document.getElementById(id);
   if (!el) return;
   el.textContent = msg;
   el.className = `alert alert-${type} show`;
 }
-
 function hideAlert(id) {
   const el = document.getElementById(id);
   if (el) {
@@ -55,7 +52,6 @@ function hideAlert(id) {
     el.className = "alert";
   }
 }
-
 function setLoading(btn, on, label) {
   if (on) {
     btn.disabled = true;
@@ -64,6 +60,50 @@ function setLoading(btn, on, label) {
   } else {
     btn.disabled = false;
     btn.textContent = btn.dataset.orig || "Submit";
+  }
+}
+
+/* ---- Toast notifications ---- */
+function showToast(message, type = "error", duration = 5000, title = null) {
+  let container = document.getElementById("cu-toast-container");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "cu-toast-container";
+    container.className = "cu-toast-container";
+    document.body.appendChild(container);
+  }
+
+  const icons = { error: "⛔", success: "✅", warning: "⚠️", info: "ℹ️" };
+  const labels = {
+    error: "Error",
+    success: "Success",
+    warning: "Heads up!",
+    info: "Info",
+  };
+
+  const toast = document.createElement("div");
+  toast.className = `cu-toast cu-toast-${type}`;
+  toast.innerHTML = `
+    <div class="cu-toast-left">
+      <span class="cu-toast-icon">${icons[type] || "📢"}</span>
+    </div>
+    <div class="cu-toast-body">
+      <div class="cu-toast-title">${esc(title || labels[type] || "")}</div>
+      <div class="cu-toast-msg">${message}</div>
+    </div>
+    <button class="cu-toast-close" onclick="this.closest('.cu-toast').remove()" title="Dismiss">✕</button>
+  `;
+
+  container.appendChild(toast);
+  // Force reflow so the CSS animation triggers
+  toast.getBoundingClientRect();
+  toast.classList.add("cu-toast-in");
+
+  if (duration > 0) {
+    setTimeout(() => {
+      toast.classList.add("cu-toast-out");
+      setTimeout(() => toast.remove(), 380);
+    }, duration);
   }
 }
 
@@ -81,9 +121,9 @@ function fmtDate(d) {
 function fmtTime(t) {
   if (!t) return "";
   const [h, m] = t.split(":");
-  const d = new Date();
-  d.setHours(+h, +m);
-  return d.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" });
+  const dt = new Date();
+  dt.setHours(+h, +m);
+  return dt.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" });
 }
 
 function statusBadge(s) {

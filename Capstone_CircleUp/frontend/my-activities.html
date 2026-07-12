@@ -11,6 +11,10 @@
       rel="stylesheet"
       href="./css/style.css"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -18,10 +22,9 @@
         <a
           href="./activities.html"
           class="navbar-brand"
+          ><div class="brand-icon">🌐</div>
+          CircleUp</a
         >
-          <div class="brand-icon">🌐</div>
-          CircleUp
-        </a>
         <ul class="navbar-nav">
           <li><a href="./activities.html">🏠 Browse</a></li>
           <li>
@@ -64,10 +67,7 @@
       <div class="page-header">
         <div>
           <h1>My Activities</h1>
-          <p>
-            All your created activities, joined activities, and pending
-            requests.
-          </p>
+          <p>Created, joined, and pending requests.</p>
         </div>
         <a
           href="./activities.html"
@@ -82,14 +82,14 @@
           id="tab-created"
           onclick="switchTab('created')"
         >
-          📅 Activities I Created
+          📅 Created
         </button>
         <button
           class="tab-btn"
           id="tab-joined"
           onclick="switchTab('joined')"
         >
-          ✅ Activities I Joined
+          ✅ Joined
         </button>
         <button
           class="tab-btn"
@@ -118,6 +118,19 @@
     <script>
       requireAuth();
 
+      const CATEGORY_CONFIG = {
+        "Cricket Match": { emoji: "🏏", cls: "cat-cricket" },
+        "Badminton Session": { emoji: "🏸", cls: "cat-badminton" },
+        "Cafe Meetup": { emoji: "☕", cls: "cat-cafe" },
+        "Movie Plan": { emoji: "🎬", cls: "cat-movie" },
+        "Study Group": { emoji: "📚", cls: "cat-study" },
+        "Weekend Trip": { emoji: "🌄", cls: "cat-trip" },
+        Other: { emoji: "🎯", cls: "cat-other" },
+      };
+      function catConfig(c) {
+        return CATEGORY_CONFIG[c] || { emoji: "🎯", cls: "cat-other" };
+      }
+
       let currentTab = "created";
 
       async function init() {
@@ -130,111 +143,119 @@
 
       function switchTab(tab) {
         currentTab = tab;
-        ["created", "joined", "requests"].forEach((t) => {
+        ["created", "joined", "requests"].forEach((t) =>
           document
             .getElementById(`tab-${t}`)
-            .classList.toggle("active", t === tab);
-        });
+            .classList.toggle("active", t === tab),
+        );
         loadTab(tab);
       }
 
       async function loadTab(tab) {
-        const container = document.getElementById("tab-content");
-        container.innerHTML =
+        const c = document.getElementById("tab-content");
+        c.innerHTML =
           '<div class="loading"><div class="spinner"></div>Loading…</div>';
-        hideAlert("alert");
-
         try {
           if (tab === "created") {
             const data = await apiRequest("/users/me/activities");
-            renderActivityList(container, data, true);
+            renderActivityList(c, data, true);
           } else if (tab === "joined") {
             const data = await apiRequest("/users/me/joined");
-            renderActivityList(container, data, false);
+            renderActivityList(c, data, false);
           } else {
             const data = await apiRequest("/users/me/requests");
-            renderRequestList(container, data);
+            renderRequestList(c, data);
           }
+          if (typeof gsap !== "undefined")
+            gsap.from("#tab-content > *", {
+              y: 20,
+              opacity: 0,
+              stagger: 0.07,
+              duration: 0.4,
+              ease: "power2.out",
+            });
         } catch (err) {
-          container.innerHTML = `<div class="alert alert-error show">${esc(err.detail || "Failed to load.")}</div>`;
+          c.innerHTML = `<div class="alert alert-error show">${esc(err.detail || "Failed to load.")}</div>`;
         }
       }
 
-      function renderActivityList(container, activities, isCreated) {
+      function renderActivityList(c, activities, isCreated) {
         if (!activities.length) {
-          container.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">${isCreated ? "🎯" : "🤝"}</div>
-          <h3>${isCreated ? "No activities created yet" : "No joined activities yet"}</h3>
-          <p>${isCreated ? "Create your first activity to get started." : "Join activities to see them here."}</p>
-          <a href="./activities.html" class="btn btn-primary" style="margin-top:16px">Browse Activities</a>
-        </div>`;
+          c.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">${isCreated ? "🎯" : "🤝"}</div>
+        <h3>${isCreated ? "No activities created yet" : "No joined activities yet"}</h3>
+        <a href="./activities.html" class="btn btn-primary" style="margin-top:16px;">Browse Activities</a>
+      </div>`;
           return;
         }
-
-        container.innerHTML = `<div class="activities-grid">${activities.map((a) => activityCard(a)).join("")}</div>`;
-      }
-
-      function activityCard(a) {
-        return `
+        c.innerHTML = `<div class="activities-grid">${activities
+          .map((a) => {
+            const { emoji, cls } = catConfig(a.category);
+            return `
       <a class="activity-card" href="./activity-detail.html?id=${a.id}">
+        <div class="cat-img ${cls}">${emoji}</div>
         <div class="activity-card-body">
-          <div class="activity-card-top">
-            <div class="activity-card-title">${esc(a.title)}</div>
-            ${statusBadge(a.status)}
-          </div>
+          <div class="activity-card-top"><div class="activity-card-title">${esc(a.title)}</div>${statusBadge(a.status)}</div>
           <span class="badge badge-category">${esc(a.category)}</span>
           <div class="activity-card-meta">
             <div class="meta-item"><span class="meta-icon">📍</span>${esc(a.location)}</div>
             <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(a.date)} at ${fmtTime(a.time)}</div>
           </div>
-          <div class="activity-card-footer">
-            <span>👥 ${a.approved_participants_count} / ${a.max_participants} joined</span>
-          </div>
+          <div class="activity-card-footer"><span>👥 ${a.approved_participants_count} / ${a.max_participants}</span></div>
         </div>
       </a>`;
+          })
+          .join("")}</div>`;
+        if (typeof gsap !== "undefined")
+          gsap.from(".activity-card", {
+            y: 28,
+            opacity: 0,
+            stagger: 0.06,
+            duration: 0.4,
+            ease: "power2.out",
+          });
       }
 
-      function renderRequestList(container, requests) {
+      function renderRequestList(c, requests) {
         if (!requests.length) {
-          container.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">📩</div>
-          <h3>No participation requests yet</h3>
-          <p>Browse activities and request to join one!</p>
-          <a href="./activities.html" class="btn btn-primary" style="margin-top:16px">Browse Activities</a>
-        </div>`;
+          c.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📩</div>
+        <h3>No requests yet</h3>
+        <a href="./activities.html" class="btn btn-primary" style="margin-top:16px;">Browse Activities</a>
+      </div>`;
           return;
         }
-
-        const rows = requests.map((r) => {
-          const statusClass = `badge-${r.status}`;
-          const phone = r.organizer_phone
-            ? `<div class="contact-box" style="margin-top:10px;">
-             <span class="contact-icon">📱</span>
-             <span><strong>Organizer:</strong> ${esc(r.organizer_name)} — ${esc(r.organizer_phone)}</span>
-           </div>`
-            : "";
-          return `
-        <div class="request-card">
-          <a href="./activity-detail.html?id=${r.activity_id}" class="request-activity-link">
-            <div class="request-card-top">
-              <div>
-                <div class="request-activity-title">${esc(r.activity_title)}</div>
-                <span class="badge badge-category">${esc(r.activity_category)}</span>
-              </div>
-              <span class="badge ${statusClass}">${r.status}</span>
-            </div>
-            <div class="activity-card-meta" style="margin-top:8px;">
-              <div class="meta-item"><span class="meta-icon">📍</span>${esc(r.activity_location)}</div>
-              <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(r.activity_date)} at ${fmtTime(r.activity_time)}</div>
-            </div>
-          </a>
-          ${phone}
-        </div>`;
-        });
-
-        container.innerHTML = `<div class="request-list">${rows.join("")}</div>`;
+        c.innerHTML = `<div class="request-list">${requests
+          .map(
+            (r) => `
+    <div class="request-card">
+      <a href="./activity-detail.html?id=${r.activity_id}" class="request-activity-link">
+        <div class="request-card-top">
+          <div>
+            <div class="request-activity-title">${esc(r.activity_title)}</div>
+            <span class="badge badge-category">${esc(r.activity_category)}</span>
+          </div>
+          <span class="badge badge-${r.status}">${r.status}</span>
+        </div>
+        <div class="activity-card-meta" style="margin-top:8px;">
+          <div class="meta-item"><span class="meta-icon">📍</span>${esc(r.activity_location)}</div>
+          <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(r.activity_date)} at ${fmtTime(r.activity_time)}</div>
+        </div>
+      </a>
+      ${
+        r.organizer_phone
+          ? `
+      <div class="contact-box" style="margin-top:12px;">
+        <span class="contact-icon">📱</span>
+        <span><strong>Organizer (${esc(r.organizer_name)}):</strong> ${esc(r.organizer_phone)}</span>
+      </div>`
+          : ""
+      }
+    </div>`,
+          )
+          .join("")}</div>`;
       }
 
       init();

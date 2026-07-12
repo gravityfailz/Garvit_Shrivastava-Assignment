@@ -1,28 +1,18 @@
-import enum
 from datetime import datetime, timezone
+
 from sqlalchemy import DateTime, ForeignKey, Enum as SAEnum, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.database import Base
-
-
-class ParticipationStatus(str, enum.Enum):
-    PENDING = "pending"
-    APPROVED = "approved"
-    REJECTED = "rejected"
+from app.enums import ParticipationStatus   # ← imported from central enums
 
 
 class ParticipationRequest(Base):
-    """
-    Schema designed in Week 1 as part of the DB design deliverable.
-    Participation endpoints are built in Week 2.
-    The UNIQUE constraint is the DB-level enforcement of
-    'no duplicate participation requests for the same activity'.
-    """
     __tablename__ = "participation_requests"
     __table_args__ = (
         UniqueConstraint(
             "activity_id", "user_id",
-            name="uq_one_request_per_user_per_activity"
+            name="uq_one_request_per_user_per_activity",
         ),
     )
 

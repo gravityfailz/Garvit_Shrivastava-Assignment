@@ -1,27 +1,20 @@
-"""Activity status logic (SRS section 7) and serialization helpers."""
+"""
+Activity service — pure business logic, no raw SQL.
+
+All database access goes through repositories.
+"""
 from datetime import datetime
 
-from sqlalchemy import func
-from sqlalchemy.orm import Session
-
-from app.models.activity import Activity, ActivityStatus
-from app.models.participation import ParticipationRequest, ParticipationStatus
+from app.models.activity import Activity
 from app.models.user import User
+from app.enums import ActivityStatus, ParticipationStatus
 from app.schemas.activity import ActivityOut, ActivityDetailOut
-
-
-def get_approved_participants_count(db: Session, activity_id: int) -> int:
-    return (
-        db.query(func.count(ParticipationRequest.id))
-        .filter(
-            ParticipationRequest.activity_id == activity_id,
-            ParticipationRequest.status == ParticipationStatus.APPROVED,
-        )
-        .scalar() or 0
-    )
+from app.repositories.participation_repository import ParticipationRepository
+from app.repositories.user_repository import UserRepository
 
 
 def compute_effective_status(activity: Activity, approved_count: int) -> ActivityStatus:
+    """Derive the display status — OPEN/CANCELLED are stored; FULL/COMPLETED are derived."""
     if activity.status == ActivityStatus.CANCELLED:
         return ActivityStatus.CANCELLED
     if activity.scheduled_at < datetime.now():
@@ -31,8 +24,7 @@ def compute_effective_status(activity: Activity, approved_count: int) -> Activit
     return ActivityStatus.OPEN
 
 
-def to_activity_out(db: Session, activity: Activity) -> ActivityOut:
-    approved_count = get_approved_participants_count(db, activity.id)
+def build_activity_out(activity: Activity, approved_count: int) -> ActivityOut:
     return ActivityOut(
         id=activity.id,
         creator_id=activity.creator_id,
@@ -49,27 +41,32 @@ def to_activity_out(db: Session, activity: Activity) -> ActivityOut:
     )
 
 
-def to_activity_detail_out(
-    db: Session, activity: Activity, current_user: User
+def resolve_activity_out(
+    activity: Activity,
+    participation_repo: ParticipationRepository,
+) -> ActivityOut:
+    approved_count = participation_repo.get_approved_count(activity.id)
+    return build_activity_out(activity, approved_count)
+
+
+def resolve_activity_detail_out(
+    activity: Activity,
+    current_user: User,
+    participation_repo: ParticipationRepository,
+    user_repo: UserRepository,
 ) -> ActivityDetailOut:
     """
-    Build an enriched activity response that includes the current user's
-    request status and organizer contact info per SRS sections 7 and 8.
+    Fetch all related data and build the enriched detail response.
+    Organizer phone is only included when the viewer's request is APPROVED (SRS 8).
     """
-    approved_count = get_approved_participants_count(db, activity.id)
-    effective_status = compute_effective_status(activity, approved_count)
+    approved_count = participation_repo.get_approved_count(activity.id)
+    my_request     = participation_repo.get_by_activity_and_user(activity.id, current_user.id)
 
-    my_request = db.query(ParticipationRequest).filter(
-        ParticipationRequest.activity_id == activity.id,
-        ParticipationRequest.user_id == current_user.id,
-    ).first()
-
-    # SRS 8: organizer phone visible only when the user's request is APPROVED
     organizer_phone = None
     if my_request and my_request.status == ParticipationStatus.APPROVED:
-        creator = db.query(User).filter(User.id == activity.creator_id).first()
-        if creator:
-            organizer_phone = creator.phone_number
+        organizer = user_repo.get_by_id(activity.creator_id)
+        if organizer:
+            organizer_phone = organizer.phone_number
 
     return ActivityDetailOut(
         id=activity.id,
@@ -82,7 +79,7 @@ def to_activity_detail_out(
         time=activity.time,
         max_participants=activity.max_participants,
         approved_participants_count=approved_count,
-        status=effective_status,
+        status=compute_effective_status(activity, approved_count),
         created_at=activity.created_at,
         my_request_id=my_request.id if my_request else None,
         my_request_status=my_request.status if my_request else None,

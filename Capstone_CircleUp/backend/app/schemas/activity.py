@@ -1,7 +1,7 @@
 from datetime import date as date_type, time as time_type, datetime
 from pydantic import BaseModel, Field, ConfigDict, model_validator
-from app.models.activity import ActivityStatus
-from app.models.participation import ParticipationStatus
+
+from app.enums import ActivityStatus, ParticipationStatus   # ← from central enums
 
 
 class ActivityCreate(BaseModel):
@@ -15,8 +15,11 @@ class ActivityCreate(BaseModel):
 
     @model_validator(mode="after")
     def check_future_datetime(self):
-        if datetime.combine(self.date, self.time) <= datetime.now():
-            raise ValueError("Activity date and time must be in the future.")
+        scheduled = datetime.combine(self.date, self.time)
+        if scheduled <= datetime.now():
+            raise ValueError(
+                "Activity must be scheduled for a future date and time."
+            )
         return self
 
 
@@ -48,10 +51,7 @@ class ActivityOut(BaseModel):
 
 
 class ActivityDetailOut(ActivityOut):
-    """
-    Extended response for GET /api/activities/{id}.
-    Adds the current user's request state and organizer contact (SRS 7, 8).
-    """
+    """Extended response with the viewer's request state + contact info (SRS 8)."""
     my_request_id: int | None = None
     my_request_status: ParticipationStatus | None = None
-    organizer_phone: str | None = None  # SRS 8: only when user's request is APPROVED
+    organizer_phone: str | None = None

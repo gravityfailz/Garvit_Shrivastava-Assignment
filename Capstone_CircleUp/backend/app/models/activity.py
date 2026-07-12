@@ -1,20 +1,11 @@
-import enum
 from datetime import datetime, date as date_type, time as time_type, timezone
+
 from sqlalchemy import String, Integer, Date, Time, DateTime, ForeignKey
 from sqlalchemy import Enum as SAEnum, CheckConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.database import Base
-
-
-class ActivityStatus(str, enum.Enum):
-    """
-    OPEN and CANCELLED are the only values ever *written* to the DB.
-    FULL and COMPLETED are derived lazily at read time — no scheduler needed.
-    """
-    OPEN = "open"
-    FULL = "full"
-    CANCELLED = "cancelled"
-    COMPLETED = "completed"
+from app.enums import ActivityStatus   # ← imported from central enums
 
 
 class Activity(Base):
