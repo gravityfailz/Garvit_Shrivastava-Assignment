@@ -1,8 +1,4 @@
-"""
-Participation service — business logic for join requests.
 
-All DB access goes through repositories passed in by the router.
-"""
 import logging
 
 from fastapi import HTTPException, status

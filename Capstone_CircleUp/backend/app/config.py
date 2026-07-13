@@ -1,8 +1,4 @@
-"""
-Centralized application configuration — all values read from environment.
-Sensible local-dev defaults are provided so the app starts without a .env file,
-but production MUST override SECRET_KEY and DATABASE_URL.
-"""
+
 import os
 from dotenv import load_dotenv
 

@@ -1,6 +1,4 @@
-"""
-ActivityRepository — all database operations for the Activity model.
-"""
+
 from datetime import date as date_type
 from sqlalchemy.orm import Session
 

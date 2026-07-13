@@ -1,9 +1,4 @@
-"""
-Central enum definitions for CircleUp.
 
-All enums are defined here and imported wherever needed — models, schemas,
-services, routers and tests all import from this single source of truth.
-"""
 import enum
 
 

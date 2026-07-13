@@ -1,8 +1,4 @@
-"""
-CircleUp API entrypoint.
-Run: uvicorn app.main:app --reload
-Swagger: http://localhost:8000/docs
-"""
+
 import logging
 import os
 

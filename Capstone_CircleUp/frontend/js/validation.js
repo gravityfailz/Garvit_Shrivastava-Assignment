@@ -1,7 +1,3 @@
-/**
- * CircleUp — Validation utilities (Week 3 final, phone 6-10 digits)
- */
-
 const Validators = {
   email(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim());

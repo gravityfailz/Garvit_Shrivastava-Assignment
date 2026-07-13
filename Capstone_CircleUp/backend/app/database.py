@@ -1,6 +1,4 @@
-"""
-SQLAlchemy engine, session factory, and the get_db FastAPI dependency.
-"""
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 

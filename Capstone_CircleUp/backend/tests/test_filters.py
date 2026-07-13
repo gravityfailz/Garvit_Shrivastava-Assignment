@@ -1,14 +1,4 @@
-"""
-Tests — SRS section 5: Activity Discovery / Filters.
 
-Covers:
-  - Filter by category (partial, case-insensitive)
-  - Filter by location (partial, case-insensitive)
-  - Filter by date (exact)
-  - Sort by date ascending / descending
-  - Combined filters
-  - No filters returns all activities
-"""
 from datetime import datetime, timedelta
 
 from tests.conftest import register_and_login

@@ -1,10 +1,4 @@
-"""
-Tests — SRS section 4: Activity validation + ownership.
-  - max_participants > 0
-  - date/time must be in the future
-  - Only the creator may edit/cancel
-  - Unauthenticated users are blocked
-"""
+
 from datetime import datetime, timedelta
 from tests.conftest import register_and_login, make_activity_payload
 

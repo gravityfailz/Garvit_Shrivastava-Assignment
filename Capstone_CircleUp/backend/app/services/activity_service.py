@@ -1,8 +1,4 @@
-"""
-Activity service — pure business logic, no raw SQL.
 
-All database access goes through repositories.
-"""
 from datetime import datetime
 
 from app.models.activity import Activity

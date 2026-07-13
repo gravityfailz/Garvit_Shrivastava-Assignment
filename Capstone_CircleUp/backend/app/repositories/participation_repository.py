@@ -1,6 +1,4 @@
-"""
-ParticipationRepository — all database operations for ParticipationRequest.
-"""
+
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 

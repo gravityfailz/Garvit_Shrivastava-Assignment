@@ -1,10 +1,4 @@
-"""
-Password hashing (bcrypt) and JWT creation/decoding.
 
-Passwords are hashed with bcrypt — never stored as plaintext.
-Tokens carry a unique `jti` so logout can blacklist a specific token
-even though JWTs are otherwise stateless.
-"""
 import uuid
 from datetime import datetime, timedelta, timezone
 

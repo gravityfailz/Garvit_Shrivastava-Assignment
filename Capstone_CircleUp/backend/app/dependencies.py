@@ -1,10 +1,4 @@
-"""
-Shared FastAPI dependencies.
 
-Includes:
-  - get_current_user  — auth guard for protected endpoints
-  - get_*_repo        — repository dependency injectors (repository pattern)
-"""
 import logging
 
 import jwt

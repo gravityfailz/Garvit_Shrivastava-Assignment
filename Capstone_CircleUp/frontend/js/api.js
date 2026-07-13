@@ -1,4 +1,3 @@
-/* ---- Core fetch wrapper ---- */
 async function apiRequest(endpoint, options = {}) {
   const token = getToken();
   const headers = {

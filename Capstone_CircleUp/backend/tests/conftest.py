@@ -1,9 +1,4 @@
-"""
-Shared pytest fixtures.
 
-Tests run against in-memory SQLite (fast, no PostgreSQL needed).
-Each test gets a fresh schema — no state leaks between tests.
-"""
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

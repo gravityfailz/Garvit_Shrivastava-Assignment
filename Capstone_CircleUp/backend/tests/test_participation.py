@@ -1,12 +1,4 @@
-"""
-Tests — SRS sections 6, 8, 9.
 
-Covers:
-  - Request validation (own activity, duplicate, cancelled/full)
-  - Approve / Reject ownership rules
-  - Contact info visibility (SRS 8): organizer phone after approval
-  - My Activities endpoints (SRS 9)
-"""
 from tests.conftest import register_and_login, make_activity_payload
 
 
@@ -123,7 +115,7 @@ def test_cannot_reject_already_rejected(client):
     assert client.post(f"/api/activities/{aid}/requests/{rid}/reject", headers=owner_h).status_code == 400
 
 
-# ---- Contact info visibility (SRS 8) ----
+# ---- Contact info visibility ----
 
 def test_organizer_phone_hidden_before_approval(client):
     owner_h, _ = register_and_login(client, email="ci1_own@example.com")
@@ -181,7 +173,7 @@ def test_non_owner_cannot_list_requests(client):
     assert client.get(f"/api/activities/{aid}/requests", headers=req_h).status_code == 403
 
 
-# ---- My Activities (SRS 9) ----
+# ---- My Activities  ----
 
 def test_my_created_activities_returns_only_mine(client):
     own_h, _ = register_and_login(client, email="myc1@example.com")

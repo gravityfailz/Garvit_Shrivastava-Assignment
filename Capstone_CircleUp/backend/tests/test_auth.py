@@ -1,10 +1,4 @@
-"""
-Tests — SRS section 3: Auth rules.
-  - Email uniqueness
-  - Password is never stored in plaintext
-  - Protected endpoints return 401 when unauthenticated
-  - Logout invalidates the token server-side
-"""
+
 from tests.conftest import make_user_payload, register_and_login
 
 

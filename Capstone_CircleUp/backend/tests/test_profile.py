@@ -1,6 +1,4 @@
-"""
-Tests — SRS section 3: Profile CRUD.
-"""
+
 from tests.conftest import make_user_payload, register_and_login
 
 

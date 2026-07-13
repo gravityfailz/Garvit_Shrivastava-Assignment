@@ -1,7 +1,4 @@
-"""
-Tests — SRS section 7: Capacity Logic.
-Updated for the repository-pattern service signatures.
-"""
+
 import threading, tempfile, os
 from datetime import datetime, timedelta
 from tests.conftest import register_and_login, make_activity_payload

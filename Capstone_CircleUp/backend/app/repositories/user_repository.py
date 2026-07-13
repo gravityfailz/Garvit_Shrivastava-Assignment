@@ -1,9 +1,4 @@
-"""
-UserRepository — all database operations for the User model.
 
-Services and routers call these methods instead of writing raw SQLAlchemy
-queries inline, separating data-access from business logic.
-"""
 from sqlalchemy.orm import Session
 
 from app.models.user import User

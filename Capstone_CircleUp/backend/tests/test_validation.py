@@ -1,19 +1,8 @@
-"""
-Tests — SRS sections 3, 4, 6: Comprehensive Validation.
 
-Covers:
-  - Password complexity: min 8 chars, 1 uppercase, 1 number.
-  - Email format validation.
-  - Activity creation and update rules.
-  - Participation edge cases (completed activity).
-"""
 from datetime import datetime, timedelta
 from tests.conftest import register_and_login, make_activity_payload, make_user_payload
 
 
-# ================================================================
-# PASSWORD COMPLEXITY  (SRS section 3 + Week 3 requirement)
-# ================================================================
 
 def test_password_requires_uppercase(client):
     """Password without any uppercase letter must be rejected (422)."""
@@ -70,9 +59,6 @@ def test_password_empty_rejected(client):
     assert resp.status_code == 422
 
 
-# ================================================================
-# EMAIL FORMAT  (SRS section 3)
-# ================================================================
 
 def test_email_without_at_sign_rejected(client):
     resp = client.post("/api/auth/register", json={
@@ -106,9 +92,7 @@ def test_email_uniqueness_enforced(client):
     assert resp.status_code == 400
 
 
-# ================================================================
-# ACTIVITY VALIDATION  (SRS section 4)
-# ================================================================
+
 
 def test_max_participants_zero_rejected(client):
     headers, _ = register_and_login(client, email="av1@v.com")
@@ -147,9 +131,7 @@ def test_edit_max_participants_to_zero_rejected(client):
     assert resp.status_code == 422
 
 
-# ================================================================
-# PARTICIPATION EDGE CASES  (SRS section 6 + 7)
-# ================================================================
+
 
 def test_cannot_request_completed_activity(client):
     """Activities past their scheduled date/time must reject new join requests."""
