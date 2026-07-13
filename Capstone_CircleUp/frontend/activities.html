@@ -78,12 +78,12 @@
         </button>
       </div>
 
-      <!-- Filter Bar -->
+      <!-- Filter Bar (no sort — sorting is automatic: upcoming first) -->
       <div
         class="filter-bar"
         id="filter-bar"
       >
-        <div class="filter-bar-title">🔍 Filter & Sort</div>
+        <div class="filter-bar-title">🔍 Filter Activities</div>
         <div class="filter-row">
           <div class="filter-group">
             <label>Category</label>
@@ -146,16 +146,6 @@
               type="date"
               class="form-control"
             />
-          </div>
-          <div class="filter-group">
-            <label>Sort</label>
-            <select
-              id="f-sort"
-              class="form-control"
-            >
-              <option value="desc">Newest First</option>
-              <option value="asc">Oldest First</option>
-            </select>
           </div>
           <div class="filter-actions">
             <button
@@ -356,7 +346,7 @@
                 class="alert alert-warning show"
                 style="margin: 0; padding: 9px 12px; font-size: 0.82rem"
               >
-                ⏰ The selected date/time is in the past. Please choose a future
+                ⏰ Selected date/time is in the past. Please choose a future
                 time.
               </div>
             </div>
@@ -418,6 +408,21 @@
         currentUserId = null,
         currentTab = "all";
 
+      /* ── Days-away label ──────────────────────────────────── */
+      function daysAwayPill(dateStr, timeStr) {
+        const now = new Date();
+        const then = new Date(dateStr + "T" + timeStr);
+        const diff = Math.ceil((then - now) / (1000 * 60 * 60 * 24));
+        if (diff <= 0) return "";
+        if (diff === 0 || then - now < 86400000) {
+          return `<span class="days-away-pill today">Today</span>`;
+        }
+        if (diff <= 3) {
+          return `<span class="days-away-pill soon">In ${diff} day${diff > 1 ? "s" : ""}</span>`;
+        }
+        return `<span class="days-away-pill">In ${diff} days</span>`;
+      }
+
       async function init() {
         try {
           const me = await apiRequest("/users/me");
@@ -425,11 +430,10 @@
           renderNavUser(me.name);
         } catch (_) {}
 
-        /* ── Date constraints ── */
         const todayStr = new Date().toISOString().split("T")[0];
         document.getElementById("c-date").min = todayStr;
 
-        /* ── Live date/time validation ── */
+        /* Live date/time feedback in the modal */
         function checkDatetime() {
           const date = document.getElementById("c-date").value;
           const time = document.getElementById("c-time").value;
@@ -447,7 +451,6 @@
             hint.style.display = "none";
           }
         }
-
         document
           .getElementById("c-date")
           .addEventListener("change", checkDatetime);
@@ -456,8 +459,6 @@
           .addEventListener("change", checkDatetime);
 
         await loadActivities();
-
-        /* ── Init city dropdowns ── */
         initCityDropdown("c-location", "c-location-list");
         initCityDropdown("f-location", "f-location-list");
 
@@ -475,13 +476,13 @@
         const cat = document.getElementById("f-category").value;
         const loc = document.getElementById("f-location").value.trim();
         const date = document.getElementById("f-date").value;
-        const sort = document.getElementById("f-sort").value;
+        /* Always request ascending so backend delivers oldest→newest;
+     we then sort client-side: upcoming ASC, past DESC. */
+        p.set("sort_by_date", "asc");
         if (cat) p.set("category", cat);
         if (loc) p.set("location", loc);
         if (date) p.set("date", date);
-        if (sort) p.set("sort_by_date", sort);
-        const qs = p.toString();
-        return qs ? "?" + qs : "";
+        return "?" + p.toString();
       }
 
       async function loadActivities() {
@@ -503,7 +504,6 @@
         document.getElementById("f-category").value = "";
         document.getElementById("f-location").value = "";
         document.getElementById("f-date").value = "";
-        document.getElementById("f-sort").value = "desc";
         loadActivities();
       }
 
@@ -518,14 +518,17 @@
         renderActivities();
       }
 
+      /* ── Core render — splits into two sections ────────────── */
       function renderActivities() {
         const list =
           currentTab === "mine"
             ? allActivities.filter((a) => a.creator_id === currentUserId)
             : allActivities;
-        const c = document.getElementById("activities-container");
+
+        const container = document.getElementById("activities-container");
+
         if (!list.length) {
-          c.innerHTML = `
+          container.innerHTML = `
       <div class="empty-state">
         <div class="empty-icon">${currentTab === "mine" ? "🎯" : "🔍"}</div>
         <h3>${currentTab === "mine" ? "No activities created yet" : "Nothing found"}</h3>
@@ -533,58 +536,136 @@
       </div>`;
           return;
         }
-        c.innerHTML = `<div class="activities-grid">${list
-          .map((a) => {
-            const { emoji, cls } = catConfig(a.category);
-            const isOwner = a.creator_id === currentUserId;
-            return `
-      <a class="activity-card" href="./activity-detail.html?id=${a.id}">
-        <div class="cat-img ${cls}">${emoji}</div>
-        <div class="activity-card-body">
-          <div class="activity-card-top">
-            <div class="activity-card-title">${esc(a.title)}</div>
-            ${statusBadge(a.status)}
+
+        /* ── Split ── */
+        const activeList = list.filter(
+          (a) => a.status === "open" || a.status === "full",
+        );
+        const pastList = list.filter(
+          (a) => a.status === "completed" || a.status === "cancelled",
+        );
+
+        /* Upcoming: closest date first  */
+        activeList.sort(
+          (a, b) =>
+            new Date(a.date + "T" + a.time) - new Date(b.date + "T" + b.time),
+        );
+
+        /* Past/Cancelled: most recent first  */
+        pastList.sort(
+          (a, b) =>
+            new Date(b.date + "T" + b.time) - new Date(a.date + "T" + a.time),
+        );
+
+        /* ── Build HTML ── */
+        let html = "";
+
+        if (activeList.length) {
+          html += `
+      <div class="activities-section" id="section-active">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="section-title-dot section-title-dot-green"></span>
+            Upcoming Activities
           </div>
-          <span class="badge badge-category">${esc(a.category)}</span>
-          <div class="activity-card-meta">
-            <div class="meta-item"><span class="meta-icon">📍</span>${esc(a.location)}</div>
-            <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(a.date)} at ${fmtTime(a.time)}</div>
-          </div>
-          <div class="activity-card-footer">
-            <span>👥 ${a.approved_participants_count} / ${a.max_participants} joined</span>
-            ${isOwner ? '<span style="color:var(--primary);font-weight:700;font-size:.75rem;">⭐ Yours</span>' : ""}
-          </div>
+          <span class="section-count">${activeList.length} ${activeList.length === 1 ? "event" : "events"}</span>
         </div>
-      </a>`;
-          })
-          .join("")}</div>`;
+        <div class="activities-grid">
+          ${activeList.map((a) => activityCard(a, true)).join("")}
+        </div>
+      </div>`;
+        }
+
+        if (pastList.length) {
+          if (activeList.length) html += '<hr class="section-divider">';
+          html += `
+      <div class="activities-section section-past" id="section-past">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="section-title-dot section-title-dot-grey"></span>
+            Past &amp; Cancelled
+          </div>
+          <span class="section-count">${pastList.length} ${pastList.length === 1 ? "event" : "events"}</span>
+        </div>
+        <div class="activities-grid">
+          ${pastList.map((a) => activityCard(a, false)).join("")}
+        </div>
+      </div>`;
+        }
+
+        container.innerHTML = html;
+
+        /* ── GSAP ── */
         if (typeof gsap !== "undefined") {
-          gsap.from(".activity-card", {
+          gsap.from("#section-active .activity-card", {
             y: 32,
             opacity: 0,
             stagger: 0.06,
             duration: 0.45,
             ease: "power2.out",
           });
-          document.querySelectorAll(".activity-card").forEach((card) => {
-            card.addEventListener("mouseenter", () =>
-              gsap.to(card, { y: -6, duration: 0.22, ease: "power2.out" }),
-            );
-            card.addEventListener("mouseleave", () =>
-              gsap.to(card, { y: 0, duration: 0.22, ease: "power2.out" }),
-            );
-          });
+          if (pastList.length) {
+            gsap.from("#section-past .activity-card", {
+              y: 20,
+              opacity: 0,
+              stagger: 0.05,
+              duration: 0.35,
+              ease: "power2.out",
+              delay: 0.1,
+            });
+          }
+          document
+            .querySelectorAll("#section-active .activity-card")
+            .forEach((card) => {
+              card.addEventListener("mouseenter", () =>
+                gsap.to(card, { y: -6, duration: 0.22, ease: "power2.out" }),
+              );
+              card.addEventListener("mouseleave", () =>
+                gsap.to(card, { y: 0, duration: 0.22, ease: "power2.out" }),
+              );
+            });
         }
       }
 
+      /* ── Activity card HTML ──────────────────────────────── */
+      function activityCard(a, showDaysAway) {
+        const { emoji, cls } = catConfig(a.category);
+        const isOwner = a.creator_id === currentUserId;
+        const pill = showDaysAway ? daysAwayPill(a.date, a.time) : "";
+        return `
+    <a class="activity-card" href="./activity-detail.html?id=${a.id}">
+      <div class="cat-img ${cls}">${emoji}</div>
+      <div class="activity-card-body">
+        <div class="activity-card-top">
+          <div class="activity-card-title">${esc(a.title)}</div>
+          ${statusBadge(a.status)}
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+          <span class="badge badge-category">${esc(a.category)}</span>
+          ${pill}
+        </div>
+        <div class="activity-card-meta">
+          <div class="meta-item"><span class="meta-icon">📍</span>${esc(a.location)}</div>
+          <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(a.date)} at ${fmtTime(a.time)}</div>
+        </div>
+        <div class="activity-card-footer">
+          <span>👥 ${a.approved_participants_count} / ${a.max_participants} joined</span>
+          ${isOwner ? '<span style="color:var(--primary);font-weight:700;font-size:.75rem;">⭐ Yours</span>' : ""}
+        </div>
+      </div>
+    </a>`;
+      }
+
+      /* ── Modal ───────────────────────────────────────────── */
       function openCreateModal() {
         document.getElementById("create-modal").classList.add("open");
         document.getElementById("create-form").reset();
         hideAlert("create-alert");
         document.getElementById("datetime-hint").style.display = "none";
         ["c-date", "c-time", "c-location"].forEach((id) => {
-          const el = document.getElementById(id);
-          el.classList.remove("input-valid", "input-invalid");
+          document
+            .getElementById(id)
+            .classList.remove("input-valid", "input-invalid");
         });
         if (typeof gsap !== "undefined")
           gsap.from(".modal", {
@@ -611,7 +692,7 @@
 
         if (!title || !category || !location || !date || !time || !max) {
           showToast(
-            "Please fill in all required fields before creating the activity.",
+            "Please fill in all required fields.",
             "warning",
             4000,
             "Missing Fields",
@@ -619,16 +700,13 @@
           return;
         }
 
-        /* ── Past date/time guard ── */
         if (!isFutureDatetime(date, time)) {
-          /* Prominent toast popup */
           showToast(
             "The date and time you selected are in the past. Activities must be scheduled for a future time.",
             "warning",
             6000,
             "⏰ Invalid Date & Time",
           );
-          /* Also highlight fields */
           document.getElementById("c-date").classList.add("input-invalid");
           document.getElementById("c-time").classList.add("input-invalid");
           document.getElementById("datetime-hint").style.display = "";
