@@ -86,7 +86,7 @@ server from the `frontend/` directory:
 
 ```bash
 cd Capstone_CircleUp/frontend
-python3 -m http.server 3000
+python -m http.server 3000
 # Then open http://localhost:3000
 ```
 
@@ -106,15 +106,6 @@ pytest --cov=app --cov-report=term-missing
 ```
 
 Tests use an in-memory SQLite database — no real PostgreSQL needed to run them.
-
----
-
-## Git Branching
-
-| Branch    | Purpose                          |
-| --------- | -------------------------------- |
-| `main`    | Stable — raise PRs against this  |
-| `develop` | Daily work — push here regularly |
 
 ---
 

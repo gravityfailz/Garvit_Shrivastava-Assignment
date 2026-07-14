@@ -343,7 +343,7 @@ a:hover {
 
 /* Past section: cards slightly muted */
 .section-past .activity-card {
-  opacity: 0.62;
+  opacity: 0.85;
   filter: grayscale(0.25) brightness(0.97);
   transition:
     opacity var(--ease),
