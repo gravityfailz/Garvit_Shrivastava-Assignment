@@ -51,10 +51,7 @@ def resolve_activity_detail_out(
     participation_repo: ParticipationRepository,
     user_repo: UserRepository,
 ) -> ActivityDetailOut:
-    """
-    Fetch all related data and build the enriched detail response.
-    Organizer phone is only included when the viewer's request is APPROVED (SRS 8).
-    """
+   
     approved_count = participation_repo.get_approved_count(activity.id)
     my_request     = participation_repo.get_by_activity_and_user(activity.id, current_user.id)
 

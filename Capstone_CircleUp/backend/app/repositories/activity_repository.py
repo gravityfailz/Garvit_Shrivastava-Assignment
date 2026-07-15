@@ -16,10 +16,7 @@ class ActivityRepository:
         return self.db.query(Activity).filter(Activity.id == activity_id).first()
 
     def get_by_id_with_lock(self, activity_id: int) -> Activity | None:
-        """
-        SELECT FOR UPDATE on PostgreSQL — prevents concurrent over-capacity approvals.
-        Falls back to a plain SELECT on SQLite (used in tests).
-        """
+        
         query = self.db.query(Activity).filter(Activity.id == activity_id)
         try:
             if hasattr(self.db, "bind") and self.db.bind is not None:

@@ -45,7 +45,7 @@ def get_current_user(
     user_repo: UserRepository = Depends(get_user_repo),
 ) -> User:
     """
-    Resolve the logged-in user from Authorization: Bearer <token>.
+ 
     Returns 401 if the token is missing, invalid, expired, or blacklisted.
     """
     if not token:

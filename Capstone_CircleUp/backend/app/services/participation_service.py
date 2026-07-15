@@ -61,7 +61,7 @@ def approve_participation_request(
     activity_repo: ActivityRepository,
     participation_repo: ParticipationRepository,
 ) -> ParticipationRequest:
-    """SRS 7: approve with row-level lock for concurrency safety."""
+    
     activity = activity_repo.get_by_id_with_lock(activity_id)
     if not activity:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
