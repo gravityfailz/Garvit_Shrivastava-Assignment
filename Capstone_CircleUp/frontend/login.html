@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Login — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="auth-page">
+      <div
+        class="auth-card"
+        id="auth-card"
+      >
+        <div class="auth-logo">
+          <div class="brand-icon">🌐</div>
+          <h1>CircleUp</h1>
+          <p>Welcome back! Sign in to continue.</p>
+        </div>
+
+        <div
+          id="alert"
+          class="alert"
+        ></div>
+
+        <form
+          id="login-form"
+          novalidate
+        >
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="email"
+              >Email Address <span class="req">*</span></label
+            >
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              placeholder="you@example.com"
+              required
+            />
+            <div
+              class="field-error"
+              id="email-error"
+            ></div>
+          </div>
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="password"
+              >Password <span class="req">*</span></label
+            >
+            <div class="password-wrapper">
+              <input
+                id="password"
+                type="password"
+                class="form-control"
+                placeholder="Your password"
+                required
+              />
+              <button
+                type="button"
+                class="toggle-pw"
+                onclick="togglePasswordVisibility('password', this)"
+              >
+                👁
+              </button>
+            </div>
+            <div
+              class="field-error"
+              id="password-error"
+            ></div>
+          </div>
+          <p class="form-legend"><span class="req">*</span> Required fields</p>
+          <button
+            id="submit-btn"
+            type="submit"
+            class="btn btn-primary btn-full btn-lg"
+            style="margin-top: 14px"
+          >
+            Sign In
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Don't have an account? <a href="./register.html">Create one</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script>
+      redirectIfLoggedIn();
+      window.addEventListener("DOMContentLoaded", () => {
+        if (typeof gsap !== "undefined")
+          gsap.from("#auth-card", {
+            y: 30,
+            opacity: 0,
+            duration: 0.55,
+            ease: "power3.out",
+          });
+      });
+
+      document.getElementById("email").addEventListener("blur", function () {
+        if (this.value.trim())
+          setFieldState(
+            this,
+            Validators.email(this.value),
+            "Please enter a valid email address.",
+          );
+      });
+
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          hideAlert("alert");
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+          const btn = document.getElementById("submit-btn");
+
+          let hasError = false;
+          if (!Validators.email(email)) {
+            setFieldState(
+              document.getElementById("email"),
+              false,
+              "Please enter a valid email address.",
+            );
+            hasError = true;
+          }
+          if (!password) {
+            setFieldState(
+              document.getElementById("password"),
+              false,
+              "Password is required.",
+            );
+            hasError = true;
+          }
+          if (hasError) return;
+
+          setLoading(btn, true, "Signing in…");
+          try {
+            const data = await apiRequest("/auth/login", {
+              method: "POST",
+              body: JSON.stringify({ email, password }),
+            });
+            setToken(data.access_token);
+            window.location.href = "./activities.html";
+          } catch (err) {
+            showAlert("alert", err.detail || "Incorrect email or password.");
+            setLoading(btn, false);
+          }
+        });
+    </script>
+  </body>
+</html>

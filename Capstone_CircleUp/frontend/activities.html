@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Activities — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <a
+          href="./activities.html"
+          class="navbar-brand"
+        >
+          <div class="brand-icon">🌐</div>
+          CircleUp
+        </a>
+        <ul class="navbar-nav">
+          <li>
+            <a
+              href="./activities.html"
+              class="active"
+              >🏠 Browse</a
+            >
+          </li>
+          <li><a href="./my-activities.html">📋 My Activities</a></li>
+          <li><a href="./profile.html">👤 Profile</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a
+            href="./profile.html"
+            class="user-pill"
+          >
+            <div
+              class="avatar"
+              id="nav-initials"
+            >
+              ?
+            </div>
+            <span
+              class="user-pill-name"
+              id="nav-user-name"
+              >Me</span
+            >
+          </a>
+          <button
+            class="btn btn-ghost btn-sm"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container page-content">
+      <div class="page-header">
+        <div>
+          <h1>Browse Activities</h1>
+          <p>Find and join activities happening around you.</p>
+        </div>
+        <button
+          class="btn btn-primary"
+          onclick="openCreateModal()"
+        >
+          + Create Activity
+        </button>
+      </div>
+
+      <!-- Filter Bar (no sort — sorting is automatic: upcoming first) -->
+      <div
+        class="filter-bar"
+        id="filter-bar"
+      >
+        <div class="filter-bar-title">🔍 Filter Activities</div>
+        <div class="filter-row">
+          <div class="filter-group">
+            <label>Category</label>
+            <select
+              id="f-category"
+              class="form-control"
+            >
+              <option value="">All Categories</option>
+              <option>Cricket Match</option>
+              <option>Badminton Session</option>
+              <option>Cafe Meetup</option>
+              <option>Movie Plan</option>
+              <option>Study Group</option>
+              <option>Weekend Trip</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Location</label>
+            <div
+              class="city-dropdown"
+              id="f-loc-dd"
+            >
+              <div class="city-input-wrap">
+                <span class="city-search-icon">🔍</span>
+                <input
+                  id="f-location"
+                  type="text"
+                  class="form-control city-input"
+                  placeholder="Search city…"
+                  autocomplete="off"
+                />
+                <span class="city-arrow">
+                  <svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 1.5l5 5 5-5"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="city-list"
+                id="f-location-list"
+              ></div>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Date</label>
+            <input
+              id="f-date"
+              type="date"
+              class="form-control"
+            />
+          </div>
+          <div class="filter-actions">
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="applyFilters()"
+            >
+              Apply
+            </button>
+            <button
+              class="btn btn-ghost btn-sm"
+              onclick="clearFilters()"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button
+          class="tab-btn active"
+          id="tab-all"
+          onclick="switchTab('all')"
+        >
+          All Activities
+        </button>
+        <button
+          class="tab-btn"
+          id="tab-mine"
+          onclick="switchTab('mine')"
+        >
+          My Activities
+        </button>
+      </div>
+
+      <div
+        id="alert"
+        class="alert"
+      ></div>
+      <div id="activities-container">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading activities…
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Activity Modal -->
+    <div
+      class="modal-overlay"
+      id="create-modal"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h3>✨ Create New Activity</h3>
+          <button
+            class="modal-close"
+            onclick="closeCreateModal()"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="modal-body">
+          <div
+            id="create-alert"
+            class="alert"
+          ></div>
+          <form
+            id="create-form"
+            novalidate
+          >
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="c-title"
+                >Title <span class="req">*</span></label
+              >
+              <input
+                id="c-title"
+                type="text"
+                class="form-control"
+                placeholder="e.g. Sunday Cricket Match"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-category"
+                  >Category <span class="req">*</span></label
+                >
+                <select
+                  id="c-category"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select category…</option>
+                  <option>Cricket Match</option>
+                  <option>Badminton Session</option>
+                  <option>Cafe Meetup</option>
+                  <option>Movie Plan</option>
+                  <option>Study Group</option>
+                  <option>Weekend Trip</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-max"
+                  >Max Participants <span class="req">*</span></label
+                >
+                <input
+                  id="c-max"
+                  type="number"
+                  class="form-control"
+                  min="1"
+                  placeholder="e.g. 10"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label"
+                >Location <span class="req">*</span></label
+              >
+              <div
+                class="city-dropdown"
+                id="c-loc-dd"
+              >
+                <div class="city-input-wrap">
+                  <span class="city-search-icon">🔍</span>
+                  <input
+                    id="c-location"
+                    type="text"
+                    class="form-control city-input"
+                    placeholder="Search or type a city / venue…"
+                    autocomplete="off"
+                    required
+                  />
+                  <span class="city-arrow">
+                    <svg
+                      width="12"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 1.5l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="city-list"
+                  id="c-location-list"
+                ></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-date"
+                  >Date <span class="req">*</span></label
+                >
+                <input
+                  id="c-date"
+                  type="date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="c-time"
+                  >Time <span class="req">*</span></label
+                >
+                <input
+                  id="c-time"
+                  type="time"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div
+              id="datetime-hint"
+              style="margin-top: -10px; margin-bottom: 14px; display: none"
+            >
+              <div
+                class="alert alert-warning show"
+                style="margin: 0; padding: 9px 12px; font-size: 0.82rem"
+              >
+                ⏰ Selected date/time is in the past. Please choose a future
+                time.
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="c-desc"
+                >Description</label
+              >
+              <textarea
+                id="c-desc"
+                class="form-control"
+                placeholder="Describe your activity…"
+                rows="3"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-ghost"
+            onclick="closeCreateModal()"
+          >
+            Cancel
+          </button>
+          <button
+            id="create-btn"
+            class="btn btn-primary"
+            onclick="submitCreate()"
+          >
+            Create Activity
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/city-dropdown.js"></script>
+    <script>
+      requireAuth();
+
+      const CATEGORY_CONFIG = {
+        "Cricket Match": { emoji: "🏏", cls: "cat-cricket" },
+        "Badminton Session": { emoji: "🏸", cls: "cat-badminton" },
+        "Cafe Meetup": { emoji: "☕", cls: "cat-cafe" },
+        "Movie Plan": { emoji: "🎬", cls: "cat-movie" },
+        "Study Group": { emoji: "📚", cls: "cat-study" },
+        "Weekend Trip": { emoji: "🌄", cls: "cat-trip" },
+        Other: { emoji: "🎯", cls: "cat-other" },
+      };
+      function catConfig(c) {
+        return CATEGORY_CONFIG[c] || { emoji: "🎯", cls: "cat-other" };
+      }
+
+      let allActivities = [],
+        currentUserId = null,
+        currentTab = "all";
+
+      /* ── Days-away label ──────────────────────────────────── */
+      function daysAwayPill(dateStr, timeStr) {
+        const now = new Date();
+        const then = new Date(dateStr + "T" + timeStr);
+        const diff = Math.ceil((then - now) / (1000 * 60 * 60 * 24));
+        if (diff <= 0) return "";
+        if (diff === 0 || then - now < 86400000) {
+          return `<span class="days-away-pill today">Today</span>`;
+        }
+        if (diff <= 3) {
+          return `<span class="days-away-pill soon">In ${diff} day${diff > 1 ? "s" : ""}</span>`;
+        }
+        return `<span class="days-away-pill">In ${diff} days</span>`;
+      }
+
+      async function init() {
+        try {
+          const me = await apiRequest("/users/me");
+          currentUserId = me.id;
+          renderNavUser(me.name);
+        } catch (_) {}
+
+        const todayStr = new Date().toISOString().split("T")[0];
+        document.getElementById("c-date").min = todayStr;
+
+        /* Live date/time feedback in the modal */
+        function checkDatetime() {
+          const date = document.getElementById("c-date").value;
+          const time = document.getElementById("c-time").value;
+          const hint = document.getElementById("datetime-hint");
+          const dateEl = document.getElementById("c-date");
+          const timeEl = document.getElementById("c-time");
+          if (date && time) {
+            const past = !isFutureDatetime(date, time);
+            hint.style.display = past ? "" : "none";
+            dateEl.classList.toggle("input-invalid", past);
+            timeEl.classList.toggle("input-invalid", past);
+            dateEl.classList.toggle("input-valid", !past);
+            timeEl.classList.toggle("input-valid", !past);
+          } else {
+            hint.style.display = "none";
+          }
+        }
+        document
+          .getElementById("c-date")
+          .addEventListener("change", checkDatetime);
+        document
+          .getElementById("c-time")
+          .addEventListener("change", checkDatetime);
+
+        await loadActivities();
+        initCityDropdown("c-location", "c-location-list");
+        initCityDropdown("f-location", "f-location-list");
+
+        if (typeof gsap !== "undefined")
+          gsap.from("#filter-bar", {
+            y: -20,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+      }
+
+      function buildQS() {
+        const p = new URLSearchParams();
+        const cat = document.getElementById("f-category").value;
+        const loc = document.getElementById("f-location").value.trim();
+        const date = document.getElementById("f-date").value;
+        /* Always request ascending so backend delivers oldest→newest;
+     we then sort client-side: upcoming ASC, past DESC. */
+        p.set("sort_by_date", "asc");
+        if (cat) p.set("category", cat);
+        if (loc) p.set("location", loc);
+        if (date) p.set("date", date);
+        return "?" + p.toString();
+      }
+
+      async function loadActivities() {
+        document.getElementById("activities-container").innerHTML =
+          '<div class="loading"><div class="spinner"></div>Loading…</div>';
+        try {
+          allActivities = await apiRequest("/activities" + buildQS());
+          renderActivities();
+        } catch (err) {
+          document.getElementById("activities-container").innerHTML =
+            `<div class="alert alert-error show">${esc(err.detail || "Failed to load.")}</div>`;
+        }
+      }
+
+      function applyFilters() {
+        loadActivities();
+      }
+      function clearFilters() {
+        document.getElementById("f-category").value = "";
+        document.getElementById("f-location").value = "";
+        document.getElementById("f-date").value = "";
+        loadActivities();
+      }
+
+      function switchTab(tab) {
+        currentTab = tab;
+        document
+          .getElementById("tab-all")
+          .classList.toggle("active", tab === "all");
+        document
+          .getElementById("tab-mine")
+          .classList.toggle("active", tab === "mine");
+        renderActivities();
+      }
+
+      /* ── Core render — splits into two sections ────────────── */
+      function renderActivities() {
+        const list =
+          currentTab === "mine"
+            ? allActivities.filter((a) => a.creator_id === currentUserId)
+            : allActivities;
+
+        const container = document.getElementById("activities-container");
+
+        if (!list.length) {
+          container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">${currentTab === "mine" ? "🎯" : "🔍"}</div>
+        <h3>${currentTab === "mine" ? "No activities created yet" : "Nothing found"}</h3>
+        <p>${currentTab === "mine" ? "Create your first activity!" : "Try adjusting your filters."}</p>
+      </div>`;
+          return;
+        }
+
+        /* ── Split ── */
+        const activeList = list.filter(
+          (a) => a.status === "open" || a.status === "full",
+        );
+        const pastList = list.filter(
+          (a) => a.status === "completed" || a.status === "cancelled",
+        );
+
+        /* Upcoming: closest date first  */
+        activeList.sort(
+          (a, b) =>
+            new Date(a.date + "T" + a.time) - new Date(b.date + "T" + b.time),
+        );
+
+        /* Past/Cancelled: most recent first  */
+        pastList.sort(
+          (a, b) =>
+            new Date(b.date + "T" + b.time) - new Date(a.date + "T" + a.time),
+        );
+
+        /* ── Build HTML ── */
+        let html = "";
+
+        if (activeList.length) {
+          html += `
+      <div class="activities-section" id="section-active">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="section-title-dot section-title-dot-green"></span>
+            Upcoming Activities
+          </div>
+          <span class="section-count">${activeList.length} ${activeList.length === 1 ? "event" : "events"}</span>
+        </div>
+        <div class="activities-grid">
+          ${activeList.map((a) => activityCard(a, true)).join("")}
+        </div>
+      </div>`;
+        }
+
+        if (pastList.length) {
+          if (activeList.length) html += '<hr class="section-divider">';
+          html += `
+      <div class="activities-section section-past" id="section-past">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="section-title-dot section-title-dot-grey"></span>
+            Past &amp; Cancelled
+          </div>
+          <span class="section-count">${pastList.length} ${pastList.length === 1 ? "event" : "events"}</span>
+        </div>
+        <div class="activities-grid">
+          ${pastList.map((a) => activityCard(a, false)).join("")}
+        </div>
+      </div>`;
+        }
+
+        container.innerHTML = html;
+
+        /* ── GSAP ── */
+        if (typeof gsap !== "undefined") {
+          gsap.from("#section-active .activity-card", {
+            y: 32,
+            opacity: 0,
+            stagger: 0.06,
+            duration: 0.45,
+            ease: "power2.out",
+          });
+          if (pastList.length) {
+            gsap.from("#section-past .activity-card", {
+              y: 20,
+              opacity: 0,
+              stagger: 0.05,
+              duration: 0.35,
+              ease: "power2.out",
+              delay: 0.1,
+            });
+          }
+          document
+            .querySelectorAll("#section-active .activity-card")
+            .forEach((card) => {
+              card.addEventListener("mouseenter", () =>
+                gsap.to(card, { y: -6, duration: 0.22, ease: "power2.out" }),
+              );
+              card.addEventListener("mouseleave", () =>
+                gsap.to(card, { y: 0, duration: 0.22, ease: "power2.out" }),
+              );
+            });
+        }
+      }
+
+      /* ── Activity card HTML ──────────────────────────────── */
+      function activityCard(a, showDaysAway) {
+        const { emoji, cls } = catConfig(a.category);
+        const isOwner = a.creator_id === currentUserId;
+        const pill = showDaysAway ? daysAwayPill(a.date, a.time) : "";
+        return `
+    <a class="activity-card" href="./activity-detail.html?id=${a.id}">
+      <div class="cat-img ${cls}">${emoji}</div>
+      <div class="activity-card-body">
+        <div class="activity-card-top">
+          <div class="activity-card-title">${esc(a.title)}</div>
+          ${statusBadge(a.status)}
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+          <span class="badge badge-category">${esc(a.category)}</span>
+          ${pill}
+        </div>
+        <div class="activity-card-meta">
+          <div class="meta-item"><span class="meta-icon">📍</span>${esc(a.location)}</div>
+          <div class="meta-item"><span class="meta-icon">📅</span>${fmtDate(a.date)} at ${fmtTime(a.time)}</div>
+        </div>
+        <div class="activity-card-footer">
+          <span>👥 ${a.approved_participants_count} / ${a.max_participants} joined</span>
+          ${isOwner ? '<span style="color:var(--primary);font-weight:700;font-size:.75rem;">⭐ Yours</span>' : ""}
+        </div>
+      </div>
+    </a>`;
+      }
+
+      /* ── Modal ───────────────────────────────────────────── */
+      function openCreateModal() {
+        document.getElementById("create-modal").classList.add("open");
+        document.getElementById("create-form").reset();
+        hideAlert("create-alert");
+        document.getElementById("datetime-hint").style.display = "none";
+        ["c-date", "c-time", "c-location"].forEach((id) => {
+          document
+            .getElementById(id)
+            .classList.remove("input-valid", "input-invalid");
+        });
+        if (typeof gsap !== "undefined")
+          gsap.from(".modal", {
+            scale: 0.93,
+            opacity: 0,
+            duration: 0.28,
+            ease: "power2.out",
+          });
+      }
+      function closeCreateModal() {
+        document.getElementById("create-modal").classList.remove("open");
+      }
+
+      async function submitCreate() {
+        hideAlert("create-alert");
+        const title = document.getElementById("c-title").value.trim();
+        const category = document.getElementById("c-category").value;
+        const location = document.getElementById("c-location").value.trim();
+        const date = document.getElementById("c-date").value;
+        const time = document.getElementById("c-time").value;
+        const max = parseInt(document.getElementById("c-max").value);
+        const desc = document.getElementById("c-desc").value.trim();
+        const btn = document.getElementById("create-btn");
+
+        if (!title || !category || !location || !date || !time || !max) {
+          showToast(
+            "Please fill in all required fields.",
+            "warning",
+            4000,
+            "Missing Fields",
+          );
+          return;
+        }
+
+        if (!isFutureDatetime(date, time)) {
+          showToast(
+            "The date and time you selected are in the past. Activities must be scheduled for a future time.",
+            "warning",
+            6000,
+            "⏰ Invalid Date & Time",
+          );
+          document.getElementById("c-date").classList.add("input-invalid");
+          document.getElementById("c-time").classList.add("input-invalid");
+          document.getElementById("datetime-hint").style.display = "";
+          return;
+        }
+
+        setLoading(btn, true, "Creating…");
+        try {
+          await apiRequest("/activities", {
+            method: "POST",
+            body: JSON.stringify({
+              title,
+              category,
+              location,
+              date,
+              time: time.length === 5 ? time + ":00" : time,
+              max_participants: max,
+              description: desc || null,
+            }),
+          });
+          closeCreateModal();
+          showToast(
+            "Activity created successfully! 🎉",
+            "success",
+            3500,
+            "Activity Created",
+          );
+          await loadActivities();
+        } catch (err) {
+          showAlert("create-alert", err.detail || "Could not create activity.");
+          setLoading(btn, false);
+        }
+      }
+
+      document
+        .getElementById("create-modal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeCreateModal();
+        });
+
+      init();
+    </script>
+  </body>
+</html>

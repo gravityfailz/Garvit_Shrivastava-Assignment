@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CircleUp</title>
+    <script>
+      localStorage.getItem("circleup_token")
+        ? window.location.replace("./activities.html")
+        : window.location.replace("./login.html");
+    </script>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+  </body>
+</html>

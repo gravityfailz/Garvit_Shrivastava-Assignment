@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Register — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="auth-page">
+      <div
+        class="auth-card"
+        id="auth-card"
+      >
+        <div class="auth-logo">
+          <div class="brand-icon">🌐</div>
+          <h1>CircleUp</h1>
+          <p>Create your account to get started.</p>
+        </div>
+
+        <div
+          id="alert"
+          class="alert"
+        ></div>
+
+        <form
+          id="register-form"
+          novalidate
+        >
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="name"
+              >Full Name <span class="req">*</span></label
+            >
+            <input
+              id="name"
+              type="text"
+              class="form-control"
+              placeholder="e.g. Asha Verma"
+              required
+            />
+            <div
+              class="field-error"
+              id="name-error"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="email"
+              >Email Address <span class="req">*</span></label
+            >
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              placeholder="you@example.com"
+              required
+            />
+            <div class="form-hint">
+              Enter a valid email — e.g. name@domain.com
+            </div>
+            <div
+              class="field-error"
+              id="email-error"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="password"
+              >Password <span class="req">*</span></label
+            >
+            <div class="password-wrapper">
+              <input
+                id="password"
+                type="password"
+                class="form-control"
+                placeholder="Create a strong password"
+                required
+              />
+              <button
+                type="button"
+                class="toggle-pw"
+                onclick="togglePasswordVisibility('password', this)"
+              >
+                👁
+              </button>
+            </div>
+            <div class="password-requirements">
+              <div class="req-label">Password must include:</div>
+              <div
+                class="req-item req-unmet"
+                id="req-length"
+              >
+                <span class="req-icon">○</span> At least 8 characters
+              </div>
+              <div
+                class="req-item req-unmet"
+                id="req-uppercase"
+              >
+                <span class="req-icon">○</span> At least one uppercase letter
+                (A–Z)
+              </div>
+              <div
+                class="req-item req-unmet"
+                id="req-number"
+              >
+                <span class="req-icon">○</span> At least one number (0–9)
+              </div>
+            </div>
+            <div
+              class="field-error"
+              id="password-error"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="phone"
+              >Phone Number <span class="req">*</span></label
+            >
+            <input
+              id="phone"
+              type="tel"
+              class="form-control"
+              placeholder="e.g. 9876543210"
+              required
+              maxlength="10"
+            />
+            <div class="form-hint">
+              6–10 digits. Shared with others only after activity approval.
+            </div>
+            <div
+              class="field-error"
+              id="phone-error"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="city"
+              >City</label
+            >
+            <div
+              class="city-dropdown"
+              id="reg-city-dd"
+            >
+              <div class="city-input-wrap">
+                <span class="city-search-icon">🔍</span>
+                <input
+                  id="city"
+                  type="text"
+                  class="form-control city-input"
+                  placeholder="Search your city…"
+                  autocomplete="off"
+                />
+                <span class="city-arrow">
+                  <svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 1.5l5 5 5-5"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="city-list"
+                id="city-list"
+              ></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label
+              class="form-label"
+              for="bio"
+              >Bio</label
+            >
+            <textarea
+              id="bio"
+              class="form-control"
+              placeholder="Tell others about yourself…"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <p class="form-legend"><span class="req">*</span> Required fields</p>
+
+          <button
+            id="submit-btn"
+            type="submit"
+            class="btn btn-primary btn-full btn-lg"
+            style="margin-top: 14px"
+          >
+            Create Account
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Already have an account? <a href="./login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/city-dropdown.js"></script>
+    <script>
+      redirectIfLoggedIn();
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initCityDropdown("city", "city-list");
+        if (typeof gsap !== "undefined")
+          gsap.from("#auth-card", {
+            y: 30,
+            opacity: 0,
+            duration: 0.55,
+            ease: "power3.out",
+          });
+      });
+
+      document
+        .getElementById("password")
+        .addEventListener("input", function () {
+          updatePasswordRequirements(this.value);
+          if (this.value.length > 0)
+            setFieldState(this, Validators.password(this.value).isValid, "");
+          else setFieldState(this, null, "");
+        });
+
+      document.getElementById("email").addEventListener("blur", function () {
+        if (this.value.trim())
+          setFieldState(
+            this,
+            Validators.email(this.value),
+            "Please enter a valid email address.",
+          );
+      });
+      document.getElementById("name").addEventListener("blur", function () {
+        if (this.value.trim()) setFieldState(this, true, "");
+      });
+      document.getElementById("phone").addEventListener("blur", function () {
+        if (this.value.trim())
+          setFieldState(
+            this,
+            Validators.phone(this.value),
+            "Phone must be 6–10 digits.",
+          );
+      });
+
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          hideAlert("alert");
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+          const phone = document.getElementById("phone").value.trim();
+          const city = document.getElementById("city").value.trim();
+          const bio = document.getElementById("bio").value.trim();
+          const btn = document.getElementById("submit-btn");
+
+          let hasError = false;
+          if (!Validators.required(name)) {
+            setFieldState(
+              document.getElementById("name"),
+              false,
+              "Full name is required.",
+            );
+            hasError = true;
+          }
+          if (!Validators.email(email)) {
+            setFieldState(
+              document.getElementById("email"),
+              false,
+              "Please enter a valid email address.",
+            );
+            hasError = true;
+          }
+          if (!Validators.password(password).isValid) {
+            setFieldState(
+              document.getElementById("password"),
+              false,
+              "Password does not meet the requirements.",
+            );
+            hasError = true;
+          }
+          if (!Validators.phone(phone)) {
+            setFieldState(
+              document.getElementById("phone"),
+              false,
+              "Phone must be 6–10 digits.",
+            );
+            hasError = true;
+          }
+          if (hasError) {
+            showAlert("alert", "Please fix the highlighted errors.");
+            return;
+          }
+
+          setLoading(btn, true, "Creating account…");
+          try {
+            await apiRequest("/auth/register", {
+              method: "POST",
+              body: JSON.stringify({
+                name,
+                email,
+                password,
+                phone_number: phone,
+                city: city || null,
+                bio: bio || null,
+              }),
+            });
+            const data = await apiRequest("/auth/login", {
+              method: "POST",
+              body: JSON.stringify({ email, password }),
+            });
+            setToken(data.access_token);
+            window.location.href = "./activities.html";
+          } catch (err) {
+            showAlert(
+              "alert",
+              err.detail || "Registration failed. Please check your details.",
+            );
+            setLoading(btn, false);
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>My Profile — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <a
+          href="./activities.html"
+          class="navbar-brand"
+          ><div class="brand-icon">🌐</div>
+          CircleUp</a
+        >
+        <ul class="navbar-nav">
+          <li><a href="./activities.html">🏠 Browse</a></li>
+          <li><a href="./my-activities.html">📋 My Activities</a></li>
+          <li>
+            <a
+              href="./profile.html"
+              class="active"
+              >👤 Profile</a
+            >
+          </li>
+        </ul>
+        <div class="navbar-actions">
+          <a
+            href="./profile.html"
+            class="user-pill"
+          >
+            <div
+              class="avatar"
+              id="nav-initials"
+            >
+              ?
+            </div>
+            <span
+              class="user-pill-name"
+              id="nav-user-name"
+              >Me</span
+            >
+          </a>
+          <button
+            class="btn btn-ghost btn-sm"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container page-content">
+      <div class="page-header">
+        <div>
+          <h1>My Profile</h1>
+          <p>View and manage your account details.</p>
+        </div>
+        <a
+          href="./my-activities.html"
+          class="btn btn-outline"
+          >📋 My Activities</a
+        >
+      </div>
+
+      <div
+        id="loading"
+        class="loading"
+      >
+        <div class="spinner"></div>
+        Loading profile…
+      </div>
+
+      <div
+        id="profile-content"
+        style="display: none"
+      >
+        <!-- VIEW MODE -->
+        <div
+          id="view-mode"
+          class="profile-layout"
+        >
+          <div
+            class="card"
+            style="text-align: center; padding: 30px"
+          >
+            <div
+              class="profile-avatar"
+              id="view-avatar"
+            >
+              ?
+            </div>
+            <div
+              class="profile-name"
+              id="view-name"
+            ></div>
+            <div
+              class="profile-city"
+              id="view-city"
+            ></div>
+            <div
+              class="profile-bio"
+              id="view-bio"
+            ></div>
+            <button
+              class="btn btn-outline btn-full"
+              style="margin-top: 22px"
+              onclick="switchToEdit()"
+            >
+              ✏️ Edit Profile
+            </button>
+            <a
+              href="./my-activities.html"
+              class="btn btn-ghost btn-full"
+              style="margin-top: 8px"
+              >📋 My Activities</a
+            >
+          </div>
+          <div class="card">
+            <div class="card-header"><h2>Account Details</h2></div>
+            <ul class="info-list">
+              <li class="info-item">
+                <span class="info-icon">📧</span>
+                <div>
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    Email
+                  </div>
+                  <div
+                    id="view-email"
+                    style="font-weight: 600; margin-top: 2px"
+                  ></div>
+                </div>
+              </li>
+              <li class="info-item">
+                <span class="info-icon">📱</span>
+                <div>
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    Phone
+                  </div>
+                  <div
+                    id="view-phone"
+                    style="font-weight: 600; margin-top: 2px"
+                  ></div>
+                </div>
+              </li>
+              <li class="info-item">
+                <span class="info-icon">📍</span>
+                <div>
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    City
+                  </div>
+                  <div
+                    id="view-city2"
+                    style="font-weight: 600; margin-top: 2px"
+                  ></div>
+                </div>
+              </li>
+              <li class="info-item">
+                <span class="info-icon">🗓️</span>
+                <div>
+                  <div
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-2);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    Member Since
+                  </div>
+                  <div
+                    id="view-joined"
+                    style="font-weight: 600; margin-top: 2px"
+                  ></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EDIT MODE -->
+        <div
+          id="edit-mode"
+          style="display: none; max-width: 640px"
+        >
+          <div class="card">
+            <div class="card-header">
+              <h2>✏️ Edit Profile</h2>
+              <button
+                class="btn btn-ghost btn-sm"
+                onclick="switchToView()"
+              >
+                ✕ Cancel
+              </button>
+            </div>
+            <div
+              id="edit-alert"
+              class="alert"
+            ></div>
+            <div
+              id="edit-success"
+              class="alert"
+            ></div>
+            <form
+              id="edit-form"
+              novalidate
+            >
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-name"
+                  >Full Name <span class="req">*</span></label
+                >
+                <input
+                  id="e-name"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-email"
+                  >Email <span class="req">*</span></label
+                >
+                <input
+                  id="e-email"
+                  type="email"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-phone"
+                  >Phone <span class="req">*</span></label
+                >
+                <input
+                  id="e-phone"
+                  type="tel"
+                  class="form-control"
+                  required
+                  maxlength="10"
+                />
+                <div class="form-hint">6–10 digits only.</div>
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-city"
+                  >City</label
+                >
+                <div
+                  class="city-dropdown"
+                  id="profile-city-dd"
+                >
+                  <div class="city-input-wrap">
+                    <span class="city-search-icon">🔍</span>
+                    <input
+                      id="e-city"
+                      type="text"
+                      class="form-control city-input"
+                      placeholder="Search your city…"
+                      autocomplete="off"
+                    />
+                    <span class="city-arrow">
+                      <svg
+                        width="12"
+                        height="8"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                      >
+                        <path
+                          d="M1 1.5l5 5 5-5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="city-list"
+                    id="e-city-list"
+                  ></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label
+                  class="form-label"
+                  for="e-bio"
+                  >Bio</label
+                >
+                <textarea
+                  id="e-bio"
+                  class="form-control"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div style="display: flex; gap: 10px; justify-content: flex-end">
+                <button
+                  type="button"
+                  class="btn btn-ghost"
+                  onclick="switchToView()"
+                >
+                  Cancel
+                </button>
+                <button
+                  id="save-btn"
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/city-dropdown.js"></script>
+    <script>
+      requireAuth();
+      let currentUser = null;
+      let cityDDInit = false;
+
+      async function loadProfile() {
+        try {
+          currentUser = await apiRequest("/users/me");
+          renderView(currentUser);
+          renderNavUser(currentUser.name);
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("profile-content").style.display = "";
+          if (typeof gsap !== "undefined")
+            gsap.from(".profile-layout > *", {
+              y: 24,
+              opacity: 0,
+              stagger: 0.1,
+              duration: 0.45,
+              ease: "power2.out",
+            });
+        } catch (err) {
+          document.getElementById("loading").innerHTML =
+            `<div class="alert alert-error show">${esc(err.detail || "Failed to load profile.")}</div>`;
+        }
+      }
+
+      function renderView(u) {
+        document.getElementById("view-avatar").textContent = getInitials(
+          u.name,
+        );
+        document.getElementById("view-name").textContent = u.name;
+        document.getElementById("view-city").textContent = u.city || "";
+        document.getElementById("view-bio").textContent = u.bio || "";
+        document.getElementById("view-email").textContent = u.email;
+        document.getElementById("view-phone").textContent = u.phone_number;
+        document.getElementById("view-city2").textContent = u.city || "—";
+        document.getElementById("view-joined").textContent = new Date(
+          u.created_at,
+        ).toLocaleDateString("en-IN", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+      }
+
+      function switchToEdit() {
+        document.getElementById("view-mode").style.display = "none";
+        document.getElementById("edit-mode").style.display = "";
+        hideAlert("edit-alert");
+        hideAlert("edit-success");
+        document.getElementById("e-name").value = currentUser.name;
+        document.getElementById("e-email").value = currentUser.email;
+        document.getElementById("e-phone").value = currentUser.phone_number;
+        document.getElementById("e-city").value = currentUser.city || "";
+        document.getElementById("e-bio").value = currentUser.bio || "";
+        // Init city dropdown only once
+        if (!cityDDInit) {
+          initCityDropdown("e-city", "e-city-list");
+          cityDDInit = true;
+        }
+        if (typeof gsap !== "undefined")
+          gsap.from("#edit-mode", {
+            y: 20,
+            opacity: 0,
+            duration: 0.35,
+            ease: "power2.out",
+          });
+      }
+
+      function switchToView() {
+        document.getElementById("edit-mode").style.display = "none";
+        document.getElementById("view-mode").style.display = "";
+      }
+
+      document
+        .getElementById("edit-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          hideAlert("edit-alert");
+          hideAlert("edit-success");
+          const name = document.getElementById("e-name").value.trim();
+          const email = document.getElementById("e-email").value.trim();
+          const phone = document.getElementById("e-phone").value.trim();
+          const city = document.getElementById("e-city").value.trim();
+          const bio = document.getElementById("e-bio").value.trim();
+          const btn = document.getElementById("save-btn");
+
+          let hasError = false;
+          if (!name) {
+            showAlert("edit-alert", "Name is required.");
+            hasError = true;
+          }
+          if (!Validators.email(email)) {
+            showAlert("edit-alert", "Please enter a valid email address.");
+            hasError = true;
+          }
+          if (!Validators.phone(phone)) {
+            showAlert("edit-alert", "Phone must be 6–10 digits.");
+            hasError = true;
+          }
+          if (hasError) return;
+
+          setLoading(btn, true, "Saving…");
+          try {
+            currentUser = await apiRequest("/users/me", {
+              method: "PUT",
+              body: JSON.stringify({
+                name,
+                email,
+                phone_number: phone,
+                city: city || null,
+                bio: bio || null,
+              }),
+            });
+            renderView(currentUser);
+            renderNavUser(currentUser.name);
+            showAlert(
+              "edit-success",
+              "✅ Profile updated successfully!",
+              "success",
+            );
+            setLoading(btn, false);
+            setTimeout(switchToView, 1400);
+          } catch (err) {
+            showAlert("edit-alert", err.detail || "Update failed.");
+            setLoading(btn, false);
+          }
+        });
+
+      loadProfile();
+    </script>
+  </body>
+</html>

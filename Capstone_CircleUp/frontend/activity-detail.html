@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Activity — CircleUp</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <a
+          href="./activities.html"
+          class="navbar-brand"
+          ><div class="brand-icon">🌐</div>
+          CircleUp</a
+        >
+        <ul class="navbar-nav">
+          <li><a href="./activities.html">🏠 Browse</a></li>
+          <li><a href="./my-activities.html">📋 My Activities</a></li>
+          <li><a href="./profile.html">👤 Profile</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a
+            href="./profile.html"
+            class="user-pill"
+          >
+            <div
+              class="avatar"
+              id="nav-initials"
+            >
+              ?
+            </div>
+            <span
+              class="user-pill-name"
+              id="nav-user-name"
+              >Me</span
+            >
+          </a>
+          <button
+            class="btn btn-ghost btn-sm"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container page-content">
+      <a
+        href="./activities.html"
+        class="btn btn-ghost btn-sm"
+        style="margin-bottom: 22px"
+        >← Back</a
+      >
+      <div
+        id="loading"
+        class="loading"
+      >
+        <div class="spinner"></div>
+        Loading activity…
+      </div>
+      <div
+        id="page-alert"
+        class="alert"
+      ></div>
+      <div
+        id="content"
+        style="display: none"
+      ></div>
+
+      <!-- Edit form -->
+      <div
+        id="edit-section"
+        style="display: none; margin-top: 28px; max-width: 640px"
+      >
+        <div class="card">
+          <div class="card-header">
+            <h2>✏️ Edit Activity</h2>
+            <button
+              class="btn btn-ghost btn-sm"
+              onclick="closeEdit()"
+            >
+              ✕ Cancel
+            </button>
+          </div>
+          <div
+            id="edit-alert"
+            class="alert"
+          ></div>
+          <form
+            id="edit-form"
+            novalidate
+          >
+            <div class="form-group">
+              <label class="form-label">Title <span class="req">*</span></label>
+              <input
+                id="e-title"
+                type="text"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label"
+                  >Category <span class="req">*</span></label
+                >
+                <select
+                  id="e-category"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select…</option>
+                  <option>Cricket Match</option>
+                  <option>Badminton Session</option>
+                  <option>Cafe Meetup</option>
+                  <option>Movie Plan</option>
+                  <option>Study Group</option>
+                  <option>Weekend Trip</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label"
+                  >Max Participants <span class="req">*</span></label
+                >
+                <input
+                  id="e-max"
+                  type="number"
+                  class="form-control"
+                  min="1"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label"
+                >Location <span class="req">*</span></label
+              >
+              <div
+                class="city-dropdown"
+                id="e-loc-dd"
+              >
+                <div class="city-input-wrap">
+                  <span class="city-search-icon">🔍</span>
+                  <input
+                    id="e-location"
+                    type="text"
+                    class="form-control city-input"
+                    placeholder="Search or type a city / venue…"
+                    autocomplete="off"
+                    required
+                  />
+                  <span class="city-arrow">
+                    <svg
+                      width="12"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 1.5l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="city-list"
+                  id="e-location-list"
+                ></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label"
+                  >Date <span class="req">*</span></label
+                >
+                <input
+                  id="e-date"
+                  type="date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label"
+                  >Time <span class="req">*</span></label
+                >
+                <input
+                  id="e-time"
+                  type="time"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <textarea
+                id="e-desc"
+                class="form-control"
+                rows="3"
+              ></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end">
+              <button
+                type="button"
+                class="btn btn-ghost"
+                onclick="closeEdit()"
+              >
+                Cancel
+              </button>
+              <button
+                id="save-btn"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/city-dropdown.js"></script>
+    <script>
+      requireAuth();
+      const params = new URLSearchParams(window.location.search);
+      const activityId = params.get("id");
+      let activity = null,
+        requests = [],
+        currentUserId = null;
+      if (!activityId) window.location.href = "./activities.html";
+
+      const CATEGORY_CONFIG = {
+        "Cricket Match": { emoji: "🏏", cls: "cat-cricket" },
+        "Badminton Session": { emoji: "🏸", cls: "cat-badminton" },
+        "Cafe Meetup": { emoji: "☕", cls: "cat-cafe" },
+        "Movie Plan": { emoji: "🎬", cls: "cat-movie" },
+        "Study Group": { emoji: "📚", cls: "cat-study" },
+        "Weekend Trip": { emoji: "🌄", cls: "cat-trip" },
+        Other: { emoji: "🎯", cls: "cat-other" },
+      };
+      function catConfig(c) {
+        return CATEGORY_CONFIG[c] || { emoji: "🎯", cls: "cat-other" };
+      }
+
+      async function init() {
+        try {
+          const me = await apiRequest("/users/me");
+          currentUserId = me.id;
+          renderNavUser(me.name);
+        } catch (_) {}
+        // Init location city dropdown for edit form
+        initCityDropdown("e-location", "e-location-list");
+        await loadActivity();
+      }
+
+      async function loadActivity() {
+        document.getElementById("loading").style.display = "";
+        document.getElementById("content").style.display = "none";
+        try {
+          activity = await apiRequest(`/activities/${activityId}`);
+          if (activity.creator_id === currentUserId) {
+            try {
+              requests = await apiRequest(`/activities/${activityId}/requests`);
+            } catch (_) {
+              requests = [];
+            }
+          }
+          renderDetail();
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("content").style.display = "";
+          if (typeof gsap !== "undefined")
+            gsap.from("#content > *", {
+              y: 24,
+              opacity: 0,
+              stagger: 0.1,
+              duration: 0.45,
+              ease: "power2.out",
+            });
+        } catch (err) {
+          document.getElementById("loading").style.display = "none";
+          showAlert("page-alert", err.detail || "Activity not found.", "error");
+        }
+      }
+
+      function renderDetail() {
+        const isOwner = activity.creator_id === currentUserId;
+        const { emoji, cls } = catConfig(activity.category);
+        document.title = `${activity.title} — CircleUp`;
+
+        const infoGrid = `
+    <div class="detail-info-grid">
+      <div class="detail-info-box"><div class="label">📅 Date</div><div class="value">${fmtDate(activity.date)}</div></div>
+      <div class="detail-info-box"><div class="label">⏰ Time</div><div class="value">${fmtTime(activity.time)}</div></div>
+      <div class="detail-info-box"><div class="label">📍 Location</div><div class="value">${esc(activity.location)}</div></div>
+      <div class="detail-info-box"><div class="label">👥 Participants</div><div class="value">${activity.approved_participants_count} / ${activity.max_participants} joined</div></div>
+    </div>
+    ${activity.description ? `<div class="description-box" style="margin-top:20px;"><div class="label">About</div><p>${esc(activity.description)}</p></div>` : ""}`;
+
+        const rightPanel = isOwner ? renderOwnerPanel() : renderUserPanel();
+
+        document.getElementById("content").innerHTML = `
+    <div class="cat-img ${cls}" style="border-radius:var(--radius); margin-bottom:22px; height:160px; font-size:4.5rem;">${emoji}</div>
+    <div class="detail-header">
+      <h1 class="detail-title">${esc(activity.title)}</h1>
+      <div class="detail-badges">
+        ${statusBadge(activity.status)}
+        <span class="badge badge-category">${esc(activity.category)}</span>
+        ${isOwner ? '<span class="badge" style="background:#F3E8FF;color:#6D28D9;">⭐ Your Activity</span>' : ""}
+      </div>
+    </div>
+    <div class="detail-body">
+      <div>${infoGrid}</div>
+      <div>${rightPanel}</div>
+    </div>`;
+      }
+
+      function renderOwnerPanel() {
+        const cancelled = activity.status === "cancelled";
+        const completed = activity.status === "completed";
+        const manageCard =
+          !cancelled && !completed
+            ? `
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-header"><h2>Manage Activity</h2></div>
+      <div class="owner-actions">
+        <button class="btn btn-outline btn-full" onclick="openEdit()">✏️ Edit Activity</button>
+        <button class="btn btn-danger btn-full" id="cancel-btn" onclick="cancelActivity()">🚫 Cancel Activity</button>
+      </div>
+    </div>`
+            : "";
+        const pendingCount = requests.filter(
+          (r) => r.status === "pending",
+        ).length;
+        const participantsCard = `
+    <div class="card">
+      <div class="card-header">
+        <h2>Participation Requests</h2>
+        ${pendingCount > 0 ? `<span class="badge badge-pending">${pendingCount} pending</span>` : ""}
+      </div>
+      <div id="requests-container">
+        ${requests.length ? renderRequestRows() : '<p style="color:var(--text-2);font-size:.875rem;padding-top:8px;">No requests yet.</p>'}
+      </div>
+    </div>`;
+        return manageCard + participantsCard;
+      }
+
+      function renderRequestRows() {
+        return `<div class="participants-panel">${requests
+          .map((req) => {
+            const phone = req.requester_phone
+              ? `<div class="participant-phone">📱 ${esc(req.requester_phone)}</div>`
+              : "";
+            const actions =
+              req.status === "pending"
+                ? `
+      <div class="participant-actions">
+        <button class="btn btn-success btn-sm" onclick="approveRequest(${req.id})">✓ Approve</button>
+        <button class="btn btn-danger btn-sm"  onclick="rejectRequest(${req.id})">✗ Reject</button>
+      </div>`
+                : `<span class="badge badge-${req.status}">${req.status}</span>`;
+            return `
+      <div class="participant-item" id="req-row-${req.id}">
+        <div class="participant-info">
+          <div class="participant-name">${esc(req.requester_name)}</div>
+          ${phone}
+        </div>
+        <div>${actions}</div>
+      </div>`;
+          })
+          .join("")}</div>`;
+      }
+
+      function renderUserPanel() {
+        const s = activity.my_request_status;
+        const isOpen = activity.status === "open";
+        const contactBox = activity.organizer_phone
+          ? `
+    <div class="contact-box" style="margin-top:12px;">
+      <span class="contact-icon">📱</span>
+      <span><strong>Organizer's phone:</strong> ${esc(activity.organizer_phone)}</span>
+    </div>`
+          : "";
+        if (!s) {
+          if (!isOpen)
+            return `<div class="card"><p style="color:var(--text-2);font-size:.875rem;">This activity is <strong>${activity.status}</strong> and not accepting requests.</p></div>`;
+          return `
+      <div class="card">
+        <p style="font-size:.875rem;color:var(--text-2);margin-bottom:14px;">Interested? Request to join.</p>
+        <div id="join-alert" class="alert"></div>
+        <button id="join-btn" class="btn btn-primary btn-full" onclick="requestToJoin()">🤝 Request to Join</button>
+      </div>`;
+        }
+        const msgs = {
+          pending: {
+            icon: "⏳",
+            msg: "Your request is pending approval.",
+            cls: "alert-warning",
+          },
+          approved: {
+            icon: "✅",
+            msg: "You're approved! You're in.",
+            cls: "alert-success",
+          },
+          rejected: {
+            icon: "❌",
+            msg: "Your request was not approved.",
+            cls: "alert-error",
+          },
+        };
+        const m = msgs[s] || msgs.pending;
+        return `
+    <div class="card">
+      <div class="request-status-box">
+        <div class="request-status-row"><span>Your request status:</span><span class="badge badge-${s}">${s}</span></div>
+        <div class="alert ${m.cls} show" style="margin:0;">${m.icon} ${m.msg}</div>
+      </div>
+      ${contactBox}
+    </div>`;
+      }
+
+      async function requestToJoin() {
+        hideAlert("join-alert");
+        const btn = document.getElementById("join-btn");
+        setLoading(btn, true, "Sending…");
+        try {
+          await apiRequest(`/activities/${activityId}/requests`, {
+            method: "POST",
+          });
+          showToast(
+            "Request sent! The organizer will review it soon.",
+            "success",
+            4000,
+            "Request Submitted",
+          );
+          await loadActivity();
+        } catch (err) {
+          showAlert("join-alert", err.detail || "Request failed.", "error");
+          setLoading(btn, false);
+        }
+      }
+
+      async function approveRequest(id) {
+        try {
+          await apiRequest(`/activities/${activityId}/requests/${id}/approve`, {
+            method: "POST",
+          });
+          await loadActivity();
+        } catch (err) {
+          showToast(err.detail || "Approve failed.", "error", 4000, "Error");
+        }
+      }
+
+      async function rejectRequest(id) {
+        try {
+          await apiRequest(`/activities/${activityId}/requests/${id}/reject`, {
+            method: "POST",
+          });
+          await loadActivity();
+        } catch (err) {
+          showToast(err.detail || "Reject failed.", "error", 4000, "Error");
+        }
+      }
+
+      function openEdit() {
+        document.getElementById("edit-section").style.display = "";
+        hideAlert("edit-alert");
+        document.getElementById("e-title").value = activity.title;
+        document.getElementById("e-location").value = activity.location;
+        document.getElementById("e-date").value = activity.date;
+        document.getElementById("e-time").value = activity.time.slice(0, 5);
+        document.getElementById("e-max").value = activity.max_participants;
+        document.getElementById("e-desc").value = activity.description || "";
+        document.getElementById("e-category").value = activity.category;
+        document.getElementById("e-date").min = new Date()
+          .toISOString()
+          .split("T")[0];
+        document
+          .getElementById("edit-section")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+      function closeEdit() {
+        document.getElementById("edit-section").style.display = "none";
+      }
+
+      document
+        .getElementById("edit-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          hideAlert("edit-alert");
+          const date = document.getElementById("e-date").value;
+          const time = document.getElementById("e-time").value;
+
+          if (!isFutureDatetime(date, time)) {
+            showToast(
+              "The date and time you selected are in the past. Please choose a future date and time.",
+              "warning",
+              6000,
+              "⏰ Invalid Date & Time",
+            );
+            document.getElementById("e-date").classList.add("input-invalid");
+            document.getElementById("e-time").classList.add("input-invalid");
+            return;
+          }
+
+          const btn = document.getElementById("save-btn");
+          setLoading(btn, true, "Saving…");
+          try {
+            activity = await apiRequest(`/activities/${activityId}`, {
+              method: "PUT",
+              body: JSON.stringify({
+                title: document.getElementById("e-title").value.trim(),
+                category: document.getElementById("e-category").value,
+                location: document.getElementById("e-location").value.trim(),
+                date,
+                time: time.length === 5 ? time + ":00" : time,
+                max_participants: parseInt(
+                  document.getElementById("e-max").value,
+                ),
+                description:
+                  document.getElementById("e-desc").value.trim() || null,
+              }),
+            });
+            showToast(
+              "Activity updated successfully! ✓",
+              "success",
+              3500,
+              "Changes Saved",
+            );
+            renderDetail();
+            closeEdit();
+          } catch (err) {
+            showAlert("edit-alert", err.detail || "Update failed.");
+            setLoading(btn, false);
+          }
+        });
+
+      async function cancelActivity() {
+        if (!confirm("Cancel this activity? This cannot be undone.")) return;
+        const btn = document.getElementById("cancel-btn");
+        if (btn) setLoading(btn, true, "Cancelling…");
+        try {
+          activity = await apiRequest(`/activities/${activityId}/cancel`, {
+            method: "POST",
+          });
+          showToast("Activity has been cancelled.", "info", 4000, "Cancelled");
+          renderDetail();
+          closeEdit();
+        } catch (err) {
+          showToast(err.detail || "Cancel failed.", "error", 4000, "Error");
+          if (btn) setLoading(btn, false);
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>
