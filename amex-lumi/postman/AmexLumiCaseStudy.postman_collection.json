@@ -1,0 +1,51 @@
+{
+  "info": {
+    "name": "Amex Lumi Case Study - Phase 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "airflow_base_url", "value": "http://localhost:8081" },
+    { "key": "airflow_user", "value": "admin" },
+    { "key": "airflow_password", "value": "admin" },
+    { "key": "dag_id", "value": "lumi_ingestion_dag" },
+    { "key": "execution_id", "value": "test-run-1" },
+    { "key": "file_path", "value": "/opt/data/sample_employee.json" },
+    { "key": "postgres_dsn", "value": "postgresql://lumi_user:change_me@postgres:5432/lumi_warehouse" }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{airflow_user}}", "type": "string" },
+      { "key": "password", "value": "{{airflow_password}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Trigger Ingestion DAG Run",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dag_run_id\": \"{{execution_id}}\",\n  \"conf\": {\n    \"file_path\": \"{{file_path}}\",\n    \"execution_id\": \"{{execution_id}}\",\n    \"postgres_dsn\": \"{{postgres_dsn}}\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{airflow_base_url}}/api/v1/dags/{{dag_id}}/dagRuns",
+          "host": ["{{airflow_base_url}}"],
+          "path": ["api", "v1", "dags", "{{dag_id}}", "dagRuns"]
+        }
+      }
+    },
+    {
+      "name": "Get DAG Run Status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{airflow_base_url}}/api/v1/dags/{{dag_id}}/dagRuns/{{execution_id}}",
+          "host": ["{{airflow_base_url}}"],
+          "path": ["api", "v1", "dags", "{{dag_id}}", "dagRuns", "{{execution_id}}"]
+        }
+      }
+    }
+  ]
+}

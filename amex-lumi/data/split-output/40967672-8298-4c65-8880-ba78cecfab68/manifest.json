@@ -1,0 +1,22 @@
+{
+  "source_file": "/opt/data/sample_data.csv",
+  "source_file_name": "sample_data.csv",
+  "source_format": "CSV",
+  "source_file_size_bytes": 193,
+  "threshold_bytes": 100,
+  "part_count": 2,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.csv",
+      "file_path": "/opt/data/split-output/40967672-8298-4c65-8880-ba78cecfab68/part-001.csv",
+      "file_size_bytes": 94
+    },
+    {
+      "part_number": 2,
+      "file_name": "part-002.csv",
+      "file_path": "/opt/data/split-output/40967672-8298-4c65-8880-ba78cecfab68/part-002.csv",
+      "file_size_bytes": 145
+    }
+  ]
+}

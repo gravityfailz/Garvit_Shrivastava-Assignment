@@ -1,0 +1,2 @@
+employee_id,first_name,last_name,email,phone_number,hire_date,department,job_title,currency,employment_status,manager_id,is_active,salary,emergency_contact_phone
+EMP1001,Rohan,Verma,rohan.verma@abc.com,9876500001,2024-01-15,Sales,Sales Manager,INR,Active,EMP1002,true,75000,9986500001

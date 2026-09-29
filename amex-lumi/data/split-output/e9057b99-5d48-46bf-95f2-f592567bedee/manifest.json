@@ -1,0 +1,16 @@
+{
+  "source_file": "/opt/data/tests/json_valid.json",
+  "source_file_name": "json_valid.json",
+  "source_format": "JSON",
+  "source_file_size_bytes": 649,
+  "threshold_bytes": 100,
+  "part_count": 1,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.json",
+      "file_path": "/opt/data/split-output/e9057b99-5d48-46bf-95f2-f592567bedee/part-001.json",
+      "file_size_bytes": 564
+    }
+  ]
+}

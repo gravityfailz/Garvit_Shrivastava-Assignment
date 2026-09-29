@@ -1,0 +1,3 @@
+employee_id,first_name,last_name,email,phone_number,hire_date,department,job_title,salary,currency,employment_status,manager_id,is_active,emergency_contact_phone
+TOOLONGID123,Neha,Bhatt,neha.bhatt@techcorp.com,123,2023-03-01,Sales,Sales Executive,550000,RUPEE,Full-time,X,false,+91-90000-00002
+EMP5002,Arvind,Menon,arvind.menon@techcorp.com,9988776656,2023-03-05,Marketing,Marketing Lead,600000,INR,Full-time,MGR5002,true,+91-90000-00003

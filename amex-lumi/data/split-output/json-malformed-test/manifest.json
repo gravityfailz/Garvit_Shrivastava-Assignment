@@ -1,0 +1,16 @@
+{
+  "source_file": "/opt/data/tests/json_malformed.json",
+  "source_file_name": "json_malformed.json",
+  "source_format": "JSON",
+  "source_file_size_bytes": 58,
+  "threshold_bytes": 100,
+  "part_count": 1,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "json_malformed.json",
+      "file_path": "/opt/data/tests/json_malformed.json",
+      "file_size_bytes": 58
+    }
+  ]
+}

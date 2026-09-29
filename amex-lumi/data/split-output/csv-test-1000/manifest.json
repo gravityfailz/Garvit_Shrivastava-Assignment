@@ -1,0 +1,16 @@
+{
+  "source_file": "/opt/data/sample_data.csv",
+  "source_file_name": "sample_data.csv",
+  "source_format": "CSV",
+  "source_file_size_bytes": 193,
+  "threshold_bytes": 1000,
+  "part_count": 1,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "sample_data.csv",
+      "file_path": "/opt/data/sample_data.csv",
+      "file_size_bytes": 193
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"source_record":{"employee_id":"EMP2003333333333333333333","first_name":"","last_name":"","department":"Finance","email":"anita@techcorp.com"},"violations":["employee_id: length 25 not in [7,7] (value='EMP2003333333333333333333')","first_name: length 0 not in [3,15] (value='')"]}

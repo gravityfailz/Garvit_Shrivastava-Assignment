@@ -1,0 +1,983 @@
+{
+  "source_file": "/opt/data/phase2_test_dataset/phase2_employee.csv",
+  "source_file_name": "phase2_employee.csv",
+  "source_format": "CSV",
+  "source_file_size_bytes": 1358162,
+  "threshold_bytes": 10000,
+  "part_count": 139,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-001.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 2,
+      "file_name": "part-002.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-002.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 3,
+      "file_name": "part-003.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-003.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 4,
+      "file_name": "part-004.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-004.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 5,
+      "file_name": "part-005.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-005.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 6,
+      "file_name": "part-006.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-006.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 7,
+      "file_name": "part-007.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-007.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 8,
+      "file_name": "part-008.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-008.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 9,
+      "file_name": "part-009.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-009.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 10,
+      "file_name": "part-010.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-010.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 11,
+      "file_name": "part-011.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-011.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 12,
+      "file_name": "part-012.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-012.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 13,
+      "file_name": "part-013.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-013.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 14,
+      "file_name": "part-014.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-014.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 15,
+      "file_name": "part-015.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-015.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 16,
+      "file_name": "part-016.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-016.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 17,
+      "file_name": "part-017.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-017.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 18,
+      "file_name": "part-018.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-018.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 19,
+      "file_name": "part-019.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-019.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 20,
+      "file_name": "part-020.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-020.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 21,
+      "file_name": "part-021.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-021.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 22,
+      "file_name": "part-022.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-022.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 23,
+      "file_name": "part-023.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-023.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 24,
+      "file_name": "part-024.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-024.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 25,
+      "file_name": "part-025.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-025.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 26,
+      "file_name": "part-026.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-026.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 27,
+      "file_name": "part-027.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-027.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 28,
+      "file_name": "part-028.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-028.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 29,
+      "file_name": "part-029.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-029.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 30,
+      "file_name": "part-030.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-030.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 31,
+      "file_name": "part-031.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-031.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 32,
+      "file_name": "part-032.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-032.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 33,
+      "file_name": "part-033.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-033.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 34,
+      "file_name": "part-034.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-034.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 35,
+      "file_name": "part-035.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-035.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 36,
+      "file_name": "part-036.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-036.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 37,
+      "file_name": "part-037.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-037.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 38,
+      "file_name": "part-038.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-038.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 39,
+      "file_name": "part-039.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-039.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 40,
+      "file_name": "part-040.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-040.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 41,
+      "file_name": "part-041.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-041.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 42,
+      "file_name": "part-042.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-042.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 43,
+      "file_name": "part-043.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-043.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 44,
+      "file_name": "part-044.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-044.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 45,
+      "file_name": "part-045.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-045.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 46,
+      "file_name": "part-046.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-046.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 47,
+      "file_name": "part-047.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-047.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 48,
+      "file_name": "part-048.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-048.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 49,
+      "file_name": "part-049.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-049.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 50,
+      "file_name": "part-050.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-050.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 51,
+      "file_name": "part-051.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-051.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 52,
+      "file_name": "part-052.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-052.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 53,
+      "file_name": "part-053.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-053.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 54,
+      "file_name": "part-054.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-054.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 55,
+      "file_name": "part-055.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-055.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 56,
+      "file_name": "part-056.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-056.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 57,
+      "file_name": "part-057.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-057.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 58,
+      "file_name": "part-058.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-058.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 59,
+      "file_name": "part-059.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-059.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 60,
+      "file_name": "part-060.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-060.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 61,
+      "file_name": "part-061.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-061.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 62,
+      "file_name": "part-062.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-062.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 63,
+      "file_name": "part-063.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-063.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 64,
+      "file_name": "part-064.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-064.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 65,
+      "file_name": "part-065.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-065.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 66,
+      "file_name": "part-066.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-066.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 67,
+      "file_name": "part-067.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-067.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 68,
+      "file_name": "part-068.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-068.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 69,
+      "file_name": "part-069.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-069.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 70,
+      "file_name": "part-070.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-070.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 71,
+      "file_name": "part-071.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-071.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 72,
+      "file_name": "part-072.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-072.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 73,
+      "file_name": "part-073.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-073.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 74,
+      "file_name": "part-074.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-074.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 75,
+      "file_name": "part-075.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-075.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 76,
+      "file_name": "part-076.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-076.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 77,
+      "file_name": "part-077.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-077.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 78,
+      "file_name": "part-078.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-078.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 79,
+      "file_name": "part-079.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-079.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 80,
+      "file_name": "part-080.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-080.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 81,
+      "file_name": "part-081.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-081.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 82,
+      "file_name": "part-082.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-082.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 83,
+      "file_name": "part-083.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-083.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 84,
+      "file_name": "part-084.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-084.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 85,
+      "file_name": "part-085.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-085.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 86,
+      "file_name": "part-086.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-086.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 87,
+      "file_name": "part-087.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-087.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 88,
+      "file_name": "part-088.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-088.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 89,
+      "file_name": "part-089.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-089.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 90,
+      "file_name": "part-090.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-090.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 91,
+      "file_name": "part-091.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-091.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 92,
+      "file_name": "part-092.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-092.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 93,
+      "file_name": "part-093.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-093.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 94,
+      "file_name": "part-094.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-094.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 95,
+      "file_name": "part-095.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-095.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 96,
+      "file_name": "part-096.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-096.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 97,
+      "file_name": "part-097.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-097.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 98,
+      "file_name": "part-098.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-098.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 99,
+      "file_name": "part-099.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-099.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 100,
+      "file_name": "part-100.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-100.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 101,
+      "file_name": "part-101.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-101.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 102,
+      "file_name": "part-102.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-102.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 103,
+      "file_name": "part-103.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-103.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 104,
+      "file_name": "part-104.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-104.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 105,
+      "file_name": "part-105.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-105.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 106,
+      "file_name": "part-106.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-106.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 107,
+      "file_name": "part-107.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-107.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 108,
+      "file_name": "part-108.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-108.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 109,
+      "file_name": "part-109.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-109.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 110,
+      "file_name": "part-110.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-110.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 111,
+      "file_name": "part-111.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-111.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 112,
+      "file_name": "part-112.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-112.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 113,
+      "file_name": "part-113.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-113.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 114,
+      "file_name": "part-114.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-114.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 115,
+      "file_name": "part-115.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-115.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 116,
+      "file_name": "part-116.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-116.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 117,
+      "file_name": "part-117.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-117.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 118,
+      "file_name": "part-118.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-118.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 119,
+      "file_name": "part-119.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-119.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 120,
+      "file_name": "part-120.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-120.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 121,
+      "file_name": "part-121.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-121.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 122,
+      "file_name": "part-122.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-122.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 123,
+      "file_name": "part-123.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-123.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 124,
+      "file_name": "part-124.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-124.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 125,
+      "file_name": "part-125.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-125.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 126,
+      "file_name": "part-126.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-126.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 127,
+      "file_name": "part-127.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-127.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 128,
+      "file_name": "part-128.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-128.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 129,
+      "file_name": "part-129.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-129.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 130,
+      "file_name": "part-130.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-130.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 131,
+      "file_name": "part-131.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-131.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 132,
+      "file_name": "part-132.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-132.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 133,
+      "file_name": "part-133.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-133.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 134,
+      "file_name": "part-134.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-134.csv",
+      "file_size_bytes": 9931,
+      "within_threshold": true
+    },
+    {
+      "part_number": 135,
+      "file_name": "part-135.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-135.csv",
+      "file_size_bytes": 9952,
+      "within_threshold": true
+    },
+    {
+      "part_number": 136,
+      "file_name": "part-136.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-136.csv",
+      "file_size_bytes": 9927,
+      "within_threshold": true
+    },
+    {
+      "part_number": 137,
+      "file_name": "part-137.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-137.csv",
+      "file_size_bytes": 9942,
+      "within_threshold": true
+    },
+    {
+      "part_number": 138,
+      "file_name": "part-138.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-138.csv",
+      "file_size_bytes": 9946,
+      "within_threshold": true
+    },
+    {
+      "part_number": 139,
+      "file_name": "part-139.csv",
+      "file_path": "/opt/data/split-output/phase2-test-csv/part-139.csv",
+      "file_size_bytes": 8857,
+      "within_threshold": true
+    }
+  ]
+}
