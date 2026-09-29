@@ -1,0 +1,23 @@
+﻿<records>
+  <record>
+    <employee_id>EMP2001</employee_id>
+    <first_name>Vikram</first_name>
+    <last_name>Nair</last_name>
+    <department>Engineering</department>
+    <email>vikram.nair@techcorp.com</email>
+  </record>
+  <record>
+    <employee_id>EMP2002</employee_id>
+    <first_name>Anita</first_name>
+    <last_name></last_name>
+    <department>Finance</department>
+    <email>anita@techcorp.com</email>
+  </record>
+  <record>
+    <employee_id>EMP2003333333333333333333</employee_id>
+    <first_name></first_name>
+    <last_name></last_name>
+    <department>Finance</department>
+    <email>anita@techcorp.com</email>
+  </record>
+</records>

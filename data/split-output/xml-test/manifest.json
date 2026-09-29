@@ -1,0 +1,16 @@
+{
+  "source_file": "/opt/data/sample_data.xml",
+  "source_file_name": "sample_data.xml",
+  "source_format": "XML",
+  "source_file_size_bytes": 652,
+  "threshold_bytes": 100000,
+  "part_count": 1,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "sample_data.xml",
+      "file_path": "/opt/data/sample_data.xml",
+      "file_size_bytes": 652
+    }
+  ]
+}

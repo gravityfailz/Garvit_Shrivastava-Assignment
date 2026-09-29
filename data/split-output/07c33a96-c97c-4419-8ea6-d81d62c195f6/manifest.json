@@ -1,0 +1,22 @@
+{
+  "source_file": "/opt/data/tests/xml_invalid_lengths.xml",
+  "source_file_name": "xml_invalid_lengths.xml",
+  "source_format": "XML",
+  "source_file_size_bytes": 1461,
+  "threshold_bytes": 100,
+  "part_count": 2,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.xml",
+      "file_path": "/opt/data/split-output/07c33a96-c97c-4419-8ea6-d81d62c195f6/part-001.xml",
+      "file_size_bytes": 763
+    },
+    {
+      "part_number": 2,
+      "file_name": "part-002.xml",
+      "file_path": "/opt/data/split-output/07c33a96-c97c-4419-8ea6-d81d62c195f6/part-002.xml",
+      "file_size_bytes": 794
+    }
+  ]
+}

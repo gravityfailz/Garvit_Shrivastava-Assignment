@@ -1,0 +1,1 @@
+{"source_record":{"source_file":"/opt/data/tests/json_malformed.json","raw_content":"[\n  { \"employee_id\": \"EMP0013\", \"first_name\": \"Broken\"\n]\r\n"},"violations":["Malformed JSON: Unexpected close marker ']': expected '}' (for Object starting at [Source: (String)\"[\n  { \"employee_id\": \"EMP0013\", \"first_name\": \"Broken\"\n]\"; line: 2, column: 3])"]}

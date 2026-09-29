@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<records>
+  <record>
+    <employee_id>EMP6002</employee_id>
+    <first_name>Karan</first_name>
+    <last_name>Malhotra</last_name>
+    <email>karan.malhotra@techcorp.com</email>
+    <phone_number>9090909091</phone_number>
+    <hire_date>2023-06-05</hire_date>
+    <department>Engineering</department>
+    <job_title>DevOps Engineer</job_title>
+    <salary>680000</salary>
+    <currency>INR</currency>
+    <employment_status>Full-time</employment_status>
+    <manager_id>MGR6002</manager_id>
+    <is_active>true</is_active>
+    <emergency_contact>
+      <name>Sonal Malhotra</name>
+      <relationship>Spouse</relationship>
+      <phone>+91-90000-00007</phone>
+      <email>sonal.malhotra@example.com</email>
+    </emergency_contact>
+  </record>
+</records>

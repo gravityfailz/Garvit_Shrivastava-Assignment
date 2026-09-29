@@ -1,0 +1,1 @@
+{"source_record":{"employee_id":"EMP1003","first_name":"","last_name":"Gupta","department":"Marketing","email":"gupta@techcorp.com"},"violations":["first_name: length 0 not in [3,15] (value='')"]}
