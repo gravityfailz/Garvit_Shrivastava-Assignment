@@ -1,0 +1,37 @@
+<records>
+  <record>
+    <employee_id>EMP6003</employee_id>
+    <first_name>Devika</first_name>
+    <last_name></last_name>
+    <email>devika.nair@techcorp.com</email>
+    <phone_number>9090909092</phone_number>
+    <hire_date>2023-07-01</hire_date>
+    <department>Finance</department>
+    <job_title>Accountant</job_title>
+    <salary>595000</salary>
+    <currency>INR</currency>
+    <employment_status>Full-time</employment_status>
+    <manager_id>MGR6003</manager_id>
+    <is_active>true</is_active>
+    <emergency_contact>
+      <name>Manoj Nair</name>
+      <relationship>Father</relationship>
+      <phone></phone>
+      <email>manoj.nair@example.com</email>
+    </emergency_contact>
+  </record>
+  <record>
+    <employee_id>EMP6004</employee_id>
+    <first_name>Rehan</first_name>
+    <last_name>Qureshi</last_name>
+    <phone_number>9090909093</phone_number>
+    <hire_date>2023-07-10</hire_date>
+    <department>Sales</department>
+    <job_title>Sales Executive</job_title>
+    <salary>560000</salary>
+    <currency>INR</currency>
+    <employment_status>Full-time</employment_status>
+    <manager_id>MGR6004</manager_id>
+    <is_active>true</is_active>
+  </record>
+</records>

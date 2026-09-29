@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<records>
+  <record>
+    <employee_id>EMP2002</employee_id>
+    <first_name>Anita</first_name>
+    <last_name />
+    <department>Finance</department>
+    <email>anita@techcorp.com</email>
+  </record>
+</records>

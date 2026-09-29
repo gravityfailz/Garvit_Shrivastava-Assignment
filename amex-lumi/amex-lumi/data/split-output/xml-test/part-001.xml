@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<records>
+  <record>
+    <employee_id>EMP2001</employee_id>
+    <first_name>Vikram</first_name>
+    <last_name>Nair</last_name>
+    <department>Engineering</department>
+    <email>vikram.nair@techcorp.com</email>
+  </record>
+</records>

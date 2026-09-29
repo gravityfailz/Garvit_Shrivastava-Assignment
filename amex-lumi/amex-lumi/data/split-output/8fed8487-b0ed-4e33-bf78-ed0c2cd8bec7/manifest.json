@@ -1,0 +1,17 @@
+{
+  "source_file": "/opt/data/tests/csv_valid.csv",
+  "source_file_name": "csv_valid.csv",
+  "source_format": "CSV",
+  "source_file_size_bytes": 305,
+  "threshold_bytes": 10,
+  "part_count": 1,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.csv",
+      "file_path": "/opt/data/split-output/8fed8487-b0ed-4e33-bf78-ed0c2cd8bec7/part-001.csv",
+      "file_size_bytes": 304,
+      "within_threshold": false
+    }
+  ]
+}

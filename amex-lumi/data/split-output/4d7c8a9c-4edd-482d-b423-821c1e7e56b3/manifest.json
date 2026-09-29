@@ -1,0 +1,24 @@
+{
+  "source_file": "/opt/data/phase2_test_dataset/phase2_employee.csv",
+  "source_file_name": "phase2_employee.csv",
+  "source_format": "CSV",
+  "source_file_size_bytes": 1358162,
+  "threshold_bytes": 1048576,
+  "part_count": 2,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.csv",
+      "file_path": "/opt/data/split-output/4d7c8a9c-4edd-482d-b423-821c1e7e56b3/part-001.csv",
+      "file_size_bytes": 1048538,
+      "within_threshold": true
+    },
+    {
+      "part_number": 2,
+      "file_name": "part-002.csv",
+      "file_path": "/opt/data/split-output/4d7c8a9c-4edd-482d-b423-821c1e7e56b3/part-002.csv",
+      "file_size_bytes": 309786,
+      "within_threshold": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<records>
+  <record>
+    <employee_id>EMP6001</employee_id>
+    <first_name>Meher</first_name>
+    <last_name>Chawla</last_name>
+    <email>meher.chawla@techcorp.com</email>
+    <phone_number>9090909090</phone_number>
+    <hire_date>2022-11-05</hire_date>
+    <department>Finance</department>
+    <job_title>Financial Analyst</job_title>
+    <salary>620000</salary>
+    <currency>INR</currency>
+    <employment_status>Full-time</employment_status>
+    <manager_id>MGR6001</manager_id>
+    <is_active>true</is_active>
+    <emergency_contact>
+      <name>Rakesh Chawla</name>
+      <relationship>Father</relationship>
+      <phone>+91-90909-09091</phone>
+      <email>rakesh.chawla@example.com</email>
+    </emergency_contact>
+  </record>
+</records>

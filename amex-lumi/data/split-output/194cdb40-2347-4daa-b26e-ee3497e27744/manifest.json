@@ -1,0 +1,52 @@
+{
+  "source_file": "/opt/data/tests/json_valid.json",
+  "source_file_name": "json_valid.json",
+  "source_format": "JSON",
+  "source_file_size_bytes": 649,
+  "threshold_bytes": 100,
+  "part_count": 7,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-001.json",
+      "file_size_bytes": 0
+    },
+    {
+      "part_number": 2,
+      "file_name": "part-002.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-002.json",
+      "file_size_bytes": 0
+    },
+    {
+      "part_number": 3,
+      "file_name": "part-003.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-003.json",
+      "file_size_bytes": 0
+    },
+    {
+      "part_number": 4,
+      "file_name": "part-004.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-004.json",
+      "file_size_bytes": 564
+    },
+    {
+      "part_number": 5,
+      "file_name": "part-005.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-005.json",
+      "file_size_bytes": 0
+    },
+    {
+      "part_number": 6,
+      "file_name": "part-006.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-006.json",
+      "file_size_bytes": 0
+    },
+    {
+      "part_number": 7,
+      "file_name": "part-007.json",
+      "file_path": "/opt/data/split-output/194cdb40-2347-4daa-b26e-ee3497e27744/part-007.json",
+      "file_size_bytes": 0
+    }
+  ]
+}

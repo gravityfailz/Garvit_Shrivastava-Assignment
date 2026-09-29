@@ -1,0 +1,155 @@
+services:
+
+  postgres:
+    image: postgres:16
+    env_file: .env
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+
+    depends_on:
+      - postgres
+
+    env_file: .env
+
+    entrypoint: /bin/bash
+
+    command:
+      - -c
+      - |
+        airflow db migrate
+        airflow users create --username admin --password admin --firstname Lumi --lastname Admin --role Admin --email admin@example.com || true
+
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+
+    depends_on:
+      postgres:
+        condition: service_started
+
+      airflow-init:
+        condition: service_completed_successfully
+
+    env_file: .env
+
+    environment:
+      LUMI_POSTGRES_DSN: postgresql://lumi_user:change_me@postgres:5432/lumi_warehouse
+
+    ports:
+      - "8081:8080"
+
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./beam-pipeline:/opt/beam-pipeline
+      - ./errors:/opt/errors
+      - ./data:/opt/data
+
+    command: webserver
+
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+
+    user: "0:0"
+
+    depends_on:
+      postgres:
+        condition: service_started
+
+      airflow-init:
+        condition: service_completed_successfully
+
+    env_file: .env
+
+    environment:
+      LUMI_POSTGRES_DSN: postgresql://lumi_user:change_me@postgres:5432/lumi_warehouse
+
+      LUMI_BEAM_IMAGE: amex-lumi-case-study-beam-runner
+
+      LUMI_HOST_PROJECT_DIR: "C:/Users/Garvit Shrivastava/amex-lumi-case-study"
+
+      LUMI_DOCKER_NETWORK: amex-lumi-case-study_default
+
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./beam-pipeline:/opt/beam-pipeline
+      - ./errors:/opt/errors
+      - ./data:/opt/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    command: scheduler
+
+
+  ingestion-api:
+    build:
+      context: ./ingestion-api
+
+    depends_on:
+      airflow-webserver:
+        condition: service_started
+
+    env_file: .env
+
+    environment:
+      AIRFLOW_BASE_URL: http://airflow-webserver:8080
+      AIRFLOW_USERNAME: admin
+      AIRFLOW_PASSWORD: admin
+      AIRFLOW_DAG_ID: lumi_ingestion_dag
+
+      LUMI_POSTGRES_DSN: postgresql://lumi_user:change_me@postgres:5432/lumi_warehouse
+
+      LUMI_SPLIT_THRESHOLD_BYTES: ${LUMI_SPLIT_THRESHOLD_BYTES:-52428800}
+
+      LUMI_DOCKER_NETWORK: amex-lumi-case-study_default
+
+      LUMI_HOST_PROJECT_DIR: "C:/Users/Garvit Shrivastava/amex-lumi-case-study"
+
+      LUMI_PYSPARK_IMAGE: amex-lumi-case-study-pyspark-splitter
+
+    volumes:
+      - ./data:/opt/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    ports:
+      - "9090:8080"
+
+
+  adminer:
+    image: adminer
+
+    restart: always
+
+    depends_on:
+      - postgres
+
+    ports:
+      - "8082:8080"
+
+
+  pyspark-splitter:
+    build:
+      context: ./pyspark-scripts
+
+    container_name: lumi-pyspark-splitter
+
+    volumes:
+      - ./data:/opt/data
+
+    restart: "no"
+
+
+volumes:
+  pgdata:

@@ -1,0 +1,16 @@
+{
+  "source_file": "/opt/data/sample_employee.json",
+  "source_file_name": "sample_employee.json",
+  "source_format": "JSON",
+  "source_file_size_bytes": 181978,
+  "threshold_bytes": 1000000,
+  "part_count": 1,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "sample_employee.json",
+      "file_path": "/opt/data/sample_employee.json",
+      "file_size_bytes": 181978
+    }
+  ]
+}

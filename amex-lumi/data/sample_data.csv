@@ -1,0 +1,4 @@
+﻿employee_id,first_name,last_name,department,email
+EMP1001,Rohan,Verma,Sales,rohan.verma@techcorp.com
+EMP1002,Sneha,Iyer,,sneha.iyer@techcorp.com
+EMP1003,,Gupta,Marketing,gupta@techcorp.com

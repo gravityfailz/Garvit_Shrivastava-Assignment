@@ -1,0 +1,11 @@
+[
+  {
+    "employee_id": "EMP0002", "first_name": "Divya", "last_name": "",
+    "email": "divya.rao@techcorp.com", "phone_number": "9123456780",
+    "hire_date": "2023-01-10", "department": null,
+    "salary": 720000, "currency": "INR", "employment_status": "Full-time",
+    "manager_id": "MGR0002", "is_active": true, "skills": ["Java", "Spring"],
+    "address": {"street": "45 MG Road", "city": "Pune", "state": "MH", "postal_code": "411001", "country": "India"},
+    "emergency_contact": {"name": "Ramesh Rao", "relationship": "Father", "phone": null, "email": "ramesh.rao@example.com"}
+  }
+]

@@ -1,0 +1,5015 @@
+{
+  "source_file": "/opt/data/phase2_test_dataset/phase2_employee.xml",
+  "source_file_name": "phase2_employee.xml",
+  "source_format": "XML",
+  "source_file_size_bytes": 6738063,
+  "threshold_bytes": 10000,
+  "part_count": 715,
+  "parts": [
+    {
+      "part_number": 1,
+      "file_name": "part-001.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-001.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 2,
+      "file_name": "part-002.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-002.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 3,
+      "file_name": "part-003.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-003.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 4,
+      "file_name": "part-004.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-004.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 5,
+      "file_name": "part-005.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-005.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 6,
+      "file_name": "part-006.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-006.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 7,
+      "file_name": "part-007.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-007.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 8,
+      "file_name": "part-008.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-008.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 9,
+      "file_name": "part-009.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-009.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 10,
+      "file_name": "part-010.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-010.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 11,
+      "file_name": "part-011.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-011.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 12,
+      "file_name": "part-012.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-012.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 13,
+      "file_name": "part-013.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-013.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 14,
+      "file_name": "part-014.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-014.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 15,
+      "file_name": "part-015.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-015.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 16,
+      "file_name": "part-016.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-016.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 17,
+      "file_name": "part-017.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-017.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 18,
+      "file_name": "part-018.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-018.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 19,
+      "file_name": "part-019.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-019.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 20,
+      "file_name": "part-020.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-020.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 21,
+      "file_name": "part-021.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-021.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 22,
+      "file_name": "part-022.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-022.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 23,
+      "file_name": "part-023.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-023.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 24,
+      "file_name": "part-024.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-024.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 25,
+      "file_name": "part-025.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-025.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 26,
+      "file_name": "part-026.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-026.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 27,
+      "file_name": "part-027.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-027.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 28,
+      "file_name": "part-028.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-028.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 29,
+      "file_name": "part-029.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-029.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 30,
+      "file_name": "part-030.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-030.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 31,
+      "file_name": "part-031.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-031.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 32,
+      "file_name": "part-032.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-032.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 33,
+      "file_name": "part-033.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-033.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 34,
+      "file_name": "part-034.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-034.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 35,
+      "file_name": "part-035.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-035.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 36,
+      "file_name": "part-036.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-036.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 37,
+      "file_name": "part-037.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-037.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 38,
+      "file_name": "part-038.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-038.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 39,
+      "file_name": "part-039.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-039.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 40,
+      "file_name": "part-040.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-040.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 41,
+      "file_name": "part-041.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-041.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 42,
+      "file_name": "part-042.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-042.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 43,
+      "file_name": "part-043.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-043.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 44,
+      "file_name": "part-044.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-044.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 45,
+      "file_name": "part-045.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-045.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 46,
+      "file_name": "part-046.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-046.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 47,
+      "file_name": "part-047.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-047.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 48,
+      "file_name": "part-048.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-048.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 49,
+      "file_name": "part-049.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-049.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 50,
+      "file_name": "part-050.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-050.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 51,
+      "file_name": "part-051.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-051.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 52,
+      "file_name": "part-052.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-052.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 53,
+      "file_name": "part-053.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-053.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 54,
+      "file_name": "part-054.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-054.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 55,
+      "file_name": "part-055.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-055.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 56,
+      "file_name": "part-056.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-056.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 57,
+      "file_name": "part-057.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-057.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 58,
+      "file_name": "part-058.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-058.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 59,
+      "file_name": "part-059.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-059.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 60,
+      "file_name": "part-060.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-060.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 61,
+      "file_name": "part-061.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-061.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 62,
+      "file_name": "part-062.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-062.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 63,
+      "file_name": "part-063.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-063.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 64,
+      "file_name": "part-064.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-064.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 65,
+      "file_name": "part-065.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-065.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 66,
+      "file_name": "part-066.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-066.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 67,
+      "file_name": "part-067.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-067.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 68,
+      "file_name": "part-068.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-068.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 69,
+      "file_name": "part-069.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-069.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 70,
+      "file_name": "part-070.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-070.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 71,
+      "file_name": "part-071.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-071.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 72,
+      "file_name": "part-072.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-072.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 73,
+      "file_name": "part-073.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-073.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 74,
+      "file_name": "part-074.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-074.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 75,
+      "file_name": "part-075.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-075.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 76,
+      "file_name": "part-076.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-076.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 77,
+      "file_name": "part-077.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-077.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 78,
+      "file_name": "part-078.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-078.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 79,
+      "file_name": "part-079.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-079.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 80,
+      "file_name": "part-080.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-080.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 81,
+      "file_name": "part-081.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-081.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 82,
+      "file_name": "part-082.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-082.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 83,
+      "file_name": "part-083.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-083.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 84,
+      "file_name": "part-084.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-084.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 85,
+      "file_name": "part-085.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-085.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 86,
+      "file_name": "part-086.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-086.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 87,
+      "file_name": "part-087.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-087.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 88,
+      "file_name": "part-088.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-088.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 89,
+      "file_name": "part-089.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-089.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 90,
+      "file_name": "part-090.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-090.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 91,
+      "file_name": "part-091.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-091.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 92,
+      "file_name": "part-092.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-092.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 93,
+      "file_name": "part-093.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-093.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 94,
+      "file_name": "part-094.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-094.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 95,
+      "file_name": "part-095.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-095.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 96,
+      "file_name": "part-096.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-096.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 97,
+      "file_name": "part-097.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-097.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 98,
+      "file_name": "part-098.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-098.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 99,
+      "file_name": "part-099.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-099.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 100,
+      "file_name": "part-100.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-100.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 101,
+      "file_name": "part-101.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-101.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 102,
+      "file_name": "part-102.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-102.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 103,
+      "file_name": "part-103.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-103.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 104,
+      "file_name": "part-104.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-104.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 105,
+      "file_name": "part-105.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-105.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 106,
+      "file_name": "part-106.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-106.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 107,
+      "file_name": "part-107.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-107.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 108,
+      "file_name": "part-108.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-108.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 109,
+      "file_name": "part-109.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-109.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 110,
+      "file_name": "part-110.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-110.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 111,
+      "file_name": "part-111.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-111.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 112,
+      "file_name": "part-112.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-112.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 113,
+      "file_name": "part-113.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-113.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 114,
+      "file_name": "part-114.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-114.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 115,
+      "file_name": "part-115.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-115.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 116,
+      "file_name": "part-116.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-116.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 117,
+      "file_name": "part-117.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-117.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 118,
+      "file_name": "part-118.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-118.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 119,
+      "file_name": "part-119.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-119.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 120,
+      "file_name": "part-120.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-120.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 121,
+      "file_name": "part-121.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-121.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 122,
+      "file_name": "part-122.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-122.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 123,
+      "file_name": "part-123.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-123.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 124,
+      "file_name": "part-124.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-124.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 125,
+      "file_name": "part-125.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-125.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 126,
+      "file_name": "part-126.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-126.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 127,
+      "file_name": "part-127.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-127.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 128,
+      "file_name": "part-128.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-128.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 129,
+      "file_name": "part-129.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-129.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 130,
+      "file_name": "part-130.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-130.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 131,
+      "file_name": "part-131.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-131.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 132,
+      "file_name": "part-132.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-132.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 133,
+      "file_name": "part-133.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-133.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 134,
+      "file_name": "part-134.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-134.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 135,
+      "file_name": "part-135.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-135.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 136,
+      "file_name": "part-136.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-136.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 137,
+      "file_name": "part-137.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-137.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 138,
+      "file_name": "part-138.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-138.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 139,
+      "file_name": "part-139.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-139.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 140,
+      "file_name": "part-140.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-140.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 141,
+      "file_name": "part-141.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-141.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 142,
+      "file_name": "part-142.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-142.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 143,
+      "file_name": "part-143.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-143.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 144,
+      "file_name": "part-144.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-144.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 145,
+      "file_name": "part-145.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-145.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 146,
+      "file_name": "part-146.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-146.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 147,
+      "file_name": "part-147.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-147.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 148,
+      "file_name": "part-148.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-148.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 149,
+      "file_name": "part-149.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-149.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 150,
+      "file_name": "part-150.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-150.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 151,
+      "file_name": "part-151.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-151.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 152,
+      "file_name": "part-152.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-152.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 153,
+      "file_name": "part-153.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-153.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 154,
+      "file_name": "part-154.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-154.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 155,
+      "file_name": "part-155.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-155.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 156,
+      "file_name": "part-156.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-156.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 157,
+      "file_name": "part-157.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-157.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 158,
+      "file_name": "part-158.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-158.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 159,
+      "file_name": "part-159.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-159.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 160,
+      "file_name": "part-160.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-160.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 161,
+      "file_name": "part-161.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-161.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 162,
+      "file_name": "part-162.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-162.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 163,
+      "file_name": "part-163.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-163.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 164,
+      "file_name": "part-164.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-164.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 165,
+      "file_name": "part-165.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-165.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 166,
+      "file_name": "part-166.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-166.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 167,
+      "file_name": "part-167.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-167.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 168,
+      "file_name": "part-168.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-168.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 169,
+      "file_name": "part-169.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-169.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 170,
+      "file_name": "part-170.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-170.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 171,
+      "file_name": "part-171.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-171.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 172,
+      "file_name": "part-172.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-172.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 173,
+      "file_name": "part-173.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-173.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 174,
+      "file_name": "part-174.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-174.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 175,
+      "file_name": "part-175.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-175.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 176,
+      "file_name": "part-176.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-176.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 177,
+      "file_name": "part-177.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-177.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 178,
+      "file_name": "part-178.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-178.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 179,
+      "file_name": "part-179.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-179.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 180,
+      "file_name": "part-180.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-180.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 181,
+      "file_name": "part-181.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-181.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 182,
+      "file_name": "part-182.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-182.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 183,
+      "file_name": "part-183.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-183.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 184,
+      "file_name": "part-184.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-184.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 185,
+      "file_name": "part-185.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-185.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 186,
+      "file_name": "part-186.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-186.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 187,
+      "file_name": "part-187.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-187.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 188,
+      "file_name": "part-188.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-188.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 189,
+      "file_name": "part-189.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-189.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 190,
+      "file_name": "part-190.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-190.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 191,
+      "file_name": "part-191.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-191.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 192,
+      "file_name": "part-192.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-192.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 193,
+      "file_name": "part-193.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-193.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 194,
+      "file_name": "part-194.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-194.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 195,
+      "file_name": "part-195.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-195.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 196,
+      "file_name": "part-196.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-196.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 197,
+      "file_name": "part-197.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-197.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 198,
+      "file_name": "part-198.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-198.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 199,
+      "file_name": "part-199.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-199.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 200,
+      "file_name": "part-200.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-200.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 201,
+      "file_name": "part-201.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-201.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 202,
+      "file_name": "part-202.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-202.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 203,
+      "file_name": "part-203.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-203.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 204,
+      "file_name": "part-204.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-204.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 205,
+      "file_name": "part-205.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-205.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 206,
+      "file_name": "part-206.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-206.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 207,
+      "file_name": "part-207.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-207.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 208,
+      "file_name": "part-208.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-208.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 209,
+      "file_name": "part-209.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-209.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 210,
+      "file_name": "part-210.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-210.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 211,
+      "file_name": "part-211.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-211.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 212,
+      "file_name": "part-212.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-212.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 213,
+      "file_name": "part-213.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-213.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 214,
+      "file_name": "part-214.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-214.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 215,
+      "file_name": "part-215.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-215.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 216,
+      "file_name": "part-216.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-216.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 217,
+      "file_name": "part-217.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-217.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 218,
+      "file_name": "part-218.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-218.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 219,
+      "file_name": "part-219.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-219.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 220,
+      "file_name": "part-220.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-220.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 221,
+      "file_name": "part-221.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-221.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 222,
+      "file_name": "part-222.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-222.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 223,
+      "file_name": "part-223.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-223.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 224,
+      "file_name": "part-224.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-224.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 225,
+      "file_name": "part-225.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-225.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 226,
+      "file_name": "part-226.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-226.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 227,
+      "file_name": "part-227.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-227.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 228,
+      "file_name": "part-228.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-228.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 229,
+      "file_name": "part-229.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-229.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 230,
+      "file_name": "part-230.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-230.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 231,
+      "file_name": "part-231.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-231.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 232,
+      "file_name": "part-232.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-232.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 233,
+      "file_name": "part-233.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-233.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 234,
+      "file_name": "part-234.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-234.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 235,
+      "file_name": "part-235.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-235.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 236,
+      "file_name": "part-236.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-236.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 237,
+      "file_name": "part-237.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-237.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 238,
+      "file_name": "part-238.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-238.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 239,
+      "file_name": "part-239.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-239.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 240,
+      "file_name": "part-240.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-240.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 241,
+      "file_name": "part-241.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-241.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 242,
+      "file_name": "part-242.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-242.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 243,
+      "file_name": "part-243.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-243.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 244,
+      "file_name": "part-244.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-244.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 245,
+      "file_name": "part-245.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-245.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 246,
+      "file_name": "part-246.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-246.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 247,
+      "file_name": "part-247.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-247.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 248,
+      "file_name": "part-248.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-248.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 249,
+      "file_name": "part-249.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-249.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 250,
+      "file_name": "part-250.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-250.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 251,
+      "file_name": "part-251.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-251.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 252,
+      "file_name": "part-252.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-252.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 253,
+      "file_name": "part-253.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-253.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 254,
+      "file_name": "part-254.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-254.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 255,
+      "file_name": "part-255.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-255.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 256,
+      "file_name": "part-256.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-256.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 257,
+      "file_name": "part-257.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-257.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 258,
+      "file_name": "part-258.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-258.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 259,
+      "file_name": "part-259.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-259.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 260,
+      "file_name": "part-260.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-260.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 261,
+      "file_name": "part-261.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-261.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 262,
+      "file_name": "part-262.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-262.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 263,
+      "file_name": "part-263.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-263.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 264,
+      "file_name": "part-264.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-264.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 265,
+      "file_name": "part-265.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-265.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 266,
+      "file_name": "part-266.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-266.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 267,
+      "file_name": "part-267.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-267.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 268,
+      "file_name": "part-268.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-268.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 269,
+      "file_name": "part-269.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-269.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 270,
+      "file_name": "part-270.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-270.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 271,
+      "file_name": "part-271.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-271.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 272,
+      "file_name": "part-272.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-272.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 273,
+      "file_name": "part-273.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-273.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 274,
+      "file_name": "part-274.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-274.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 275,
+      "file_name": "part-275.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-275.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 276,
+      "file_name": "part-276.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-276.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 277,
+      "file_name": "part-277.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-277.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 278,
+      "file_name": "part-278.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-278.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 279,
+      "file_name": "part-279.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-279.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 280,
+      "file_name": "part-280.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-280.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 281,
+      "file_name": "part-281.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-281.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 282,
+      "file_name": "part-282.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-282.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 283,
+      "file_name": "part-283.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-283.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 284,
+      "file_name": "part-284.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-284.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 285,
+      "file_name": "part-285.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-285.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 286,
+      "file_name": "part-286.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-286.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 287,
+      "file_name": "part-287.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-287.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 288,
+      "file_name": "part-288.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-288.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 289,
+      "file_name": "part-289.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-289.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 290,
+      "file_name": "part-290.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-290.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 291,
+      "file_name": "part-291.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-291.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 292,
+      "file_name": "part-292.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-292.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 293,
+      "file_name": "part-293.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-293.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 294,
+      "file_name": "part-294.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-294.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 295,
+      "file_name": "part-295.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-295.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 296,
+      "file_name": "part-296.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-296.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 297,
+      "file_name": "part-297.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-297.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 298,
+      "file_name": "part-298.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-298.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 299,
+      "file_name": "part-299.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-299.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 300,
+      "file_name": "part-300.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-300.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 301,
+      "file_name": "part-301.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-301.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 302,
+      "file_name": "part-302.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-302.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 303,
+      "file_name": "part-303.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-303.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 304,
+      "file_name": "part-304.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-304.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 305,
+      "file_name": "part-305.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-305.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 306,
+      "file_name": "part-306.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-306.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 307,
+      "file_name": "part-307.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-307.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 308,
+      "file_name": "part-308.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-308.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 309,
+      "file_name": "part-309.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-309.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 310,
+      "file_name": "part-310.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-310.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 311,
+      "file_name": "part-311.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-311.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 312,
+      "file_name": "part-312.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-312.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 313,
+      "file_name": "part-313.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-313.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 314,
+      "file_name": "part-314.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-314.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 315,
+      "file_name": "part-315.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-315.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 316,
+      "file_name": "part-316.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-316.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 317,
+      "file_name": "part-317.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-317.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 318,
+      "file_name": "part-318.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-318.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 319,
+      "file_name": "part-319.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-319.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 320,
+      "file_name": "part-320.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-320.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 321,
+      "file_name": "part-321.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-321.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 322,
+      "file_name": "part-322.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-322.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 323,
+      "file_name": "part-323.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-323.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 324,
+      "file_name": "part-324.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-324.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 325,
+      "file_name": "part-325.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-325.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 326,
+      "file_name": "part-326.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-326.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 327,
+      "file_name": "part-327.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-327.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 328,
+      "file_name": "part-328.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-328.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 329,
+      "file_name": "part-329.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-329.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 330,
+      "file_name": "part-330.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-330.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 331,
+      "file_name": "part-331.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-331.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 332,
+      "file_name": "part-332.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-332.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 333,
+      "file_name": "part-333.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-333.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 334,
+      "file_name": "part-334.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-334.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 335,
+      "file_name": "part-335.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-335.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 336,
+      "file_name": "part-336.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-336.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 337,
+      "file_name": "part-337.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-337.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 338,
+      "file_name": "part-338.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-338.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 339,
+      "file_name": "part-339.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-339.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 340,
+      "file_name": "part-340.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-340.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 341,
+      "file_name": "part-341.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-341.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 342,
+      "file_name": "part-342.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-342.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 343,
+      "file_name": "part-343.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-343.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 344,
+      "file_name": "part-344.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-344.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 345,
+      "file_name": "part-345.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-345.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 346,
+      "file_name": "part-346.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-346.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 347,
+      "file_name": "part-347.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-347.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 348,
+      "file_name": "part-348.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-348.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 349,
+      "file_name": "part-349.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-349.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 350,
+      "file_name": "part-350.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-350.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 351,
+      "file_name": "part-351.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-351.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 352,
+      "file_name": "part-352.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-352.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 353,
+      "file_name": "part-353.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-353.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 354,
+      "file_name": "part-354.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-354.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 355,
+      "file_name": "part-355.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-355.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 356,
+      "file_name": "part-356.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-356.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 357,
+      "file_name": "part-357.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-357.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 358,
+      "file_name": "part-358.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-358.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 359,
+      "file_name": "part-359.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-359.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 360,
+      "file_name": "part-360.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-360.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 361,
+      "file_name": "part-361.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-361.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 362,
+      "file_name": "part-362.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-362.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 363,
+      "file_name": "part-363.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-363.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 364,
+      "file_name": "part-364.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-364.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 365,
+      "file_name": "part-365.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-365.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 366,
+      "file_name": "part-366.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-366.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 367,
+      "file_name": "part-367.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-367.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 368,
+      "file_name": "part-368.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-368.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 369,
+      "file_name": "part-369.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-369.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 370,
+      "file_name": "part-370.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-370.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 371,
+      "file_name": "part-371.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-371.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 372,
+      "file_name": "part-372.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-372.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 373,
+      "file_name": "part-373.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-373.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 374,
+      "file_name": "part-374.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-374.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 375,
+      "file_name": "part-375.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-375.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 376,
+      "file_name": "part-376.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-376.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 377,
+      "file_name": "part-377.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-377.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 378,
+      "file_name": "part-378.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-378.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 379,
+      "file_name": "part-379.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-379.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 380,
+      "file_name": "part-380.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-380.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 381,
+      "file_name": "part-381.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-381.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 382,
+      "file_name": "part-382.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-382.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 383,
+      "file_name": "part-383.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-383.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 384,
+      "file_name": "part-384.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-384.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 385,
+      "file_name": "part-385.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-385.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 386,
+      "file_name": "part-386.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-386.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 387,
+      "file_name": "part-387.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-387.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 388,
+      "file_name": "part-388.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-388.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 389,
+      "file_name": "part-389.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-389.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 390,
+      "file_name": "part-390.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-390.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 391,
+      "file_name": "part-391.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-391.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 392,
+      "file_name": "part-392.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-392.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 393,
+      "file_name": "part-393.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-393.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 394,
+      "file_name": "part-394.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-394.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 395,
+      "file_name": "part-395.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-395.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 396,
+      "file_name": "part-396.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-396.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 397,
+      "file_name": "part-397.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-397.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 398,
+      "file_name": "part-398.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-398.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 399,
+      "file_name": "part-399.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-399.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 400,
+      "file_name": "part-400.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-400.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 401,
+      "file_name": "part-401.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-401.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 402,
+      "file_name": "part-402.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-402.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 403,
+      "file_name": "part-403.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-403.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 404,
+      "file_name": "part-404.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-404.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 405,
+      "file_name": "part-405.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-405.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 406,
+      "file_name": "part-406.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-406.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 407,
+      "file_name": "part-407.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-407.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 408,
+      "file_name": "part-408.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-408.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 409,
+      "file_name": "part-409.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-409.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 410,
+      "file_name": "part-410.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-410.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 411,
+      "file_name": "part-411.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-411.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 412,
+      "file_name": "part-412.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-412.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 413,
+      "file_name": "part-413.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-413.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 414,
+      "file_name": "part-414.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-414.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 415,
+      "file_name": "part-415.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-415.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 416,
+      "file_name": "part-416.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-416.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 417,
+      "file_name": "part-417.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-417.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 418,
+      "file_name": "part-418.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-418.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 419,
+      "file_name": "part-419.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-419.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 420,
+      "file_name": "part-420.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-420.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 421,
+      "file_name": "part-421.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-421.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 422,
+      "file_name": "part-422.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-422.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 423,
+      "file_name": "part-423.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-423.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 424,
+      "file_name": "part-424.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-424.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 425,
+      "file_name": "part-425.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-425.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 426,
+      "file_name": "part-426.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-426.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 427,
+      "file_name": "part-427.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-427.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 428,
+      "file_name": "part-428.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-428.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 429,
+      "file_name": "part-429.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-429.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 430,
+      "file_name": "part-430.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-430.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 431,
+      "file_name": "part-431.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-431.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 432,
+      "file_name": "part-432.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-432.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 433,
+      "file_name": "part-433.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-433.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 434,
+      "file_name": "part-434.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-434.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 435,
+      "file_name": "part-435.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-435.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 436,
+      "file_name": "part-436.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-436.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 437,
+      "file_name": "part-437.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-437.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 438,
+      "file_name": "part-438.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-438.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 439,
+      "file_name": "part-439.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-439.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 440,
+      "file_name": "part-440.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-440.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 441,
+      "file_name": "part-441.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-441.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 442,
+      "file_name": "part-442.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-442.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 443,
+      "file_name": "part-443.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-443.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 444,
+      "file_name": "part-444.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-444.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 445,
+      "file_name": "part-445.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-445.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 446,
+      "file_name": "part-446.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-446.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 447,
+      "file_name": "part-447.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-447.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 448,
+      "file_name": "part-448.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-448.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 449,
+      "file_name": "part-449.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-449.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 450,
+      "file_name": "part-450.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-450.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 451,
+      "file_name": "part-451.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-451.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 452,
+      "file_name": "part-452.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-452.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 453,
+      "file_name": "part-453.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-453.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 454,
+      "file_name": "part-454.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-454.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 455,
+      "file_name": "part-455.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-455.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 456,
+      "file_name": "part-456.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-456.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 457,
+      "file_name": "part-457.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-457.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 458,
+      "file_name": "part-458.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-458.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 459,
+      "file_name": "part-459.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-459.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 460,
+      "file_name": "part-460.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-460.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 461,
+      "file_name": "part-461.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-461.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 462,
+      "file_name": "part-462.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-462.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 463,
+      "file_name": "part-463.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-463.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 464,
+      "file_name": "part-464.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-464.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 465,
+      "file_name": "part-465.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-465.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 466,
+      "file_name": "part-466.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-466.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 467,
+      "file_name": "part-467.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-467.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 468,
+      "file_name": "part-468.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-468.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 469,
+      "file_name": "part-469.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-469.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 470,
+      "file_name": "part-470.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-470.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 471,
+      "file_name": "part-471.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-471.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 472,
+      "file_name": "part-472.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-472.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 473,
+      "file_name": "part-473.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-473.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 474,
+      "file_name": "part-474.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-474.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 475,
+      "file_name": "part-475.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-475.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 476,
+      "file_name": "part-476.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-476.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 477,
+      "file_name": "part-477.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-477.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 478,
+      "file_name": "part-478.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-478.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 479,
+      "file_name": "part-479.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-479.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 480,
+      "file_name": "part-480.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-480.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 481,
+      "file_name": "part-481.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-481.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 482,
+      "file_name": "part-482.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-482.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 483,
+      "file_name": "part-483.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-483.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 484,
+      "file_name": "part-484.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-484.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 485,
+      "file_name": "part-485.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-485.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 486,
+      "file_name": "part-486.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-486.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 487,
+      "file_name": "part-487.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-487.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 488,
+      "file_name": "part-488.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-488.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 489,
+      "file_name": "part-489.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-489.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 490,
+      "file_name": "part-490.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-490.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 491,
+      "file_name": "part-491.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-491.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 492,
+      "file_name": "part-492.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-492.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 493,
+      "file_name": "part-493.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-493.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 494,
+      "file_name": "part-494.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-494.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 495,
+      "file_name": "part-495.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-495.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 496,
+      "file_name": "part-496.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-496.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 497,
+      "file_name": "part-497.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-497.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 498,
+      "file_name": "part-498.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-498.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 499,
+      "file_name": "part-499.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-499.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 500,
+      "file_name": "part-500.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-500.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 501,
+      "file_name": "part-501.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-501.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 502,
+      "file_name": "part-502.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-502.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 503,
+      "file_name": "part-503.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-503.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 504,
+      "file_name": "part-504.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-504.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 505,
+      "file_name": "part-505.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-505.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 506,
+      "file_name": "part-506.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-506.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 507,
+      "file_name": "part-507.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-507.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 508,
+      "file_name": "part-508.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-508.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 509,
+      "file_name": "part-509.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-509.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 510,
+      "file_name": "part-510.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-510.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 511,
+      "file_name": "part-511.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-511.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 512,
+      "file_name": "part-512.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-512.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 513,
+      "file_name": "part-513.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-513.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 514,
+      "file_name": "part-514.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-514.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 515,
+      "file_name": "part-515.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-515.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 516,
+      "file_name": "part-516.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-516.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 517,
+      "file_name": "part-517.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-517.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 518,
+      "file_name": "part-518.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-518.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 519,
+      "file_name": "part-519.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-519.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 520,
+      "file_name": "part-520.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-520.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 521,
+      "file_name": "part-521.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-521.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 522,
+      "file_name": "part-522.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-522.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 523,
+      "file_name": "part-523.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-523.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 524,
+      "file_name": "part-524.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-524.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 525,
+      "file_name": "part-525.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-525.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 526,
+      "file_name": "part-526.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-526.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 527,
+      "file_name": "part-527.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-527.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 528,
+      "file_name": "part-528.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-528.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 529,
+      "file_name": "part-529.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-529.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 530,
+      "file_name": "part-530.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-530.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 531,
+      "file_name": "part-531.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-531.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 532,
+      "file_name": "part-532.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-532.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 533,
+      "file_name": "part-533.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-533.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 534,
+      "file_name": "part-534.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-534.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 535,
+      "file_name": "part-535.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-535.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 536,
+      "file_name": "part-536.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-536.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 537,
+      "file_name": "part-537.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-537.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 538,
+      "file_name": "part-538.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-538.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 539,
+      "file_name": "part-539.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-539.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 540,
+      "file_name": "part-540.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-540.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 541,
+      "file_name": "part-541.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-541.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 542,
+      "file_name": "part-542.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-542.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 543,
+      "file_name": "part-543.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-543.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 544,
+      "file_name": "part-544.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-544.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 545,
+      "file_name": "part-545.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-545.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 546,
+      "file_name": "part-546.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-546.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 547,
+      "file_name": "part-547.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-547.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 548,
+      "file_name": "part-548.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-548.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 549,
+      "file_name": "part-549.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-549.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 550,
+      "file_name": "part-550.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-550.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 551,
+      "file_name": "part-551.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-551.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 552,
+      "file_name": "part-552.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-552.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 553,
+      "file_name": "part-553.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-553.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 554,
+      "file_name": "part-554.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-554.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 555,
+      "file_name": "part-555.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-555.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 556,
+      "file_name": "part-556.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-556.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 557,
+      "file_name": "part-557.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-557.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 558,
+      "file_name": "part-558.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-558.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 559,
+      "file_name": "part-559.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-559.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 560,
+      "file_name": "part-560.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-560.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 561,
+      "file_name": "part-561.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-561.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 562,
+      "file_name": "part-562.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-562.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 563,
+      "file_name": "part-563.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-563.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 564,
+      "file_name": "part-564.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-564.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 565,
+      "file_name": "part-565.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-565.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 566,
+      "file_name": "part-566.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-566.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 567,
+      "file_name": "part-567.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-567.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 568,
+      "file_name": "part-568.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-568.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 569,
+      "file_name": "part-569.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-569.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 570,
+      "file_name": "part-570.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-570.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 571,
+      "file_name": "part-571.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-571.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 572,
+      "file_name": "part-572.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-572.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 573,
+      "file_name": "part-573.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-573.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 574,
+      "file_name": "part-574.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-574.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 575,
+      "file_name": "part-575.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-575.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 576,
+      "file_name": "part-576.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-576.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 577,
+      "file_name": "part-577.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-577.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 578,
+      "file_name": "part-578.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-578.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 579,
+      "file_name": "part-579.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-579.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 580,
+      "file_name": "part-580.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-580.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 581,
+      "file_name": "part-581.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-581.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 582,
+      "file_name": "part-582.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-582.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 583,
+      "file_name": "part-583.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-583.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 584,
+      "file_name": "part-584.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-584.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 585,
+      "file_name": "part-585.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-585.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 586,
+      "file_name": "part-586.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-586.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 587,
+      "file_name": "part-587.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-587.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 588,
+      "file_name": "part-588.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-588.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 589,
+      "file_name": "part-589.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-589.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 590,
+      "file_name": "part-590.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-590.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 591,
+      "file_name": "part-591.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-591.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 592,
+      "file_name": "part-592.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-592.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 593,
+      "file_name": "part-593.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-593.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 594,
+      "file_name": "part-594.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-594.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 595,
+      "file_name": "part-595.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-595.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 596,
+      "file_name": "part-596.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-596.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 597,
+      "file_name": "part-597.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-597.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 598,
+      "file_name": "part-598.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-598.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 599,
+      "file_name": "part-599.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-599.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 600,
+      "file_name": "part-600.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-600.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 601,
+      "file_name": "part-601.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-601.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 602,
+      "file_name": "part-602.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-602.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 603,
+      "file_name": "part-603.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-603.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 604,
+      "file_name": "part-604.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-604.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 605,
+      "file_name": "part-605.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-605.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 606,
+      "file_name": "part-606.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-606.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 607,
+      "file_name": "part-607.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-607.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 608,
+      "file_name": "part-608.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-608.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 609,
+      "file_name": "part-609.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-609.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 610,
+      "file_name": "part-610.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-610.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 611,
+      "file_name": "part-611.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-611.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 612,
+      "file_name": "part-612.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-612.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 613,
+      "file_name": "part-613.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-613.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 614,
+      "file_name": "part-614.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-614.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 615,
+      "file_name": "part-615.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-615.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 616,
+      "file_name": "part-616.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-616.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 617,
+      "file_name": "part-617.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-617.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 618,
+      "file_name": "part-618.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-618.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 619,
+      "file_name": "part-619.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-619.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 620,
+      "file_name": "part-620.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-620.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 621,
+      "file_name": "part-621.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-621.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 622,
+      "file_name": "part-622.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-622.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 623,
+      "file_name": "part-623.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-623.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 624,
+      "file_name": "part-624.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-624.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 625,
+      "file_name": "part-625.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-625.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 626,
+      "file_name": "part-626.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-626.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 627,
+      "file_name": "part-627.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-627.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 628,
+      "file_name": "part-628.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-628.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 629,
+      "file_name": "part-629.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-629.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 630,
+      "file_name": "part-630.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-630.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 631,
+      "file_name": "part-631.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-631.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 632,
+      "file_name": "part-632.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-632.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 633,
+      "file_name": "part-633.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-633.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 634,
+      "file_name": "part-634.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-634.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 635,
+      "file_name": "part-635.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-635.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 636,
+      "file_name": "part-636.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-636.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 637,
+      "file_name": "part-637.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-637.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 638,
+      "file_name": "part-638.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-638.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 639,
+      "file_name": "part-639.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-639.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 640,
+      "file_name": "part-640.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-640.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 641,
+      "file_name": "part-641.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-641.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 642,
+      "file_name": "part-642.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-642.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 643,
+      "file_name": "part-643.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-643.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 644,
+      "file_name": "part-644.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-644.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 645,
+      "file_name": "part-645.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-645.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 646,
+      "file_name": "part-646.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-646.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 647,
+      "file_name": "part-647.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-647.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 648,
+      "file_name": "part-648.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-648.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 649,
+      "file_name": "part-649.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-649.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 650,
+      "file_name": "part-650.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-650.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 651,
+      "file_name": "part-651.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-651.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 652,
+      "file_name": "part-652.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-652.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 653,
+      "file_name": "part-653.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-653.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 654,
+      "file_name": "part-654.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-654.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 655,
+      "file_name": "part-655.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-655.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 656,
+      "file_name": "part-656.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-656.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 657,
+      "file_name": "part-657.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-657.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 658,
+      "file_name": "part-658.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-658.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 659,
+      "file_name": "part-659.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-659.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 660,
+      "file_name": "part-660.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-660.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 661,
+      "file_name": "part-661.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-661.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 662,
+      "file_name": "part-662.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-662.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 663,
+      "file_name": "part-663.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-663.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 664,
+      "file_name": "part-664.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-664.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 665,
+      "file_name": "part-665.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-665.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 666,
+      "file_name": "part-666.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-666.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 667,
+      "file_name": "part-667.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-667.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 668,
+      "file_name": "part-668.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-668.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 669,
+      "file_name": "part-669.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-669.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 670,
+      "file_name": "part-670.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-670.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 671,
+      "file_name": "part-671.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-671.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 672,
+      "file_name": "part-672.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-672.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 673,
+      "file_name": "part-673.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-673.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 674,
+      "file_name": "part-674.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-674.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 675,
+      "file_name": "part-675.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-675.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 676,
+      "file_name": "part-676.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-676.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 677,
+      "file_name": "part-677.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-677.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 678,
+      "file_name": "part-678.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-678.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 679,
+      "file_name": "part-679.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-679.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 680,
+      "file_name": "part-680.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-680.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 681,
+      "file_name": "part-681.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-681.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 682,
+      "file_name": "part-682.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-682.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 683,
+      "file_name": "part-683.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-683.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 684,
+      "file_name": "part-684.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-684.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 685,
+      "file_name": "part-685.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-685.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 686,
+      "file_name": "part-686.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-686.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 687,
+      "file_name": "part-687.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-687.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 688,
+      "file_name": "part-688.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-688.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 689,
+      "file_name": "part-689.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-689.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 690,
+      "file_name": "part-690.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-690.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 691,
+      "file_name": "part-691.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-691.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 692,
+      "file_name": "part-692.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-692.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 693,
+      "file_name": "part-693.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-693.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 694,
+      "file_name": "part-694.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-694.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 695,
+      "file_name": "part-695.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-695.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 696,
+      "file_name": "part-696.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-696.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 697,
+      "file_name": "part-697.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-697.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 698,
+      "file_name": "part-698.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-698.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 699,
+      "file_name": "part-699.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-699.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 700,
+      "file_name": "part-700.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-700.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 701,
+      "file_name": "part-701.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-701.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 702,
+      "file_name": "part-702.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-702.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 703,
+      "file_name": "part-703.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-703.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 704,
+      "file_name": "part-704.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-704.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 705,
+      "file_name": "part-705.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-705.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 706,
+      "file_name": "part-706.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-706.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 707,
+      "file_name": "part-707.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-707.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 708,
+      "file_name": "part-708.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-708.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 709,
+      "file_name": "part-709.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-709.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 710,
+      "file_name": "part-710.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-710.xml",
+      "file_size_bytes": 9500,
+      "within_threshold": true
+    },
+    {
+      "part_number": 711,
+      "file_name": "part-711.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-711.xml",
+      "file_size_bytes": 9486,
+      "within_threshold": true
+    },
+    {
+      "part_number": 712,
+      "file_name": "part-712.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-712.xml",
+      "file_size_bytes": 9494,
+      "within_threshold": true
+    },
+    {
+      "part_number": 713,
+      "file_name": "part-713.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-713.xml",
+      "file_size_bytes": 9496,
+      "within_threshold": true
+    },
+    {
+      "part_number": 714,
+      "file_name": "part-714.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-714.xml",
+      "file_size_bytes": 9505,
+      "within_threshold": true
+    },
+    {
+      "part_number": 715,
+      "file_name": "part-715.xml",
+      "file_path": "/opt/data/split-output/phase2-test-xml/part-715.xml",
+      "file_size_bytes": 2762,
+      "within_threshold": true
+    }
+  ]
+}

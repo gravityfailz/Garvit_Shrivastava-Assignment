@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<records>
+  <record>
+    <employee_id>TOOLONGID123</employee_id>
+    <first_name>Zara</first_name>
+    <last_name>Sheikh</last_name>
+    <email>zara.sheikh@techcorp.com</email>
+    <phone_number>123</phone_number>
+    <hire_date>2023-06-01</hire_date>
+    <department>HR</department>
+    <job_title>HR Manager</job_title>
+    <salary>710000</salary>
+    <currency>RUPEE</currency>
+    <employment_status>Full-time</employment_status>
+    <manager_id>X</manager_id>
+    <is_active>false</is_active>
+    <emergency_contact>
+      <name>Aman Sheikh</name>
+      <relationship>Spouse</relationship>
+      <phone>+91-90000-00006</phone>
+      <email>aman.sheikh@example.com</email>
+    </emergency_contact>
+  </record>
+</records>
